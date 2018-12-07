@@ -21,7 +21,7 @@ if (isset($_POST['logout'])) {
     <title>AMAPOLAS</title>
   </head>
   <body>
-    
+
     <header>
       <a href="/" id="logo"> <div class="logo">
         <img src="" alt="">
@@ -70,9 +70,8 @@ if (isset($_POST['logout'])) {
           <?php /*if ($auth->estaLogueado() || isset($_COOKIE['logueado'])) {
             echo 'style="display:none;"';
           }*/?> ><li id="lista">Ingresar</li></a>
-          <a href="registro" <?php /* if ($auth->estaLogueado() || isset($_COOKIE['logueado'])) {
-            echo 'style="display:none;"';
-          }*/ ?> ><li id="lista">Registrate</a></li>
+          <a href="{{route('register')}}">
+            <li id="lista">Registrate</a></li>
 
 
           <div class="dropdownMenu">

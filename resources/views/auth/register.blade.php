@@ -1,21 +1,26 @@
-@extends('default')
+@extends('home')
 
 @section('section')
 
   <h2 id="tituloRegistro">Registrate</h2>
-        <form class="" action="register.php" method="post" enctype="multipart/form-data">
+        <form class="" action="" method="post" enctype="multipart/form-data">
+          @csrf
           <div class="formulario">
             <div class="css">
                   <div class="userData">
                     <div class="labelUserData">
-                      <label for="userFullName"> Nombre completo:</label>
+                      <label for="name"> Nombre completo:</label>
                     </div>
                     <div class="inputUserData">
-                      <input id="userFullName" type="text" name="userFullName" value="<?php /* if ($_POST) { echo $_POST['userFullName']; } */ ?>" required><span style="color:red;">*</span>
+                      <input id="userFullName" type="text" name="name" value="{{ old('name') }}" required><span style="color:red;">*</span>
                     </div>
                   </div>
                    <div class="error">
-                     <?php /* if ($_POST) { echo $errores["errorFullName"]; } */ ?>
+                     @if ($errors->has('name'))
+                         <span>
+                             <strong>{{ $errors->first('name') }}</strong>
+                         </span>
+                     @endif
                   </div>
             </div>
             <div class="css">
@@ -24,21 +29,25 @@
                         <label for="userName"> Nombre de usuario:</label>
                       </div>
                       <div class="inputUserData">
-                        <input id="userName" type="text" name="userName" value="<?php /* if ($_POST) { echo $_POST['userName']; } */ ?>" required><span style="color:red;">*</span>
+                        <input id="userName" type="text" name="userName" value="{{ old('userName') }}" required><span style="color:red;">*</span>
                       </div>
                   </div>
                    <div class="error">
-                     <?php /* if ($_POST) { echo $errores["errorUserName"];  echo $errores["errorUserNameRepetido"]; } */?>
+                     @if ($errors->has('userName'))
+                         <span>
+                             <strong>{{ $errors->first('userName') }}</strong>
+                         </span>
+                     @endif
                    </div>
               </div>
               <div class="css">
                    <div class="userData">
                        <div class="labelUserData">
-                         <label for="userCountry"> País de nacimiento:</label>
+                         <label for="country"> País de nacimiento:</label>
                        </div>
                        <div class="inputUserData">
                          <?php /* $userCountry; if (isset($_POST["userCountry"])) { $userCountry = $_POST["userCountry"];} */ ?>
-                         <select id="userCountry" name="userCountry">
+                         <select id="userCountry" name="country">
                            <?php /* foreach ($paises as $pais) {
                             echo ('<option '.( ($userCountry == $pais )? 'selected':'').' value="'.$pais.'" >'.$pais.'</option>');
                           }*/?>
@@ -47,20 +56,28 @@
                        </div>
                    </div>
                     <div class="error">
-                      <?php /*if ($_POST) { echo $errores["errorCountry"]; } */?>
+                      @if ($errors->has('country'))
+                          <span>
+                              <strong>{{ $errors->first('country') }}</strong>
+                          </span>
+                      @endif
                     </div>
               </div>
               <div class="css">
                   <div class="userData">
                       <div class="labelUserData">
-                        <label for="userEmail">Correo electronico:</label>
+                        <label for="email">Correo electronico:</label>
                       </div>
                       <div class="inputUserData">
-                        <input id="userEmail" type="email" name="userEmail" value="<?php /*if ($_POST) { echo $_POST['userEmail']; } */ ?>"required><span style="color:red;">*</span>
+                        <input id="userEmail" type="email" name="email" value="{{ old('email') }}"required><span style="color:red;">*</span>
                       </div>
                   </div>
                   <div class="error">
-                      <?php /*if ($_POST) { echo $errores["errorEmail"]; echo $errores["errorEmailRepetido"]; } */?>
+                    @if ($errors->has('email'))
+                        <span>
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
                   </div>
               </div>
               <div class="css">
@@ -69,37 +86,49 @@
                       <label for="userEmailcheck">Confirme su correo electronico:</label>
                     </div>
                     <div class="inputUserData">
-                      <input id="userEmailcheck" type="email" name="userEmailcheck" value="<?php /* if ($_POST) { echo $_POST['userEmailcheck']; } */?>"required><span style="color:red;">*</span>
+                      <input id="userEmailcheck" type="email" name="userEmailcheck" value="{{ old('userEmailcheck') }}"required><span style="color:red;">*</span>
                     </div>
                   </div>
                   <div class="error">
-                    <?php /*if ($_POST) { echo $errores["errorEmailCheck"]; } */?>
+                    @if ($errors->has('userEmailcheck'))
+                        <span>
+                            <strong>{{ $errors->first('userEmailcheck') }}</strong>
+                        </span>
+                    @endif
                   </div>
               </div>
               <div class="css">
                   <div class="userData">
                     <div class="labelUserData">
-                      <label for="userAge">Fecha de nacimiento:</label> <br>
+                      <label for="age">Fecha de nacimiento:</label> <br>
                     </div>
                     <div class="inputUserData">
-                      <input id="userAge" type="date" name="userAge" value="<?php /* if ($_POST) { echo $_POST['userAge']; } */?>"required><span style="color:red;">*</span>
+                      <input id="userAge" type="date" name="age" value="{{ old('age') }}"required><span style="color:red;">*</span>
                     </div>
                   </div>
                   <div class="error">
-                    <?php /*if ($_POST) { echo $errores["errorFecha"]; } */?>
+                    @if ($errors->has('age'))
+                        <span>
+                            <strong>{{ $errors->first('age') }}</strong>
+                        </span>
+                    @endif
                   </div>
               </div>
               <div class="css">
                   <div class="userData">
                     <div class="labelUserData">
-                      <label for="userAvatar">Imagen de perfil:</label> <br>
+                      <label for="avatar">Imagen de perfil:</label> <br>
                     </div>
                     <div class="inputUserData">
-                      <input class="archivoSubir" id="userAvatar" type="file" name="userAvatar" value=""required>
+                      <input class="archivoSubir" id="userAvatar" type="file" name="avatar" value=""required>
                     </div>
                   </div>
                   <div class="error">
-                    <?php /*if ($_POST) { echo $errores["errorAvatar"]; } */?>
+                    @if ($errors->has('avatar'))
+                        <span>
+                            <strong>{{ $errors->first('avatar') }}</strong>
+                        </span>
+                    @endif
                   </div>
               </div>
               <div class="css">
@@ -108,11 +137,15 @@
                       <label for="userPass">Contraseña:</label> <br>
                     </div>
                     <div class="inputUserData">
-                      <input id="userPass" type="password" name="userPass" value=""required><span style="color:red;">*</span>
+                      <input id="userPass" type="password" name="password" value=""required><span style="color:red;">*</span>
                     </div>
                   </div>
                   <div class="error">
-                    <?php /*if ($_POST) { echo $errores["errorPass"]; } */?>
+                    @if ($errors->has('password'))
+                        <span>
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
                   </div>
               </div>
               <div class="css">
@@ -121,11 +154,8 @@
                       <label for="userPasscheck">Confirme su contraseña:</label> <br>
                     </div>
                     <div class="inputUserData">
-                      <input id="userPasscheck" type="password" name="userPasscheck" value=""required><span style="color:red;">*</span>
+                      <input id="userPasscheck" type="password" name="password_confirmation" value=""required><span style="color:red;">*</span>
                     </div>
-                  </div>
-                  <div class="error">
-                    <?php /* if ($_POST) { echo $errores["errorPassCheck"]; } */?>
                   </div>
               </div>
           </div>
