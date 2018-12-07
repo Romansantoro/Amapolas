@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
          $table->timestamp('email_verified_at')->nullable();
          $table->rememberToken();
          $table->timestamps();
-          $table->unsignedInteger('adress_id')->nullable();
+         $table->unsignedInteger('adress_id')->nullable();
          //$table->foreign('adress_id')->references('id')->on('adress');
        });
 

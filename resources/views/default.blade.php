@@ -60,28 +60,30 @@ if (isset($_POST['logout'])) {
       </div>
       <nav class="userNav">
         <ul>
-          @guest
-            <a href="{{route('login')}}">
-              <li id="lista">Ingresar</li></a>
-            <a href="{{route('register')}}">
-              <li id="lista">Registrate</a></li>
-          @else
-            <div class="dropdownMenu">
-                <button class="dropbtn" onclick="myFunction()" id="lista">
-                  <div><ion-icon name="arrow-dropdown" style="margin-top:5px"></ion-icon></div><i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content" id="myDropdown">
-                  <a href="{{route('perfil')}}">Mi perfil</a>
-                  <a href="{{route('editarPerfil')}}">Editar mi perfil</a>
-                  <a href="{{route('cambiarContraseña')}}">Cambiar mi contraseña</a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                      @csrf
-                      <button id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
-                  </form>
-                </div>
+          @auth
+          <div class="dropdownMenu">
+              <button class="dropbtn" onclick="myFunction()" id="lista">
+                <div><ion-icon name="arrow-dropdown" style="margin-top:5px"></ion-icon></div><i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content" id="myDropdown">
+                <a href="{{route('perfil')}}">Mi perfil</a>
+                <a href="{{route('editarPerfil')}}">Editar mi perfil</a>
+                <a href="{{route('cambiarContraseña')}}">Cambiar mi contraseña</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                    <button id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
+                </form>
+              </div>
             </div>
 
-          @endguest
+          @else
+              <a href="{{route('login')}}">
+                <li id="lista">Ingresar</li></a>
+              <a href="{{route('register')}}">
+                <li id="lista">Registrate</a></li>
+
+
+          @endauth
 
           <a href="/preguntas-frecuentes"><li id="lista">Preguntas frecuentes</li></a>
           <a href="/quienes-somos"><li class="quienes" id="lista">¿Quienes somos?</li></a>
