@@ -32,67 +32,56 @@ if (isset($_POST['logout'])) {
         <div class="dropdownMenu">
             <button class="dropbtn" onclick="myFunctionMenu()"style="display:flex" id="lista">MENU<div><ion-icon name="arrow-dropdown" style="margin-top:5px"></ion-icon></div><i class="fa fa-caret-down"></i></button>
             <div class="dropdown-content" id="myDropdown1">
-              <?php /*if (!$auth->estaLogueado()||isset($_COOKIE['logueado'])) {
-                echo '<a href="login" >Ingresar</a>';
-              } */?>
-              <?php /*if (!$auth->estaLogueado()||isset($_COOKIE['logueado'])) {
-                echo '<a href="register" >Registrarse</a>';
-              } */?>
-              <a href="/quienes"  id="lista">¿Quienes somos?</a>
+              @guest
+                <a href="{{route('login')}}" >Ingresar</a>
+                <a href="{{route('register')}}" >Registrarse</a>
+              @else
+                <a href="{{route('perfil')}}">Mi perfil</a>
+                <a href="{{route('editarPerfil')}}">Editar mi perfil</a>
+                <a href="{{route('cambiarContraseña')}}">Cambiar mi contraseña</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
+                </form>
+              @endguest
+
+              <a href="{{route('quienes-somos')}}"  id="lista">¿Quienes somos?</a>
               <a href="/preguntas-frecuentes">Preguntas frecuentes</a>
             </div>
         </div>
-        <div class="dropdownMenu">
-            <button class="dropbtn" onclick="myFunctionPerfil()" id="lista" style="display:<?php/* if(!$auth->estaLogueado()&&!isset($_COOKIE['logueado'])){echo 'none';}else{echo'flex';}*/?>"><?/*php echo $_SESSION['logueado'] */?><ion-icon name="arrow-dropdown" style="margin-top:5px"></ion-icon><i class="fa fa-caret-down"></i></button>
-            <div class="dropdown-content" id="myDropdown2">
-              <a href="perfil">Entrar al perfil</a>
-              <a href="editarPerfil">Editar perfil</a>
-              <a href="cambiarContraseña">Cambiar contraseña</a>
-              <form action="" method="post"<?php/*  if (!$auth->estaLogueado() && !isset($_COOKIE['logueado'])) {
-                    echo 'style="display:none;"';
-                  }*/?>>
-                  <button id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
-              </form>
-            </div>
-        </div>
-         <div class="dropdownMenu">
+         {{-- <div class="dropdownMenu">
             <button class="dropbtn" onclick="myFunctionCarrito()" id="lista"> <li class="carrito" id="lista"><ion-icon name="cart"></ion-icon></li>
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content" id="myDropdown3">
               <a href="perfil">Ir a pagar</a>
             </div>
-        </div>
+        </div> --}}
       </div>
       <nav class="userNav">
         <ul>
-          <a href="login"
-          <?php /*if ($auth->estaLogueado() || isset($_COOKIE['logueado'])) {
-            echo 'style="display:none;"';
-          }*/?> ><li id="lista">Ingresar</li></a>
-          <a href="{{route('register')}}">
-            <li id="lista">Registrate</a></li>
+          @guest
+            <a href="{{route('login')}}">
+              <li id="lista">Ingresar</li></a>
+            <a href="{{route('register')}}">
+              <li id="lista">Registrate</a></li>
+          @else
+            <div class="dropdownMenu">
+                <button class="dropbtn" onclick="myFunction()" id="lista">
+                  <div><ion-icon name="arrow-dropdown" style="margin-top:5px"></ion-icon></div><i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content" id="myDropdown">
+                  <a href="{{route('perfil')}}">Mi perfil</a>
+                  <a href="{{route('editarPerfil')}}">Editar mi perfil</a>
+                  <a href="{{route('cambiarContraseña')}}">Cambiar mi contraseña</a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                      <button id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
+                  </form>
+                </div>
+            </div>
 
-
-          <div class="dropdownMenu">
-              <button <?php  /*if (!$auth->estaLogueado() && !isset($_COOKIE['logueado'])) {
-                  echo 'style="display:none;"';
-                }else {
-                  echo 'style="display:flex"';
-                }*/?>class="dropbtn" onclick="myFunction()" id="lista"><?php /*echo $_SESSION['logueado'] */?>
-                <div><ion-icon name="arrow-dropdown" style="margin-top:5px"></ion-icon></div><i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content" id="myDropdown">
-                <a href="profile">Mi perfil</a>
-                <a href="editarPerfil">Editar mi perfil</a>
-                <a href="changePass">Cambiar mi contraseña</a>
-                <form action="" method="post"<?php /*if (!$auth->estaLogueado() && !isset($_COOKIE['logueado'])) {
-                      echo 'style="display:none;"';
-                    }*/?>>
-                    <button id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
-                </form>
-              </div>
-          </div>
+          @endguest
 
           <a href="/preguntas-frecuentes"><li id="lista">Preguntas frecuentes</li></a>
           <a href="/quienes-somos"><li class="quienes" id="lista">¿Quienes somos?</li></a>
