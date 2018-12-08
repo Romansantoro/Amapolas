@@ -46,12 +46,10 @@
                          <label for="country"> País de nacimiento:</label>
                        </div>
                        <div class="inputUserData">
-                         <?php /* $userCountry; if (isset($_POST["userCountry"])) { $userCountry = $_POST["userCountry"];} */ ?>
                          <select id="userCountry" name="country">
-                           <?php /* foreach ($paises as $pais) {
-                            echo ('<option '.( ($userCountry == $pais )? 'selected':'').' value="'.$pais.'" >'.$pais.'</option>');
-                          }*/?>
                          </select>
+                         <div id="provincia">
+                         </div>
                          <span style="color:red;">*</span>
                        </div>
                    </div>
@@ -169,5 +167,5 @@
         </form>
 
   </div>
-
+<script src="select.js" charset="utf-8"></script>
 @endsection

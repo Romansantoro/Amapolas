@@ -138,48 +138,47 @@ if (isset($_POST['logout'])) {
         </div>
       </nav>
     </footer>
-
     <script type="text/javascript">
 
     /*------------------------JS DEL DROPDOWN______________________________*/
-
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    window.onclick = function(e) {
-      if (!e.target.matches('.dropbtn')) {
-        var myDropdown = document.getElementById("myDropdown");
-          if (myDropdown.classList.contains('show')) {
-            myDropdown.classList.remove('show');
-              }
-          }
-      }
-
-    function myFunctionMenu() {
-        document.getElementById("myDropdown1").classList.toggle("show");
-    }
-
-    window.onclick = function(e) {
-      if (!e.target.matches('.dropbtn')) {
-        var myDropdown = document.getElementById("myDropdown");
-          if (myDropdown.classList.contains('show')) {
-            myDropdown.classList.remove('show');
-          }
-      }
-    }
-    function myFunctionPerfil() {
-        document.getElementById("myDropdown2").classList.toggle("show");
-    }
-
-    window.onclick = function(e) {
-      if (!e.target.matches('.dropbtn')) {
-        var myDropdown = document.getElementById("myDropdown");
-          if (myDropdown.classList.contains('show')) {
-            myDropdown.classList.remove('show');
-          }
-      }
-    }
+    //
+    // function myFunction() {
+    //     document.getElementById("myDropdown").classList.toggle("show");
+    // }
+    //
+    // window.onclick = function(e) {
+    //   if (!e.target.matches('.dropbtn')) {
+    //     var myDropdown = document.getElementById("myDropdown");
+    //       if (myDropdown.classList.contains('show')) {
+    //         myDropdown.classList.remove('show');
+    //           }
+    //       }
+    //   }
+    //
+    // function myFunctionMenu() {
+    //     document.getElementById("myDropdown1").classList.toggle("show");
+    // }
+    //
+    // window.onclick = function(e) {
+    //   if (!e.target.matches('.dropbtn')) {
+    //     var myDropdown = document.getElementById("myDropdown");
+    //       if (myDropdown.classList.contains('show')) {
+    //         myDropdown.classList.remove('show');
+    //       }
+    //   }
+    // }
+    // function myFunctionPerfil() {
+    //     document.getElementById("myDropdown2").classList.toggle("show");
+    // }
+    //
+    // window.onclick = function(e) {
+    //   if (!e.target.matches('.dropbtn')) {
+    //     var myDropdown = document.getElementById("myDropdown");
+    //       if (myDropdown.classList.contains('show')) {
+    //         myDropdown.classList.remove('show');
+    //       }
+    //   }
+    // }
     // function myFunctionCarrito() {
     //     document.getElementById("myDropdown3").classList.toggle("show");
     // }
