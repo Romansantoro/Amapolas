@@ -4,14 +4,18 @@
   padding: 0;
   font-family: 'Lato',sans-serif;
   box-sizing: border-box;
-
+  color:black;
 }
 
+.mobileFlex{
+  display: flex;
+}
+
+.mobileNone{
+  display:none;
+}
 /* carrousel */
 
-* {
-  box-sizing: border-box;
-}
 body {
   font-family: Verdana, sans-serif; margin:0;
 }
@@ -124,170 +128,27 @@ button{
 }
 
 /*-----------------------------------------------------------*/
-.contenedor-principal{
-  width:100%;
-  /* min-width: 900px;
-  min-height: 600px; */
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  /* padding:10px ; */
-  background-image: url(../images/backgroundFood.png);
-  /* border: solid #0000004a; */
-  /* padding: 40px; */
-}
 
 ion-icon{
   font-size: 25px;
   margin-top: 4%;
 }
 
-.contenedor-dulce{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin:0 auto;
-  border:0px;
-  padding:0px;
-  overflow: hidden;
-  scroll-behavior: smooth;
-  position: relative;
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 400px;
-  max-height: 400px;
-  /* background-image: url(../images/backgroundFood.png); */
-  /* -webkit-box-shadow: 10px 10px 5px 0px rgba(189,185,189,1);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(189,185,189,1);
-  box-shadow: 10px 10px 5px 0px rgba(189,185,189,1); */
-}
-.contenedor-dulce :hover{
-  opacity:1;
-  background-color: none;
-background-image: url(../images/dulce1.jpg);
-}
-.aDulce{
-z-index: 1;
-padding: 40%;
-color: rgba(255, 0, 0, 0.7);
-opacity:0.5;
-background-color: white;
-}
-
-.imagenDulce {
-  z-index: 0;
-  position: absolute; right: 0px; bottom: 0px;
-  overflow: hidden;
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 400px;
-  max-height: 400px;
-}
-
-.contenedor-completo{
-  width:100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  margin:0 auto;
-  border:0px;
-  padding:0px;
-  overflow: hidden;
-  position: relative;
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 400px;
-  max-height: 400px;
-/* -webkit-box-shadow: 10px 10px 5px 0px rgba(189,185,189,1);
--moz-box-shadow: 10px 10px 5px 0px rgba(189,185,189,1);
-box-shadow: 10px 10px 5px 0px rgba(189,185,189,1); */
-}
-.aCatalogo{
-  z-index: 1;
-  padding: 40%;
-  color: rgba(255, 0, 0, 0.5);
-  opacity: 0.5;
-  background-color: white;
-}
-.contenedor-completo :hover{
-  opacity:1;
-  background-image: url(../images/dulce1.jpg);
-}
-
-.imagenCatalogo{
-  z-index: 0;
-  position: absolute; right: 0px; bottom: 0px;
-  overflow: hidden;
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 400px;
-  max-height: 400px;
-}
-
-.contenedor-salado{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  margin:0 auto;
-  border:0px;
-  padding:0px;
-  overflow: hidden;
-  position: relative;
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 400px;
-  max-height: 400px;
-  /* -webkit-box-shadow: 10px 10px 5px 0px rgba(189,185,189,1);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(189,185,189,1);
-  box-shadow: 10px 10px 5px 0px rgba(189,185,189,1); */
-}
-.aSalado {
-  z-index: 1;
-  padding: 40%;
-  color: rgba(255, 0, 0, 0.5);
-  opacity: 0.5;
-  background-color: white;
-}
-.contenedor-salado :hover{
-  opacity: 1;
-  background-image: url(../images/dulce1.jpg);
-}
-.imagenSalado{
-  z-index: 0;
-  position: absolute; right: 0px; bottom: 0px;
-  overflow: hidden;
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 400px;
-  max-height: 400px;
-}
 /*------------------------------------------------------------*/
-
 
 header a:hover{
   cursor:pointer;
   text-decoration: none;
 }
 
-
 header{
   margin-top:-2%;
   margin-bottom: 35px;
   background-image: url(../images/backgroundFood.png);
-  /* background-color: red; */
-
   flex-direction: row;
   justify-content: flex-start;
   padding: 20px;
   padding-top: 5px;
-
 }
 
 .userData{
@@ -296,10 +157,6 @@ header{
     justify-content: flex-start;
 }
 
-div .logo h1{
-  display: flex;
-  align-content: center;
-}
 header h1{
   margin-left: 10px;
   margin-bottom: 20px;
@@ -310,15 +167,7 @@ header h1{
 }
 
 /* -------------------------Con esto mato el css del bootstrap------------------------- */
-header h1:hover{
-  color: black;
-  text-decoration: none;
 
-}
-.logo:hover{
-  color: black;
-  text-decoration: none;
-}
 #logo {
   color: black;
   text-decoration: none;
@@ -332,7 +181,6 @@ header h1:hover{
 main{
   display: flex;
   flex-direction: column;
-  background-image: url(../images/backgroundFood.png);
   margin-bottom: 40px;
   padding-top:20px ;
   padding-bottom: 20px;
@@ -340,76 +188,25 @@ main{
 
 header li{
   list-style: none;
-  display: inline-block;
   margin: 0 10px;
   margin-bottom: 10px;
 }
+
 footer li{
   list-style: none;
-  display: inline-block;
   margin: 0 10px;
   margin-bottom: 10px;
 }
+
 #lista:hover {
     color: rgb(135, 122, 134);
     font-size: 101%;
 }
 
-a{
-  text-decoration: none;
-  color: black;
-}
 .quienes{
   margin-left: 10px;
 }
 
-.contenedor-principal{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.contenedor-dulce{
-  /*width: 45%;*/
-  margin-top:20px;
-  background-color: white;
-  padding: 40px;
-  margin-bottom: 20px;
-  max-width: 300px;
-  min-width: 190px;
-  min-height: 145px;
-  /*margin: 2% 0%;*/
-}
-
-.contenedor-completo{
-  margin-top:20px;
-  background-color: white;
-  padding: 40px;
-  margin-bottom: 20px;
-  max-width: 300px;
-  min-width: 190px;
-  min-height: 145px;
-}
-
-.contenedor-salado{
-  /*width: 45%;*/
-  margin-top:20px;
-  background-color: white;
-  padding: 40px;
-  margin-bottom: 20px;
-  max-width: 300px;
-  min-width: 190px;
-  min-height: 145px;
-}
-.contenedor-dulce :hover{
-  cursor:pointer;
-}
-.contenedor-salado{
-  cursor:pointer;
-}
-.contenedor-completo{
-  cursor:pointer;
-}
 #userAvatar{
   font-size: 10px;
   display:flex;
@@ -420,7 +217,6 @@ footer{
   background-image: url(../images/backgroundFood.png);
   color: black;
   padding-bottom: 30px;
-  /* background-color: black; */
 }
 footer .submit a{
   display:none;
@@ -429,7 +225,6 @@ footer .submit a{
 
 footer nav{
   margin-top:3%;
-  background-image: url(../images/backgroundFood.png);
   display: flex;
   padding: 1%;
 }
@@ -836,12 +631,10 @@ cursor:pointer;
     border-style: none;
     border-color: none;
     border-image: none;
-    font-size: 20px;
     justify-content: space-around;
     margin-right: 10px;
-
+    display:flex;
 }
-
 
 .dropdown {
     float: left;
@@ -882,11 +675,9 @@ cursor:pointer;
 .show {
     display: block;
 }
+
 /*--------------------------------MENU INDEX PARA MOBILE--------------------------------------------*/
 
-.userNav{
-  display:none;
-}
 .menu{
   display: flex;
   flex-direction: row;
@@ -910,9 +701,7 @@ cursor:pointer;
     justify-content: space-around;
 
   }
-  .menu{
-    display: none;
-  }
+
   button .dropbtn{
     margin-top:30px;
   }
@@ -951,14 +740,6 @@ cursor:pointer;
     flex-direction: row;
   }
 
-.contenedor-principal{
-  flex-direction: row;
-
-}
-.contenedor-dulce{
-  margin-bottom: 20px;
-}
-
 footer .submit a{
   display:flex;
 }
@@ -993,13 +774,8 @@ font-size: 20px;
       justify-content: flex-start;
   }
 
-  /* .labelUserData{
-    margin-right: 10px;
-  } */
 /*FIN ESTILOS REGISTRO*/
 /*---------------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------*/
-
 
 /*CSS DEL PROFILE:PHP*/
 
@@ -1028,7 +804,6 @@ font-size: 20px;
   margin-top: 50px;
 }
 
-
 /*--------------------------------------------------------------------------*/
 
 @media (min-width:1024px) {
@@ -1047,146 +822,6 @@ main{
   margin-top: 60px;
   margin-left: 20px;
   margin-right:20px;
-}
-
-.contenedor-principal{
-  width:100%;
-  /* min-width: 900px;
-  min-height: 600px; */
-  justify-content: space-between;
-  align-content: center;
-  padding:10px ;
-  background-image: url(../images/backgroundFood.png);
-  /* border: solid #0000004a; */
-  /* padding: 40px; */
-}
-
-.contenedor-dulce{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin:0 auto;
-  border:0px;
-  padding:0px;
-  overflow: hidden;
-  scroll-behavior: smooth;
-  position: relative;
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 400px;
-  max-height: 400px;
-  /* background-image: url(../images/backgroundFood.png); */
-  /* -webkit-box-shadow: 10px 10px 5px 0px rgba(189,185,189,1);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(189,185,189,1);
-  box-shadow: 10px 10px 5px 0px rgba(189,185,189,1); */
-}
-.contenedor-dulce :hover{
-  opacity:1;
-  background-color: none;
-background-image: url(../images/dulce1.jpg);
-}
-.aDulce{
-z-index: 1;
-padding: 40%;
-color: rgba(255, 0, 0, 0.7);
-opacity:0.5;
-background-color: white;
-}
-
-.imagenDulce {
-  z-index: 0;
-  position: absolute; right: 0px; bottom: 0px;
-  overflow: hidden;
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 400px;
-  max-height: 400px;
-}
-
-.contenedor-completo{
-  width:100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  margin:0 auto;
-  border:0px;
-  padding:0px;
-  overflow: hidden;
-  position: relative;
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 400px;
-  max-height: 400px;
-/* -webkit-box-shadow: 10px 10px 5px 0px rgba(189,185,189,1);
--moz-box-shadow: 10px 10px 5px 0px rgba(189,185,189,1);
-box-shadow: 10px 10px 5px 0px rgba(189,185,189,1); */
-}
-.aCatalogo{
-  z-index: 1;
-  padding: 40%;
-  color: rgba(255, 0, 0, 0.5);
-  opacity: 0.5;
-  background-color: white;
-}
-.contenedor-completo :hover{
-  opacity:1;
-  background-image: url(../images/dulce1.jpg);
-}
-
-.imagenCatalogo{
-  z-index: 0;
-  position: absolute; right: 0px; bottom: 0px;
-  overflow: hidden;
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 400px;
-  max-height: 400px;
-}
-
-.contenedor-salado{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  margin:0 auto;
-  border:0px;
-  padding:0px;
-  overflow: hidden;
-  position: relative;
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 400px;
-  max-height: 400px;
-  /* -webkit-box-shadow: 10px 10px 5px 0px rgba(189,185,189,1);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(189,185,189,1);
-  box-shadow: 10px 10px 5px 0px rgba(189,185,189,1); */
-}
-.aSalado {
-  z-index: 1;
-  padding: 40%;
-  color: rgba(255, 0, 0, 0.5);
-  opacity: 0.5;
-  background-color: white;
-}
-.contenedor-salado :hover{
-  opacity: 1;
-  background-image: url(../images/dulce1.jpg);
-}
-.imagenSalado{
-  z-index: 0;
-  position: absolute; right: 0px; bottom: 0px;
-  overflow: hidden;
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 400px;
-  max-height: 400px;
 }
 
 p{
@@ -1219,15 +854,13 @@ footer{
   margin-top:30px;
 }
 
-
 /*-------------------------------------------------------------------------------------------*/
 /*ACA LOS ESTILOS PARA EL LOGIN.PHP*/
 
 .contenedor-login{
 font-size: 20px;
-
-
 }
+
 .contenedor-login button{
   font-size: 20px;
 }
@@ -1251,11 +884,8 @@ input{
   margin-left: 0;
 }
 
-
-
 /*------------------------------------------------------------*/
 /*CSS REGISTRO*/
-
 
   .formulario{
     margin-top: 45px;
@@ -1274,6 +904,7 @@ input{
 .submit{
   padding:15px;
 }
+
 /*FIN CSS DEL REGISTRO*/
 /*------------------------------------------------------------------------------*/
 /*CSS DEL PROFILE:PHP*/
@@ -1316,7 +947,5 @@ padding:0;
   margin-bottom:30px ;
   font-size: 20px;
 }
-
-
 /*---------------------------------------------------------------------------*/
 }
