@@ -84,9 +84,7 @@ class RegisterController extends Controller
 
        'age.required' => 'Debe ingresar una fecha de nacimiento',
      ]);
-     if ($request->file('avatar')) {
-       $path = $request->file('avatar')->storeAs('avatars', $request->user()->email);
-     }
+
    }
 
 
@@ -99,15 +97,19 @@ class RegisterController extends Controller
     */
    protected function create(array $data)
    {
-       return User::create([
-           'name' => $data['name'],
-           'userName' => $data['userName'],
-           'country' => $data['country'],
-           'province' => $data['province']??null,
-           'email' => $data['email'],
-           'avatar' => $path??null,
-           'password' => Hash::make($data['password']),
-           'age' => $data['age'],
-       ]);
+     if ($data['avatar']) {
+       $folder = 'avatars';
+       $path = $data['avatar']->storePublicly( $folder );
+     }
+     return User::create([
+         'name' => $data['name'],
+         'userName' => $data['userName'],
+         'country' => $data['country'],
+         'province' => $data['province']??null,
+         'email' => $data['email'],
+         'avatar' => $path??null,
+         'password' => Hash::make($data['password']),
+         'age' => $data['age'],
+     ]);
    }
 }
