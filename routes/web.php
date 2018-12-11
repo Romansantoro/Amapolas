@@ -3,6 +3,7 @@
 Route::get('/perfil', 'Views@showPerfil')->name('perfil');
 
 Route::get('/editarProducto', 'Views@showEditarProducto')->name('editarProducto');
+Route::post('/editarProducto', 'ProductController@create')->name('crearProducto');
 
 Route::get('/cambiarContraseña', 'Views@showCambiarContraseña')->name('cambiarContraseña');
 
@@ -10,9 +11,9 @@ Route::get('/recuperarContraseña', 'Views@showRecuperarContraseña')->name('rec
 
 Route::get('/editarPerfil', 'Views@showEditarPerfil')->name('editarPerfil');
 
-Route::get('/register', 'Views@showRegistro')->name('register');
-
-Route::get('/login', 'Views@showLogin')->name('login');
+// Route::get('/register', 'Views@showRegistro')->name('register');
+//
+// Route::get('/login', 'Views@showLogin')->name('login');
 
 Route::get('/catalogo', 'Views@showCatalogo')->name('catalogo');
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\product;
+use App\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -22,9 +22,30 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+      $this->validate( $request, [
+          'prodPrecio' => 'required', 'numeral',
+          'prodStock' => 'required', 'numeral',
+          'prodName' => 'required', 'string', 'min:2', 'unique:products',
+          'prodDesc' => 'max:255',
+          'prodImagen' => 'required', 'mimes:jpeg,png,jpg,gif',
+          'prodSabor' => 'required', 'min:1', 'max:2',
+      ]);
+      if ($request->input['avatar']) {
+        $folder = 'avatars';
+        $path = $request->input('prodImagen')->storePublicly( $folder );
+      }
+       Product::create([
+          'name' => $request->input('prodName'),
+          'price' => $request->input('prodPrecio'),
+          'description' => $request->input('prodDesc'),
+          'image' => $request->input('prodImagen')??null,
+          'stock' => $request->input('prodStock'),
+          'flavour' => $request->input('prodSabor'),
+      ]);
+      return redirect('/catalogo');
+
     }
 
     /**

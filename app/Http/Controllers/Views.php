@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+use App;
 
 class Views extends Controller
 {
@@ -19,7 +21,8 @@ class Views extends Controller
       return view('quienes');
   }
   public function showCatalogo(){
-      return view('catalogo');
+      $products = Product::paginate(6);
+      return view('catalogo')->with(compact('products'));
   }
   public function showLogin(){
       return view('login');

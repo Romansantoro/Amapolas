@@ -16,7 +16,8 @@ class CreateTables extends Migration
       Schema::create('products', function (Blueprint $table) {
         $table->increments('id');
         $table->string('name');
-        $table->integer('amount');
+        $table->decimal('price',6,2);
+        $table->integer('stock');
         $table->integer('rating')->nullable();
         $table->string('description')->nullable();
         $table->string('flavour');

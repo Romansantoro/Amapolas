@@ -4,7 +4,8 @@
 <body>
   <h2 id="tituloRegistro">Subí tus productos</h2>
 <div class="formulario">
-    <form class="formProd" action="subirProd.php" method="post" enctype="multipart/form-data">
+    <form class="formProd" action="" method="post" enctype="multipart/form-data">
+      @csrf
           <div class="userData">
             <div class="labelUserData">
               <label for="userFullName"> Nombre del producto:</label>
@@ -13,7 +14,7 @@
               <input id="prodName" type="text" name="prodName" value="" required><span style="color:red;">*</span>
             </div>
             <div class="error">
-              <?php if ($_POST) { echo $errores["errorProd"]; } ?>
+
            </div>
         </div>
         <div class="userData">
@@ -24,7 +25,19 @@
               <input id="prodPrecio" type="number" name="prodPrecio" value="" required><span style="color:red;">*</span>
             </div>
             <div class="error">
-              <?php if ($_POST) { echo $errores["errorPre"]; } ?>
+
+           </div>
+        </div>
+
+        <div class="userData">
+            <div class="labelUserData">
+              <label for="userName">Stock del producto:</label>
+            </div>
+            <div class="inputUserData">
+              <input id="prodStock" type="number" name="prodStock" value="" required><span style="color:red;">*</span>
+            </div>
+            <div class="error">
+
            </div>
         </div>
 
@@ -36,7 +49,7 @@
               <input id="prodDesc" type="text" name="prodDesc" value=""required><span style="color:red;">*</span>
             </div>
             <div class="error">
-              <?php if ($_POST) { echo $errores["errorDesc"]; } ?>
+
            </div>
         </div>
         <div class="userData">
@@ -51,7 +64,7 @@
               </select>
             </div>
             <div class="error">
-              <?php if ($_POST) { echo $errores["errorSabor"]; } ?>
+
            </div>
         </div>
         <div class="userData">
@@ -62,11 +75,9 @@
               <input type="file" name="prodImagen" value="">
             </div>
             <div class="error">
-              <?php if ($_POST) { echo $errores["errorImagen"]; } ?>
+
            </div>
         </div>
-
-              <?php if ($_POST) { echo $errores["errorProductoRepetido"]; } ?>
 
 
         <div class="submitProd" style="background:white">

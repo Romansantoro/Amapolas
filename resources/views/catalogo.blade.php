@@ -18,67 +18,21 @@
       </div>
 
       <div class="catalogo" >
+
         <h2>Catalogo de productos</h2>
+        @foreach ($products as $product)
           <div class="producto">
             <div class="producto-1">
-              <img src="PROYECTO/images/comida2.jpeg">
+              <img src="{{ $product}}">
             <a href="verProducto.php"></a>
             </div>
             <div class="producto-2">
-              <h4>Producto</h4>
-              <p>Descripcion</p>
+              <h4>{{$product->name}}</h4>
+              <p>{{$product->description}}</p>
             </div>
           </div>
-          <div class="producto">
-            <div class="producto-1">
-                <img src="PROYECTO/images/comida6.jpeg">
-            <a href="verProducto.php"></a>
-            </div>
-            <div class="producto-2">
-              <h4>Producto</h4>
-              <p>Descripcion</p>
-            </div>
-          </div>
-          <div class="producto">
-            <div class="producto-1">
-                <img src="PROYECTO/images/comida7.png">
-            <a href="verProducto.php"></a>
-            </div>
-            <div class="producto-2">
-              <h4>Producto</h4>
-              <p>Descripcion</p>
-            </div>
-          </div>
-          <div class="producto">
-            <div class="producto-1">
-                <img src="PROYECTO/images/comida3.png">
-            <a href="verProducto.php"></a>
-            </div>
-            <div class="producto-2">
-              <h4>Producto</h4>
-              <p>Descripcion</p>
-            </div>
-          </div>
-          <div class="producto">
-            <div class="producto-1">
-                <img src="PROYECTO/images/comida4.jpg">
-            <a href="verProducto.php"></a>
-            </div>
-            <div class="producto-2">
-              <h4>Producto</h4>
-              <p>Descripcion</p>
-            </div>
-          </div>
-          <div class="producto">
-            <div class="producto-1">
-              <img src="PROYECTO/images/comida5.png">
-            <a href="verProducto.php"></a>
-            </div>
-            <div class="producto-2">
-              <h4>Producto</h4>
-              <p>Descripcion</p>
-            </div>
-          </div>
+        @endforeach
+
 
       </div>
 
