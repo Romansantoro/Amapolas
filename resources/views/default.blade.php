@@ -49,7 +49,7 @@ if (isset($_POST['logout'])) {
                     </form>
                   @endguest
 
-                  <a href="{{route('quienes-somos')}}" id="1" class="mobile"></a>
+                  <a href="{{route('quienes-somos')}}" id="1" class="mobile">Quienes Somos</a>
                   <a href="/preguntas-frecuentes"id="2" class="mobile">Preguntas frecuentes</a>
                 </div>
             </div>
