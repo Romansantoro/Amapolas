@@ -2,8 +2,8 @@
 
 Route::get('/perfil', 'Views@showPerfil')->name('perfil');
 
-Route::get('/editarProducto', 'Views@showEditarProducto')->name('editarProducto');
-Route::post('/editarProducto', 'ProductController@create')->name('crearProducto');
+Route::get('/subirProducto', 'Views@showSubirProducto')->name('subirProducto');
+Route::post('/subirProducto', 'ProductController@create')->name('subirProductoPost');
 
 Route::get('/cambiarContraseña', 'Views@showCambiarContraseña')->name('cambiarContraseña');
 

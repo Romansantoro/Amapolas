@@ -32,15 +32,15 @@ class ProductController extends Controller
           'prodImagen' => 'required', 'mimes:jpeg,png,jpg,gif',
           'prodSabor' => 'required', 'min:1', 'max:2',
       ]);
-      if ($request->input['avatar']) {
-        $folder = 'avatars';
-        $path = $request->input('prodImagen')->storePublicly( $folder );
+      if ($request->file('prodImagen')) {
+        $folder = 'public/productos';
+        $path = $request->file('prodImagen')->storePublicly( $folder );
       }
        Product::create([
           'name' => $request->input('prodName'),
           'price' => $request->input('prodPrecio'),
           'description' => $request->input('prodDesc'),
-          'image' => $request->input('prodImagen')??null,
+          'image' => $path??null,
           'stock' => $request->input('prodStock'),
           'flavour' => $request->input('prodSabor'),
       ]);

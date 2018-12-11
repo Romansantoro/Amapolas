@@ -11,8 +11,8 @@ class Views extends Controller
   public function showHome(){
       return view('home');
   }
-  public function showEditarProducto(){
-      return view('editarProducto');
+  public function showSubirProducto(){
+      return view('subirProducto');
   }
   public function showFaqs(){
       return view('preguntas-frecuentes');

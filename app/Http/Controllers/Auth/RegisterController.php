@@ -98,7 +98,7 @@ class RegisterController extends Controller
    protected function create(array $data)
    {
      if ($data['avatar']) {
-       $folder = 'avatars';
+       $folder = 'public/avatars';
        $path = $data['avatar']->storePublicly( $folder );
      }
      return User::create([
