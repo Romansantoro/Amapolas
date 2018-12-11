@@ -28,7 +28,7 @@
 
 
 function myFunctionMenu() {
-    document.getElementById("myDropdown1").classList.toggle("show");
+document.getElementById("myDropdown1").classList.toggle("show");
 }
 
 window.onclick = function(e) {
@@ -39,10 +39,10 @@ window.onclick = function(e) {
       }
   }
 }
-function myFunctionCarrito2() {
-    document.getElementById("myDropdown4").classList.toggle("show");
-}
 
+  function myFunctionCarrito2() {
+    document.getElementById("myDropdown4").classList.toggle("show");
+  }
 
 window.onclick = function(e) {
   if (!e.target.matches('.dropbtn')) {
@@ -51,28 +51,28 @@ window.onclick = function(e) {
       dropdown.classList.remove('show');
       }
   }
-
 }
 
   var query = window.matchMedia("(max-width: 700px)");
   function changeScreen(query) {
     var mobile = document.getElementsByClassName('mobile');
-    for (mobiles of mobile) {
-      mobiles.classList.toggle('mobileFlex');
+      for (mobiles of mobile) {
+        mobiles.classList.toggle('mobileFlex');
+      }
+    document.getElementById('1').innerText = '¿Quienes somos?';
+    document.getElementById('2').innerText = 'Preguntas frecuentes';
     }
 
-    document.getElementById('1').innerText = '¿Quienes somos?';
-
-  }
   query.addListener(changeScreen);
 
-
   var querymin = window.matchMedia("(min-width: 720px)");
-  function changeScreenBig(querymin) {
-    var mobile = document.getElementsByClassName('mobile');
-    for (mobiles of mobile) {
-      mobiles.classList.toggle('mobileNone');
-    }
-  }
+    function changeScreenBig(querymin) {
+      var mobile = document.getElementsByClassName('mobile');
+        for (mobiles of mobile) {
+          mobiles.classList.toggle('mobileNone');
+        }
+        document.getElementById('1').innerText = '';
+        document.getElementById('2').innerText = '';
+      }
 
   querymin.addListener(changeScreenBig);

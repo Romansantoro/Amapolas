@@ -12,26 +12,32 @@ if (isset($_POST['logout'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/javascript.js"></script>
     <link rel="stylesheet" href="PROYECTO/css/style.css">
+    <script src="js/javascript.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Lobster" rel="stylesheet">
-    <link rel="stylesheet" href="PROYECTO/css/catalogo.css">
 
     <title>AMAPOLAS</title>
   </head>
   <body>
 
     <header>
-      <a href="/" id="logo"> <div class="logo">
-        <img src="" alt="">
-        <h1>Amapolas</h1>
-      </div>
+      <a href="/" id="logo">
+        <div class="logo">
+          <img src="" alt="">
+          <h1>Amapolas</h1>
+        </div>
+        <div class="temas">
+          <div class="temaNocturno">
+          </div>
+          <div class="temaDia">
+          </div>
+        </div>
       </a>
 
       <nav class="userNav">
-        <ul>
+        <ul class="ulDefaultBlade">
           <div class="menu">
             <div class="dropdownMenu">
                 <button class="dropbtn" onclick="myFunctionMenu()" id="lista">MENU<div><ion-icon name="arrow-dropdown" style="margin-top:5px"></ion-icon></div><i class="fa fa-caret-down"></i></button>
@@ -49,23 +55,30 @@ if (isset($_POST['logout'])) {
                     </form>
                   @endguest
 
+<<<<<<< HEAD
                   <a href="{{route('quienes-somos')}}" id="1" class="mobile">Quienes Somos</a>
                   <a href="/preguntas-frecuentes"id="2" class="mobile">Preguntas frecuentes</a>
+=======
+                  <a href="{{route('quienes-somos')}}" id="1" class="mobile"></a>
+                  <a href="/preguntas-frecuentes"id="2" class="mobile"></a>
+>>>>>>> 9fc5eb21bc6d54f40175ab8e917a0ff6004ecf2f
                 </div>
             </div>
-            <div class="dropdownMenu">
-               <button class="dropbtn" onclick="myFunctionCarrito2()" id="carrito"> <li class="carrito" id="lista"><ion-icon name="cart"></ion-icon></li>
-                 <i class="fa fa-caret-down"></i>
-               </button>
-               <div class="dropdown-content" id="myDropdown4">
-                 <a href="pagar">Ir a pagar</a>
-               </div>
-           </div>
+
           </div>
 
           <div class="mobile" ><a href="/preguntas-frecuentes"><li>Preguntas frecuentes</li></a></div>
-          <div class="mobile"><a href="/quienes-somos"><li class="quienes" class="mobile-not-display" id="lista">¿Quienes somos?</li></a></div>
 
+          <div class="mobile"><a href="/quienes-somos"><li class="quienes" id="lista">¿Quienes somos?</li></a></div>
+
+          <div class="dropdownMenu">
+             <button class="dropbtn" onclick="myFunctionCarrito2()" id="carrito"> <li class="carrito" id="lista"><ion-icon name="cart"></ion-icon></li>
+               <i class="fa fa-caret-down"></i>
+             </button>
+             <div class="dropdown-content" id="myDropdown4">
+               <a href="pagar">Ir a pagar</a>
+             </div>
+         </div>
         </ul>
       </nav>
     </header>
