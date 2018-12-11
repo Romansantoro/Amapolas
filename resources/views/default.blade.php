@@ -55,8 +55,13 @@ if (isset($_POST['logout'])) {
                     </form>
                   @endguest
 
+<<<<<<< HEAD
+                  <a href="{{route('quienes-somos')}}" id="1" class="mobile">Quienes Somos</a>
+                  <a href="/preguntas-frecuentes"id="2" class="mobile">Preguntas frecuentes</a>
+=======
                   <a href="{{route('quienes-somos')}}" id="1" class="mobile"></a>
                   <a href="/preguntas-frecuentes"id="2" class="mobile"></a>
+>>>>>>> 9fc5eb21bc6d54f40175ab8e917a0ff6004ecf2f
                 </div>
             </div>
 
