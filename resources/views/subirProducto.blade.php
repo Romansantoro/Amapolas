@@ -2,7 +2,7 @@
 
 @section('section')
 <body>
-  <h2 id="tituloRegistro">Subí tus productos</h2>
+  <h2 id="tituloRegistro">Subí tu producto</h2>
 <div class="formulario">
     <form class="formProd" action="" method="post" enctype="multipart/form-data">
       @csrf
@@ -65,6 +65,38 @@
             </div>
             <div class="error">
 
+           </div>
+        </div>
+        <div class="userData">
+            <div class="labelUserData">
+              <label for="userEmail">Ingrediente:</label>
+            </div>
+            <div class="inputUserData">
+              @foreach ($ingredients as $ingredient)
+                  <input id="{{$ingredient->id}}"  type="checkbox" name="ingredients[]" value="{{$ingredient->id}}">
+                  <label for="{{$ingredient->id}}">{{$ingredient->name}}</label>
+              @endforeach
+            </div>
+            <div class="error">
+              @if ($errors->has('ingredients'))
+                <strong>{{ $errors->first('ingredients') }}</strong>
+              @endif
+           </div>
+        </div>
+        <div class="userData">
+            <div class="labelUserData">
+              <label for="userEmail">Categoria:</label>
+            </div>
+            <div class="inputUserData">
+              @foreach ($categories as $category)
+                  <input id="{{$category->id}}"  type="checkbox" name="categories[]" value="{{$category->id}}">
+                  <label for="{{$category->id}}">{{$category->name}}</label>
+              @endforeach
+            </div>
+            <div class="error">
+              @if ($errors->has('categories'))
+                <strong>{{ $errors->first('categories') }}</strong>
+              @endif
            </div>
         </div>
         <div class="userData">

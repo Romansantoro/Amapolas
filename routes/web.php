@@ -5,6 +5,12 @@ Route::get('/perfil', 'Views@showPerfil')->name('perfil');
 Route::get('/subirProducto', 'Views@showSubirProducto')->name('subirProducto');
 Route::post('/subirProducto', 'ProductController@create')->name('subirProductoPost');
 
+Route::get('/subirIngrediente', 'IngredientController@index')->name('subirIngrediente');
+Route::post('/subirIngrediente', 'IngredientController@create')->name('subirIngredientePost');
+
+Route::get('/subirCategoria', 'CategoryController@index')->name('subirCategoria');
+Route::post('/subirCategoria', 'CategoryController@create')->name('subirCategoriaPost');
+
 Route::get('/cambiarContraseña', 'Views@showCambiarContraseña')->name('cambiarContraseña');
 
 Route::get('/recuperarContraseña', 'Views@showRecuperarContraseña')->name('recuperarContraseña');

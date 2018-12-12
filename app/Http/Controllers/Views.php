@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-use App;
+use App\Category;
+use App\Ingredient;
 
 class Views extends Controller
 {
@@ -12,7 +13,9 @@ class Views extends Controller
       return view('home');
   }
   public function showSubirProducto(){
-      return view('subirProducto');
+    $categories = Category::all();
+    $ingredients = Ingredient::all();
+    return view('subirProducto')->with(compact('categories'))->with(compact('ingredients'));
   }
   public function showFaqs(){
       return view('preguntas-frecuentes');
@@ -22,7 +25,9 @@ class Views extends Controller
   }
   public function showCatalogo(){
       $products = Product::paginate(6);
-      return view('catalogo')->with(compact('products'));
+      $categories = Category::all();
+      $ingredients = Ingredient::all();
+      return view('catalogo')->with(compact('products'))->with(compact('categories'))->with(compact('ingredients'));
   }
   public function showLogin(){
       return view('login');

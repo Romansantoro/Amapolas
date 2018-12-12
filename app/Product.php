@@ -10,10 +10,12 @@ class Product extends Model
       'id', 'created_at', 'updated_at',
   ];
 
-  public function ingredients(){
-
+  public function ingredients()
+  {
+    return $this->belongsToMany(Ingredient::class);
   }
-  public function flavours(){
-
+  public function categories()
+  {
+    return $this->belongsToMany(Category::class);
   }
 }

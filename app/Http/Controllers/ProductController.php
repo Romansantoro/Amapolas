@@ -31,12 +31,15 @@ class ProductController extends Controller
           'prodDesc' => 'max:255',
           'prodImagen' => 'required', 'mimes:jpeg,png,jpg,gif',
           'prodSabor' => 'required', 'min:1', 'max:2',
+          'ingredients' => 'required', 'min:1',
+          'categories' => 'required', 'min:1',
+
       ]);
       if ($request->file('prodImagen')) {
         $folder = 'public/productos';
         $path = $request->file('prodImagen')->storePublicly( $folder );
       }
-       Product::create([
+       $product = Product::create([
           'name' => $request->input('prodName'),
           'price' => $request->input('prodPrecio'),
           'description' => $request->input('prodDesc'),
@@ -44,6 +47,12 @@ class ProductController extends Controller
           'stock' => $request->input('prodStock'),
           'flavour' => $request->input('prodSabor'),
       ]);
+      foreach ($request->input('categories') as $category) {
+        $product->categories()->attach($category);
+      }
+      foreach ($request->input('ingredients') as $ingredient) {
+        $product->ingredients()->attach($ingredient);
+      }
       return redirect('/catalogo');
 
     }

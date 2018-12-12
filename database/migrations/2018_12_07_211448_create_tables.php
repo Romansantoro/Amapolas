@@ -23,13 +23,11 @@ class CreateTables extends Migration
         $table->string('flavour');
         $table->string('image')->nullable();
         $table->timestamps();
-        $table->unsignedInteger('category_id')->nullable();
-        $table->unsignedInteger('ingredients_id')->nullable();
       });
 
       Schema::create('ingredients', function (Blueprint $table) {
         $table->increments('id');
-        $table->string('name');
+        $table->string('name')->unique();
         $table->timestamps();
       });
 
@@ -50,7 +48,7 @@ class CreateTables extends Migration
 
       Schema::create('categories', function (Blueprint $table) {
         $table->increments('id');
-        $table->string('name');
+        $table->string('name')->unique();
         $table->timestamps();
       });
 
@@ -61,7 +59,7 @@ class CreateTables extends Migration
         $table->unsignedInteger('user_id')->nullable();
       });
 
-      Schema::create('shoppingCart-products', function (Blueprint $table) {
+      Schema::create('shoppingCart_products', function (Blueprint $table) {
         $table->increments('id');
         $table->integer('quantity');
         $table->decimal('amount',4,2);
@@ -70,6 +68,26 @@ class CreateTables extends Migration
         $table->unsignedInteger('shoppingCart_id')->nullable();
         $table->unsignedInteger('product_id')->nullable();
       });
+
+      Schema::create('ingredient_product', function (Blueprint $table) {
+       $table->increments('id');
+       $table->timestamps();
+       $table->unsignedInteger('ingredient_id');
+       $table->unsignedInteger('product_id');
+
+       $table->foreign('ingredient_id')->references('id')->on('ingredients');
+       $table->foreign('product_id')->references('id')->on('products');
+     });
+
+     Schema::create('category_product', function (Blueprint $table) {
+       $table->increments('id');
+       $table->timestamps();
+       $table->unsignedInteger('category_id');
+       $table->unsignedInteger('product_id');
+
+       $table->foreign('category_id')->references('id')->on('categories');
+       $table->foreign('product_id')->references('id')->on('products');
+     });
 
     }
 
