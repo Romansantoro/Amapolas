@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<?php /*require_once 'models/autoload';
+<!-- <?php /*require_once 'models/autoload';
 if (isset($_POST['logout'])) {
   $auth->logout();
   header('location: index');
 }
 */
-?>
+?> -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="PROYECTO/css/style.css">
+    <link id="href" class="archivoCSS"  rel="stylesheet" href="css/style.css">
     <script src="js/javascript.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -23,16 +23,18 @@ if (isset($_POST['logout'])) {
   <body>
 
     <header>
+      <div class="temas">
+        <div class="temaNocturno" onclick="cambiarTema()">
+          <ion-icon name="moon"></ion-icon>
+        </div>
+        <div class="temaDia" onclick="cambiarTemaDia()">
+          <ion-icon name="sunny"></ion-icon>
+        </div>
+      </div>
       <a href="/" id="logo">
         <div class="logo">
           <img src="" alt="">
           <h1>Amapolas</h1>
-        </div>
-        <div class="temas">
-          <div class="temaNocturno">
-          </div>
-          <div class="temaDia">
-          </div>
         </div>
       </a>
 
@@ -46,7 +48,7 @@ if (isset($_POST['logout'])) {
                     <a href="{{route('login')}}" >Ingresar</a>
                     <a href="{{route('register')}}" >Registrarse</a>
                   @else
-                    <a href="{{route('perfil')}}">Mi perfil</a>
+                    <a href="{{route('perfil')}}">Mi perfil</a><ion-icon name="sunny"></ion-icon>
                     <a href="{{route('editarPerfil')}}">Editar mi perfil</a>
                     <a href="{{route('cambiarContraseña')}}">Cambiar mi contraseña</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">

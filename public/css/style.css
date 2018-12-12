@@ -14,9 +14,26 @@ justify-content: space-around;
 }
 
 /*-----------------------CSS TEMAS DEFAULTBLADE---------------------------------------*/
+.temas{
+  display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-content: flex-end;
+float: right;
+}
 .temaNocturno{
-  background-color: Black;
-  min-width:40px;
+  margin-right:  10px;
+}
+
+.temaNocturno :hover{
+  cursor: pointer;
+}
+
+.temaDia {
+  margin-right: 10px;
+}
+.temaDia :hover{
+cursor: pointer;
 }
 
 .mobileFlex{

@@ -1,4 +1,4 @@
-//
+
 // var form = document.getElementsByClassName('.editProfile');
 //
 // form.onsubmit = function(){
@@ -25,6 +25,13 @@
 
 
 /*------------------------JS DEL DROPDOWN______________________________*/
+
+
+  if (localStorage['tema']=='dia') {
+    document.getElementById('href').href = "css/style.css";
+  }else if (localStorage['tema']=='noche') {
+    document.getElementById('href').href = "css/modoNocturno.css";
+  }
 
 
 function myFunctionMenu() {
@@ -76,3 +83,20 @@ window.onclick = function(e) {
       }
 
   querymin.addListener(changeScreenBig);
+
+
+  function cambiarTemaDia() {
+    var hrefs = document.getElementsByClassName('archivoCSS');
+  for (href of hrefs) {
+    href.href="css/style.css";
+  }
+  localStorage.setItem('tema','dia');
+  }
+
+  function cambiarTema() {
+   var hrefs = document.getElementsByClassName('archivoCSS');
+    for (href of hrefs) {
+      href.href="css/modoNocturno.css";
+    }
+    localStorage.setItem('tema','noche');
+  }

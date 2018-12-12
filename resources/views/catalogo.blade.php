@@ -20,7 +20,7 @@
 
           <div class="producto">
             <div class="producto-1">
-              <img src="PROYECTO/images/comida2.jpeg">
+              <img src="/images/comida2.jpeg">
               <h4>Producto</h4>
             <a href="verProducto.php"></a>
             </div>
@@ -30,7 +30,7 @@
           </div>
           <div class="producto">
             <div class="producto-1">
-                <img src="PROYECTO/images/comida6.jpeg">
+                <img src="/images/comida6.jpeg">
                 <h4>Producto</h4>
             <a href="verProducto.php"></a>
             </div>
@@ -40,7 +40,7 @@
           </div>
           <div class="producto">
             <div class="producto-1">
-                <img src="PROYECTO/images/comida7.png">
+                <img src="/images/comida7.png">
                 <h4>Producto</h4>
             <a href="verProducto.php"></a>
             </div>
@@ -50,7 +50,7 @@
           </div>
           <div class="producto">
             <div class="producto-1">
-                <img src="PROYECTO/images/comida3.png">
+                <img src="/images/comida3.png">
                 <h4>Producto</h4>
             <a href="verProducto.php"></a>
             </div>
@@ -60,7 +60,7 @@
           </div>
           <div class="producto">
             <div class="producto-1">
-                <img src="PROYECTO/images/comida4.jpg">
+                <img src="/images/comida4.jpg">
                 <h4>Producto</h4>
             <a href="verProducto.php"></a>
             </div>
@@ -70,7 +70,7 @@
           </div>
           <div class="producto">
             <div class="producto-1">
-              <img src="PROYECTO/images/comida5.png">
+              <img src="/images/comida5.png">
               <h4>Producto</h4>
             <a href="verProducto.php"></a>
             </div>
