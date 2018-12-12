@@ -31,14 +31,6 @@ class CreateTables extends Migration
         $table->timestamps();
       });
 
-      Schema::create('addresses', function (Blueprint $table) {
-        $table->increments('id');
-        $table->string('street')->nullable();
-        $table->integer('number')->nullable();
-        $table->integer('apartment')->nullable();
-        $table->timestamps();
-      });
-
       Schema::create('purchases', function (Blueprint $table) {
         $table->increments('id');
         $table->timestamp('date')->nullable();
@@ -101,7 +93,6 @@ class CreateTables extends Migration
     {
       Schema::drop('products');
       Schema::drop('ingredients');
-      Schema::drop('addresses');
       Schema::drop('purchases');
       Schema::drop('categories');
       Schema::drop('shoppingCart');

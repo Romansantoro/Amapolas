@@ -1,21 +1,21 @@
 <?php
 
-Route::get('/perfil', 'Views@showPerfil')->name('perfil');
+Route::get('/perfil', 'Views@showPerfil')->middleware('auth')->name('perfil');
 
-Route::get('/subirProducto', 'Views@showSubirProducto')->name('subirProducto');
-Route::post('/subirProducto', 'ProductController@create')->name('subirProductoPost');
+Route::get('/subirProducto', 'Views@showSubirProducto')->middleware('auth')->name('subirProducto');
+Route::post('/subirProducto', 'ProductController@create')->middleware('auth')->name('subirProductoPost');
 
-Route::get('/subirIngrediente', 'IngredientController@index')->name('subirIngrediente');
-Route::post('/subirIngrediente', 'IngredientController@create')->name('subirIngredientePost');
+Route::get('/subirIngrediente', 'IngredientController@index')->middleware('auth')->name('subirIngrediente');
+Route::post('/subirIngrediente', 'IngredientController@create')->middleware('auth')->name('subirIngredientePost');
 
-Route::get('/subirCategoria', 'CategoryController@index')->name('subirCategoria');
-Route::post('/subirCategoria', 'CategoryController@create')->name('subirCategoriaPost');
+Route::get('/subirCategoria', 'CategoryController@index')->middleware('auth')->name('subirCategoria');
+Route::post('/subirCategoria', 'CategoryController@create')->middleware('auth')->name('subirCategoriaPost');
 
-Route::get('/cambiarContraseña', 'Views@showCambiarContraseña')->name('cambiarContraseña');
+Route::get('/cambiarContraseña', 'Views@showCambiarContraseña')->middleware('auth')->name('cambiarContraseña');
 
-Route::get('/recuperarContraseña', 'Views@showRecuperarContraseña')->name('recuperarContraseña');
+Route::get('/recuperarContraseña', 'Views@showRecuperarContraseña')->middleware('auth')->name('recuperarContraseña');
 
-Route::get('/editarPerfil', 'Views@showEditarPerfil')->name('editarPerfil');
+Route::get('/editarPerfil', 'Views@showEditarPerfil')->middleware('auth')->name('editarPerfil');
 
 // Route::get('/register', 'Views@showRegistro')->name('register');
 //

@@ -62,6 +62,23 @@
                     </div>
               </div>
               <div class="css">
+                    <div class="userData">
+                        <div class="labelUserData">
+                          <label for="userAddress"> Dirección:</label>
+                        </div>
+                        <div class="inputUserData">
+                          <input id="userAddress" type="text" name="userAddress" value="{{ old('userAddress') }}" required><span style="color:red;">*</span>
+                        </div>
+                    </div>
+                     <div class="error">
+                       @if ($errors->has('userAddress'))
+                           <span>
+                               <strong>{{ $errors->first('userAddress') }}</strong>
+                           </span>
+                       @endif
+                     </div>
+                </div>
+              <div class="css">
                   <div class="userData">
                       <div class="labelUserData">
                         <label for="email">Correo electronico:</label>

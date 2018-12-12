@@ -56,6 +56,7 @@ class RegisterController extends Controller
            'password' => ['required', 'string', 'min:6', 'max:14', 'confirmed'],
            // 'country' => ['required'],
            'age' => ['required'],
+           'userAddress' => ['required'],
        ],
      [
        'name.required' => 'Debe ingresar un nombre',
@@ -83,6 +84,8 @@ class RegisterController extends Controller
        'password.confirmed' => 'Las contraseñas no coinciden',
 
        'age.required' => 'Debe ingresar una fecha de nacimiento',
+
+       'userAddress.required' => 'Debe ingresar una dirección',
      ]);
 
    }
@@ -110,6 +113,7 @@ class RegisterController extends Controller
          'avatar' => $path??null,
          'password' => Hash::make($data['password']),
          'age' => $data['age'],
+         'address' => $data['userAddress']??null,
      ]);
    }
 }

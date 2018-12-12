@@ -1,43 +1,47 @@
 @extends('default')
 
 @section('section')
-
+  <?php $user = Auth::user() ?>
   <main class="mainProfile">
     <div class="myProfile">
       <h1>Mi Perfil</h1>
       <div class="imagenAvatar">
-        <img src= "<?php /* echo $usuario['avatar']*/ ?>" alt="">
+        <img src= " {{ Storage::url($user->avatar) }} " alt="">
       </div>
     </div>
     <div class="userInfo">
       <div class="userName">
-        <h2>Nombre: </h2>
-        <p><?php /* echo $usuario["nombredeusuario"] */ ?></p>
+        <h2>Nombre: {{ $user->name }} </h2>
+        <p></p>
       </div>
       <div class="direccionActual">
-        <h2>Mi dirección actual: </h2>
-        <p><?php /* echo 'Av. Alem 352'*/ ?></p>
+        <h2>País: {{ $user->country }} <?php if ($user->province):?>{{ $user->province }}<?php endif; ?> </h2>
+        <p></p>
+      </div>
+      <div class="direccionActual">
+        <h2>Mi dirección actual: {{ $user->address }} </h2>
+        <p></p>
       </div>
       <div class="direcciones">
         <h2>Mis direcciones: </h2>
         <ul>
-          <li><?php /* echo 'Av.Santa Fe 33333' */ ?></li>
-          <li><?php /* echo 'San Martín 100' */ ?></li>
-          <li><?php /* echo 'Av. Córdoba 500' */ ?></li>
+          <li> {{ $user->address }} </li>
+          <li></li>
+          <li></li>
         </ul>
       </div>
       <div class="misUltimosPedidos">
         <h2>Últimos pedidos realizados: </h2>
         <ul>
-          <li><?php /* echo '12 alfajores de chocolate' */ ?></li>
-          <li><?php /* echo '12 alfajores maizena' */ ?></li>
-          <li><?php /* echo '5 empanadas de carne'*/ ?></li>
+          <li></li>
+          <li></li>
+          <li></li>
         </ul>
       </div>
       <div class="pedidosEnCurso">
         <h2>Pedidos en curso: </h2>
           <ul>
-            <li><?php /* echo '3 pizzas napolitanas'*/ ?></li>
+            <li></li>
           </ul>
       </div>
     </div>
