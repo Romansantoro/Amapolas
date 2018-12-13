@@ -50,7 +50,7 @@ class RegisterController extends Controller
    {
        return Validator::make($data, [
            'name' => ['required', 'string', 'max:255'],
-           'userName' => ['required', 'string', 'min:6', 'unique:users'],
+           'last_name' => ['required', 'string'],
            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
            'avatar' => ['required', 'mimes:jpeg,png,jpg,gif'],
            'password' => ['required', 'string', 'min:6', 'max:14', 'confirmed'],
@@ -63,10 +63,8 @@ class RegisterController extends Controller
        'name.string' => 'El nombre no debe contener números',
        'name.max' => 'El nombre no puede contener más de 255 caracteres',
 
-       'userName.required' => 'Debe ingresar un nombre de usuario',
-       'userName.string' => 'El nombre de usuario no puede contener números',
-       'userName.min' => 'El usuario debe contener al menos 6 caracteres',
-       'userName.unique' => 'Ya existe un usuario registrado con este nombre',
+       'last_name.required' => 'Debe ingresar un nombre de usuario',
+       'last_name.string' => 'El nombre de usuario no puede contener números',
 
        'email.required' => 'Debe ingresar un email',
        'email.string' => 'El email no puede ser un número',
@@ -106,7 +104,7 @@ class RegisterController extends Controller
      }
      return User::create([
          'name' => $data['name'],
-         'userName' => $data['userName'],
+         'last_name' => $data['last_name'],
          'country' => $data['country'],
          'province' => $data['province']??null,
          'email' => $data['email'],

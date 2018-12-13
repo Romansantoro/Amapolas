@@ -11,16 +11,16 @@
     </div>
     <div class="userInfo">
       <div class="userName">
-        <h2>Nombre: {{ $user->name }} </h2>
+        <h2>{{ $user->name }} {{ $user->last_name }}</h2>
         <p></p>
       </div>
       <div class="direccionActual">
-        <h2>País: {{ $user->country }} <?php if ($user->province):?>{{ $user->province }}<?php endif; ?> </h2>
-        <p></p>
+        <h2>País:</h2>
+        <p>{{ $user->country }} <?php if ($user->province):?>{{ $user->province }}<?php endif; ?></p>
       </div>
       <div class="direccionActual">
-        <h2>Mi dirección actual: {{ $user->address }} </h2>
-        <p></p>
+        <h2>Mi dirección actual:</h2>
+        <p>{{ $user->address }}</p>
       </div>
       <div class="direcciones">
         <h2>Mis direcciones: </h2>

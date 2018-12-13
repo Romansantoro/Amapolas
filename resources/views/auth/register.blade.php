@@ -9,10 +9,10 @@
             <div class="css">
                   <div class="userData">
                     <div class="labelUserData">
-                      <label for="name"> Nombre completo:</label>
+                      <label for="name"> Nombre:</label>
                     </div>
                     <div class="inputUserData">
-                      <input id="userFullName" type="text" name="name" value="{{ old('name') }}" required><span style="color:red;">*</span>
+                      <input id="name" type="text" name="name" value="{{ old('name') }}" required><span style="color:red;">*</span>
                     </div>
                   </div>
                    <div class="error">
@@ -26,16 +26,16 @@
             <div class="css">
                   <div class="userData">
                       <div class="labelUserData">
-                        <label for="userName"> Nombre de usuario:</label>
+                        <label for="last_name"> Apellido:</label>
                       </div>
                       <div class="inputUserData">
-                        <input id="userName" type="text" name="userName" value="{{ old('userName') }}" required><span style="color:red;">*</span>
+                        <input id="last_name" type="text" name="last_name" value="{{ old('last_name') }}" required><span style="color:red;">*</span>
                       </div>
                   </div>
                    <div class="error">
-                     @if ($errors->has('userName'))
+                     @if ($errors->has('last_name'))
                          <span>
-                             <strong>{{ $errors->first('userName') }}</strong>
+                             <strong>{{ $errors->first('last_name') }}</strong>
                          </span>
                      @endif
                    </div>

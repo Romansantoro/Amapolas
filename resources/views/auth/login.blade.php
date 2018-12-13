@@ -44,6 +44,10 @@
                 </a>
               @endif -->
           </div>
+          <div class="">
+            <a href="/login/google" class="btn btn-danger">Login con Google</a>
+            <a href="/login/facebook" class="btn btn-primary">Login con Facebook</a>
+          </div>
         </div>
 
       </form>

@@ -41,6 +41,7 @@
                     <a href="{{route('login')}}" >Ingresar</a>
                     <a href="{{route('register')}}" >Registrarse</a>
                   @else
+<<<<<<< HEAD
                   <div class="dropdownMenu">
                       <button class="dropbtn" onclick="myFunctionMenu()" id="lista">MENU<div><ion-icon name="arrow-dropdown" style="margin-top:5px"></ion-icon></div><i class="fa fa-caret-down"></i></button>
                     <div class="dropdown-content" id="myDropdown1">
@@ -60,6 +61,22 @@
 
                    </div>
                  </div>
+=======
+                    <a href="{{route('perfil')}}">Mi perfil</a>
+                    <a href="{{route('editarPerfil')}}">Editar mi perfil</a>
+                    <a href="{{route('cambiarContraseña')}}">Cambiar mi contraseña</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
+                    </form>
+                  @endguest
+
+                  <a href="{{route('quienes-somos')}}" id="1" class="mobile"></a>
+                  <a href="/preguntas-frecuentes"id="2" class="mobile"></a>
+
+                </div>
+            </div>
+>>>>>>> 6bea0e36c6c61e5ebbbfd0dc35cd7f47cfd055c4
 
           </div>
 
