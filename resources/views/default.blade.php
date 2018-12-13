@@ -74,7 +74,7 @@ if (isset($_POST['logout'])) {
                   <a href="{{route('perfil')}}">Mi perfil</a>
                   <a href="{{route('editarPerfil')}}">Editar mi perfil</a>
                   <a href="{{route('cambiarContraseña')}}">Cambiar mi contraseña</a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST">
                       @csrf
                       <button id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
                   </form>
