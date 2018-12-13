@@ -34,27 +34,32 @@
       <nav class="userNav">
         <ul class="ulDefaultBlade">
           <div class="menu">
+            @guest
             <div class="dropdownMenu">
                 <button class="dropbtn" onclick="myFunctionMenu()" id="lista">MENU<div><ion-icon name="arrow-dropdown" style="margin-top:5px"></ion-icon></div><i class="fa fa-caret-down"></i></button>
-                <div class="dropdown-content" id="myDropdown1">
-                  @guest
+                <div class="dropdown-content remove" id="myDropdown1">
                     <a href="{{route('login')}}" >Ingresar</a>
                     <a href="{{route('register')}}" >Registrarse</a>
                   @else
-                    <a href="{{route('perfil')}}">Mi perfil</a><ion-icon name="sunny"></ion-icon>
-                    <a href="{{route('editarPerfil')}}">Editar mi perfil</a>
-                    <a href="{{route('cambiarContraseña')}}">Cambiar mi contraseña</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
-                    </form>
-                  @endguest
+                  <div class="dropdownMenu">
+                      <button class="dropbtn" onclick="myFunctionMenu()" id="lista">MENU<div><ion-icon name="arrow-dropdown" style="margin-top:5px"></ion-icon></div><i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content" id="myDropdown1">
+                      <a href="{{route('perfil')}}">Mi perfil</a><ion-icon name="sunny"></ion-icon>
+                      <a href="{{route('editarPerfil')}}">Editar mi perfil</a>
+                      <a href="{{route('cambiarContraseña')}}">Cambiar mi contraseña</a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                          @csrf
+                          <button id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
+                      </form>
+                    @endguest
 
-                  <a href="{{route('quienes-somos')}}" id="1" class="mobile"></a>
-                  <a href="/preguntas-frecuentes"id="2" class="mobile"></a>
+                      <a href="{{route('quienes-somos')}}" id="1" type="hidden" class="mobile"></a>
+                      <a href="/preguntas-frecuentes"id="2" type="hidden" class="mobile"></a>
 
-                </div>
-            </div>
+
+
+                   </div>
+                 </div>
 
           </div>
 

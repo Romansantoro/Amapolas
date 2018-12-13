@@ -437,7 +437,6 @@ input{
   margin-bottom:10px;
     flex-direction: column;
     justify-content: flex-start;
-    margin-left: 0px;
 }
 
 #userCountry{
@@ -799,11 +798,6 @@ flex-direction: column;
     flex-direction: row;
   }
 
-  input{
-    margin-left: 45px;
-  }
-
-
   #ingresar{
     margin: 10px 90px;
   }
@@ -944,10 +938,6 @@ font-size: 20px;
   flex-wrap: nowrap;
   margin-bottom: 5%;
   flex-direction: row;
-}
-
-input{
-  margin-left: 30px;
 }
 
 #forgotPass{
