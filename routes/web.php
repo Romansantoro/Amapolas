@@ -1,18 +1,25 @@
 <?php
 
-Route::get('/perfil', 'Views@showPerfil')->name('perfil');
+Route::get('/perfil', 'Views@showPerfil')->middleware('auth')->name('perfil');
 
-Route::get('/editarProducto', 'Views@showEditarProducto')->name('editarProducto');
+Route::get('/subirProducto', 'Views@showSubirProducto')->middleware('auth')->name('subirProducto');
+Route::post('/subirProducto', 'ProductController@create')->middleware('auth')->name('subirProductoPost');
 
-Route::get('/cambiarContraseña', 'Views@showCambiarContraseña')->name('cambiarContraseña');
+Route::get('/subirIngrediente', 'IngredientController@index')->middleware('auth')->name('subirIngrediente');
+Route::post('/subirIngrediente', 'IngredientController@create')->middleware('auth')->name('subirIngredientePost');
 
-Route::get('/recuperarContraseña', 'Views@showRecuperarContraseña')->name('recuperarContraseña');
+Route::get('/subirCategoria', 'CategoryController@index')->middleware('auth')->name('subirCategoria');
+Route::post('/subirCategoria', 'CategoryController@create')->middleware('auth')->name('subirCategoriaPost');
 
-Route::get('/editarPerfil', 'Views@showEditarPerfil')->name('editarPerfil');
+Route::get('/cambiarContraseña', 'Views@showCambiarContraseña')->middleware('auth')->name('cambiarContraseña');
 
-Route::get('/register', 'Views@showRegistro')->name('register');
+Route::get('/recuperarContraseña', 'Views@showRecuperarContraseña')->middleware('auth')->name('recuperarContraseña');
 
-Route::get('/login', 'Views@showLogin')->name('login');
+Route::get('/editarPerfil', 'Views@showEditarPerfil')->middleware('auth')->name('editarPerfil');
+
+// Route::get('/register', 'Views@showRegistro')->name('register');
+//
+// Route::get('/login', 'Views@showLogin')->name('login');
 
 Route::get('/catalogo', 'Views@showCatalogo')->name('catalogo');
 
@@ -23,5 +30,8 @@ Route::get('/preguntas-frecuentes', 'Views@showFaqs')->name('preguntas-frecuente
 Route::get('/', 'Views@showHome')->name('home');
 
 Auth::routes();
+
+Route::get('login/google', 'Auth\LoginController@redirectToProvider');
+Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('/home', 'HomeController@index')->name('home');

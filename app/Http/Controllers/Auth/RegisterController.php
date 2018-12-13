@@ -50,22 +50,21 @@ class RegisterController extends Controller
    {
        return Validator::make($data, [
            'name' => ['required', 'string', 'max:255'],
-           'userName' => ['required', 'string', 'min:6', 'unique:users'],
+           'last_name' => ['required', 'string'],
            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
            'avatar' => ['required', 'mimes:jpeg,png,jpg,gif'],
            'password' => ['required', 'string', 'min:6', 'max:14', 'confirmed'],
            // 'country' => ['required'],
            'age' => ['required'],
+           'userAddress' => ['required'],
        ],
      [
        'name.required' => 'Debe ingresar un nombre',
        'name.string' => 'El nombre no debe contener números',
        'name.max' => 'El nombre no puede contener más de 255 caracteres',
 
-       'userName.required' => 'Debe ingresar un nombre de usuario',
-       'userName.string' => 'El nombre de usuario no puede contener números',
-       'userName.min' => 'El usuario debe contener al menos 6 caracteres',
-       'userName.unique' => 'Ya existe un usuario registrado con este nombre',
+       'last_name.required' => 'Debe ingresar un nombre de usuario',
+       'last_name.string' => 'El nombre de usuario no puede contener números',
 
        'email.required' => 'Debe ingresar un email',
        'email.string' => 'El email no puede ser un número',
@@ -83,10 +82,10 @@ class RegisterController extends Controller
        'password.confirmed' => 'Las contraseñas no coinciden',
 
        'age.required' => 'Debe ingresar una fecha de nacimiento',
+
+       'userAddress.required' => 'Debe ingresar una dirección',
      ]);
-     if ($request->file('avatar')) {
-       $path = $request->file('avatar')->storeAs('avatars', $request->user()->email);
-     }
+
    }
 
 
@@ -99,14 +98,20 @@ class RegisterController extends Controller
     */
    protected function create(array $data)
    {
-       return User::create([
-           'name' => $data['name'],
-           'userName' => $data['userName'],
-           'email' => $data['email'],
-           'avatar' => $path??null,
-           'password' => Hash::make($data['password']),
-           // 'country' => $data['country'],
-           'age' => $data['age'],
-       ]);
+     if ($data['avatar']) {
+       $folder = 'public/avatars';
+       $path = $data['avatar']->storePublicly( $folder );
+     }
+     return User::create([
+         'name' => $data['name'],
+         'last_name' => $data['last_name'],
+         'country' => $data['country'],
+         'province' => $data['province']??null,
+         'email' => $data['email'],
+         'avatar' => $path??null,
+         'password' => Hash::make($data['password']),
+         'age' => $data['age'],
+         'address' => $data['userAddress']??null,
+     ]);
    }
 }

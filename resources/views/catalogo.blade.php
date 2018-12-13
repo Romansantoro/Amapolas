@@ -2,87 +2,40 @@
 
 @section('section')
 
-  <main>
+  <main class="mainCatalogo">
     <div class="contenedor-productos" >
-
+      <h2>Filtros</h2>
       <div class="filtros" >
-        <h2>Filtros</h2>
         <ul><br>
-          <label for=""><input type="checkbox" name="" value=""> Chocolate</label> <br><br>
-          <label for=""><input type="checkbox" name="" value=""> Crema pastelera </label> <br><br>
-          <label for=""><input type="checkbox" name="" value=""> Ricota </label> <br><br>
-          <label for=""><input type="checkbox" name="" value=""> Fruta </label> <br><br>
-          <label for=""><input type="checkbox" name="" value=""> Merengue </label> <br><br>
-          <label for=""><input type="checkbox" name="" value=""> Frio </label> <br><br>
+          <?php foreach ($categories as $category): ?>
+            <label for=""><input type="checkbox" name="" value=""> {{ $category->name }} </label> <br><br>
+          <?php endforeach; ?>
+          <?php foreach ($ingredients as $ingredient): ?>
+            <label for=""><input type="checkbox" name="" value=""> {{ $ingredient->name }} </label> <br><br>
+          <?php endforeach; ?>
+
         </ul>
       </div>
-
+      <h2>Catalogo de productos</h2>
       <div class="catalogo" >
-        <h2>Catalogo de productos</h2>
+        @foreach ($products as $product)
           <div class="producto">
             <div class="producto-1">
-              <img src="PROYECTO/images/comida2.jpeg">
+              <img width="100px" height="100px" src="{{ Storage::url($product->image) }}">
             <a href="verProducto.php"></a>
             </div>
             <div class="producto-2">
-              <h4>Producto</h4>
-              <p>Descripcion</p>
+              <h4>{{$product->name}}</h4>
+              <p>{{$product->description}}</p>
             </div>
           </div>
-          <div class="producto">
-            <div class="producto-1">
-                <img src="PROYECTO/images/comida6.jpeg">
-            <a href="verProducto.php"></a>
-            </div>
-            <div class="producto-2">
-              <h4>Producto</h4>
-              <p>Descripcion</p>
-            </div>
-          </div>
-          <div class="producto">
-            <div class="producto-1">
-                <img src="PROYECTO/images/comida7.png">
-            <a href="verProducto.php"></a>
-            </div>
-            <div class="producto-2">
-              <h4>Producto</h4>
-              <p>Descripcion</p>
-            </div>
-          </div>
-          <div class="producto">
-            <div class="producto-1">
-                <img src="PROYECTO/images/comida3.png">
-            <a href="verProducto.php"></a>
-            </div>
-            <div class="producto-2">
-              <h4>Producto</h4>
-              <p>Descripcion</p>
-            </div>
-          </div>
-          <div class="producto">
-            <div class="producto-1">
-                <img src="PROYECTO/images/comida4.jpg">
-            <a href="verProducto.php"></a>
-            </div>
-            <div class="producto-2">
-              <h4>Producto</h4>
-              <p>Descripcion</p>
-            </div>
-          </div>
-          <div class="producto">
-            <div class="producto-1">
-              <img src="PROYECTO/images/comida5.png">
-            <a href="verProducto.php"></a>
-            </div>
-            <div class="producto-2">
-              <h4>Producto</h4>
-              <p>Descripcion</p>
-            </div>
-          </div>
+
+        @endforeach
 
       </div>
 
     </div>
-  </main>
 
+  </main>
+{{ $products->links() }}
 @endsection

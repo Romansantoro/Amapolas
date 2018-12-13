@@ -9,10 +9,10 @@
             <div class="css">
                   <div class="userData">
                     <div class="labelUserData">
-                      <label for="name"> Nombre completo:</label>
+                      <label for="name"> Nombre:</label>
                     </div>
                     <div class="inputUserData">
-                      <input id="userFullName" type="text" name="name" value="{{ old('name') }}" required><span style="color:red;">*</span>
+                      <input id="name" type="text" name="name" value="{{ old('name') }}" required><span style="color:red;">*</span>
                     </div>
                   </div>
                    <div class="error">
@@ -26,16 +26,16 @@
             <div class="css">
                   <div class="userData">
                       <div class="labelUserData">
-                        <label for="userName"> Nombre de usuario:</label>
+                        <label for="last_name"> Apellido:</label>
                       </div>
                       <div class="inputUserData">
-                        <input id="userName" type="text" name="userName" value="{{ old('userName') }}" required><span style="color:red;">*</span>
+                        <input id="last_name" type="text" name="last_name" value="{{ old('last_name') }}" required><span style="color:red;">*</span>
                       </div>
                   </div>
                    <div class="error">
-                     @if ($errors->has('userName'))
+                     @if ($errors->has('last_name'))
                          <span>
-                             <strong>{{ $errors->first('userName') }}</strong>
+                             <strong>{{ $errors->first('last_name') }}</strong>
                          </span>
                      @endif
                    </div>
@@ -46,12 +46,10 @@
                          <label for="country"> País de nacimiento:</label>
                        </div>
                        <div class="inputUserData">
-                         <?php /* $userCountry; if (isset($_POST["userCountry"])) { $userCountry = $_POST["userCountry"];} */ ?>
                          <select id="userCountry" name="country">
-                           <?php /* foreach ($paises as $pais) {
-                            echo ('<option '.( ($userCountry == $pais )? 'selected':'').' value="'.$pais.'" >'.$pais.'</option>');
-                          }*/?>
                          </select>
+                         <div id="provincia">
+                         </div>
                          <span style="color:red;">*</span>
                        </div>
                    </div>
@@ -63,6 +61,23 @@
                       @endif
                     </div>
               </div>
+              <div class="css">
+                    <div class="userData">
+                        <div class="labelUserData">
+                          <label for="userAddress"> Dirección:</label>
+                        </div>
+                        <div class="inputUserData">
+                          <input id="userAddress" type="text" name="userAddress" value="{{ old('userAddress') }}" required><span style="color:red;">*</span>
+                        </div>
+                    </div>
+                     <div class="error">
+                       @if ($errors->has('userAddress'))
+                           <span>
+                               <strong>{{ $errors->first('userAddress') }}</strong>
+                           </span>
+                       @endif
+                     </div>
+                </div>
               <div class="css">
                   <div class="userData">
                       <div class="labelUserData">
@@ -169,5 +184,5 @@
         </form>
 
   </div>
-
+<script src="select.js" charset="utf-8"></script>
 @endsection

@@ -1,35 +1,52 @@
 @extends('default')
 
 @section('section')
-
   <div class="contenedor-login">
     <h2 class="centrar" id="inicia-sesion">Inicia sesión</h2>
     <br>
-      <form action="" method="post">
+      <form method="POST" action="{{ route('login') }}">
+        @csrf
         <div class="formularioLogin">
           <div class="css">
             <div class="userData">
-              <input type="text" id="idDelUsuario"  name="userName" placeholder="Usuario" required><span></span>
+              <input type="text" id="email"  name="email" placeholder="Email" value="{{ old('email') }}" required autofocus><span></span>
             </div>
+          </div>
+          <div class="errores">
+            @if ($errors->has('email'))
+              <strong>{{ $errors->first('email') }}</strong>
+            @endif
           </div>
           <div class="css">
             <div class="userData">
-              <input type="password" name="userPass" maxlength="8" placeholder="Contraseña" required>
+              <input type="password" id="userPass" name="password" maxlength="14" placeholder="Contraseña" required>
               <div class="errores">
-                <span><?php /* if($_POST) { echo $errores["errorLogin"]; } */ ?></span>
+                @if ($errors->has('password'))
+                  <strong>{{ $errors->first('password') }}</strong>
+                @endif
               </div>
             </div>
           </div>
           <div class="extras">
             <div class="extraCaja">
-              <input type="checkbox" name="recordar" id="recordar" value="">
-              <label style="font-size:15px;" for="recordar" class="recordar">Recordame</label>
+              <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+              <label style="font-size:15px;" for="recordar" class="recordar">{{ __('Recordarme') }}</label>
             </div>
-
-              <!-- <a href="recuperarPass.php" id="forgotPass">Olvidé mi contraseña</a> -->
           </div>
           <div class="centrar">
-            <button id="ingresar" type="submit">Ingresar</button>
+            <button type="submit" class="btn btn-primary">
+              {{ __('Ingresar') }}
+            </button>
+
+              <!-- @if (Route::has('password.request'))
+                <a class="btn btn-link" href="{{ route('password.request') }}">
+                  {{ __('Olvidé mi contraseña') }}
+                </a>
+              @endif -->
+          </div>
+          <div class="">
+            <a href="/login/google" class="btn btn-danger">Login con Google</a>
+            <a href="/login/facebook" class="btn btn-primary">Login con Facebook</a>
           </div>
         </div>
 
