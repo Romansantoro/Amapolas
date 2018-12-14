@@ -135,7 +135,7 @@
                       <label for="avatar">Imagen de perfil:</label> <br>
                     </div>
                     <div class="inputUserData">
-                      <input class="archivoSubir" id="userAvatar" type="file" name="avatar" value=""required>
+                      <input class="archivoSubir" id="userAvatar" type="file" name="avatar" value="">
                     </div>
                   </div>
                   <div class="error">

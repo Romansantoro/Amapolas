@@ -52,11 +52,10 @@ class RegisterController extends Controller
            'name' => ['required', 'string', 'max:255'],
            'last_name' => ['required', 'string'],
            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-           'avatar' => ['required', 'mimes:jpeg,png,jpg,gif'],
+           'avatar' => ['mimes:jpeg,png,jpg,gif'],
            'password' => ['required', 'string', 'min:6', 'max:14', 'confirmed'],
            // 'country' => ['required'],
            'age' => ['required'],
-           'userAddress' => ['required'],
        ],
      [
        'name.required' => 'Debe ingresar un nombre',
@@ -83,7 +82,6 @@ class RegisterController extends Controller
 
        'age.required' => 'Debe ingresar una fecha de nacimiento',
 
-       'userAddress.required' => 'Debe ingresar una dirección',
      ]);
 
    }
@@ -98,20 +96,20 @@ class RegisterController extends Controller
     */
    protected function create(array $data)
    {
-     if ($data['avatar']) {
-       $folder = 'public/avatars';
-       $path = $data['avatar']->storePublicly( $folder );
-     }
-     return User::create([
+     // if (isset($data['avatar'])) {
+     //   $folder = 'public/avatars';
+     //   $path = $data['avatar']->storePublicly( $folder );
+     // }
+      User::create([
          'name' => $data['name'],
          'last_name' => $data['last_name'],
          'country' => $data['country'],
          'province' => $data['province']??null,
          'email' => $data['email'],
-         'avatar' => $path??null,
          'password' => Hash::make($data['password']),
          'age' => $data['age'],
          'address' => $data['userAddress']??null,
      ]);
+
    }
 }

@@ -187,7 +187,11 @@ background-color: #6e6e6e;
 .userData{
     flex-direction: row;
     margin-bottom: 25px;
-    justify-content: flex-start;
+    justify-content: center;
+}
+#userPass{
+  width: 197px;
+  flex-direction: row;
 }
 
 header h1{
@@ -338,7 +342,6 @@ footer li {
   border-radius: 5%;
   background-color: black;
   color:white;
-  margin-top: 10px;
   padding: 10px;
   display: flex;
 }
@@ -362,6 +365,10 @@ footer li {
   display:flex;
   flex-direction: row;
   width:100%;
+  align-items: center;
+}
+#remember{
+  margin: 0;
 }
 .centrar{
   display: flex;
@@ -369,7 +376,10 @@ footer li {
 }
 .recordar{
   font-size: 15px;
+  margin-bottom: 0;
+  margin-right: 5%;
 }
+
 
 #forgotPass{
   color: blue;
@@ -429,7 +439,7 @@ input{
 .userData{
     flex-direction: row;
     margin-bottom: 25px;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .css{
@@ -480,7 +490,6 @@ justify-content: flex-start;
 .userData{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
     align-content: center;
     justify-content: center;
     margin-bottom: 25px;
@@ -846,7 +855,7 @@ font-size: 20px;
   .userData{
       flex-direction: row;
       margin-bottom: 25px;
-      justify-content: flex-start;
+      justify-content: center;
   }
 
 /*FIN ESTILOS REGISTRO*/

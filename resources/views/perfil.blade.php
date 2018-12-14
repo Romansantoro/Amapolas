@@ -6,7 +6,13 @@
     <div class="myProfile">
       <h1>Mi Perfil</h1>
       <div class="imagenAvatar">
-        <img src= " {{ Storage::url($user->avatar) }} " alt="">
+        <img src= "
+        @if ( $user->avatar == 'avatars/default.jpg' )
+          {{ 'avatars/default.jpg' }}
+        @else
+          {{ Storage::url($user->avatar) }}
+        @endif
+         " style="border-radius: 50%;border: 5px inset orange;">
       </div>
     </div>
     <div class="userInfo">

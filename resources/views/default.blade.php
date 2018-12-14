@@ -37,28 +37,28 @@
             @guest
             <div class="dropdownMenu ">
                 <button class="dropbtn" onclick="myFunctionMenu()" id="lista">MENU<div><ion-icon name="arrow-dropdown" style="margin-top:5px"></ion-icon></div><i class="fa fa-caret-down"></i></button>
-                <div class="dropdown-content responsive" id="myDropdown1">
-                    <a href="{{route('login')}}" >Ingresar</a>
-                    <a href="{{route('register')}}" >Registrarse</a>
-                  @else
-                  <div class="dropdownMenu">
-                      <button class="dropbtn" onclick="myFunctionMenu()" id="lista">MENU<div><ion-icon name="arrow-dropdown" style="margin-top:5px"></ion-icon></div><i class="fa fa-caret-down"></i></button>
-                    <div class="dropdown-content" id="myDropdown1">
-                      <a href="{{route('perfil')}}">Mi perfil</a>
-                      <a href="{{route('editarPerfil')}}">Editar mi perfil</a>
-                      <a href="{{route('cambiarContraseña')}}">Cambiar mi contraseña</a>
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                          @csrf
-                          <button id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
-                      </form>
-                    @endguest
+                  <div class="dropdown-content responsive" id="myDropdown1">
+                      <a href="{{route('login')}}" >Ingresar</a>
+                      <a href="{{route('register')}}" >Registrarse</a>
+                    @else
+                    <div class="dropdownMenu">
+                        <button class="dropbtn" onclick="myFunctionMenu()" id="lista">{{ Auth::user()->name }}<div><ion-icon name="arrow-dropdown" style="margin-top:5px"></ion-icon></div><i class="fa fa-caret-down"></i></button>
+                          <div class="dropdown-content" id="myDropdown1">
+                            <a href="{{route('perfil')}}">Mi perfil</a>
+                            <a href="{{route('editarPerfil')}}">Editar mi perfil</a>
+                            <a href="{{route('cambiarContraseña')}}">Cambiar mi contraseña</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
+                            </form>
+                          @endguest
 
-                      <a href="{{route('quienes-somos')}}" id="aHide">Preguntas frecuentes</a>
-                      <a href="/preguntas-frecuentes"id="a2Hide" >¿Quienes somos?</a>
+                            <a href="{{route('quienes-somos')}}" id="aHide">Preguntas frecuentes</a>
+                            <a href="/preguntas-frecuentes"id="a2Hide" >¿Quienes somos?</a>
+                         </div>
                    </div>
                  </div>
           </div>
-        </div>
 
           <div class="mobile" ><a href="/preguntas-frecuentes"><li>Preguntas frecuentes</li></a></div>
 
