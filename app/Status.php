@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ingredient extends Model
+class Status extends Model
 {
   protected $guarded = [
       'id', 'created_at', 'updated_at',
   ];
 
-  public function products()
+  public function shoppingCart()
   {
-    return $this->belongsToMany(Product::class);
+    return $this->belongsTo(shoppingCart::class);
   }
 }

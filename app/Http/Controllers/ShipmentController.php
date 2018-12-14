@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\purchase;
+use App\Shipment;
 use Illuminate\Http\Request;
 
-class PurchaseController extends Controller
+class ShipmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class PurchaseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\purchase  $purchase
+     * @param  \App\Shipment  $shipment
      * @return \Illuminate\Http\Response
      */
-    public function show(purchase $purchase)
+    public function show(Shipment $shipment)
     {
         //
     }
@@ -52,10 +52,10 @@ class PurchaseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\purchase  $purchase
+     * @param  \App\Shipment  $shipment
      * @return \Illuminate\Http\Response
      */
-    public function edit(purchase $purchase)
+    public function edit(Shipment $shipment)
     {
         //
     }
@@ -64,10 +64,10 @@ class PurchaseController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\purchase  $purchase
+     * @param  \App\Shipment  $shipment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, purchase $purchase)
+    public function update(Request $request, Shipment $shipment)
     {
         //
     }
@@ -75,10 +75,10 @@ class PurchaseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\purchase  $purchase
+     * @param  \App\Shipment  $shipment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(purchase $purchase)
+    public function destroy(Shipment $shipment)
     {
         //
     }
