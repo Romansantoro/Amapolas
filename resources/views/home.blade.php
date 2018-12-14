@@ -8,19 +8,19 @@
 
   <div class="mySlides">
    <div class="numbertext">1 / 3</div>
-   <a href="/catalogo"><img src="/images/dulce3.jpg" style="width:100%"></a>
+   <a href="/catalogo"><img src="/images/dulce3.jpg" style="border-radius: 5%;border: 5px inset black;width:100%"></a>
    <div class="text">Dulce</div>
   </div>
 
   <div class="mySlides">
    <div class="numbertext">2 / 3</div>
-   <a href="/catalogo"><img src="/images/salado4.jpg" style="width:100%"></a>
+   <a href="/catalogo"><img src="/images/salado4.jpg" style="border-radius: 5%;border: 5px inset black;width:100%"></a>
    <div class="text">Salado</div>
   </div>
 
   <div class="mySlides">
    <div class="numbertext">3 / 3</div>
-   <a href="/catalogo"><img src="/images/dulce4.jpg" style="width:100%"></a>
+   <a href="/catalogo"><img src="/images/dulce4.jpg" style="border-radius: 5%;border: 5px inset black;width:100%"></a>
    <div class="text">Completo</div>
   </div>
 

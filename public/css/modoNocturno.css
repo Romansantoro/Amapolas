@@ -827,6 +827,13 @@ flex-direction: column;
 footer .submit a{
   display:flex;
 }
+/*--------------------------------DEFAULTBLADE-----------------------------------------------*/
+#aHide{
+  display: none;
+}
+#a2Hide{
+  display: none;
+}
 
 /*-------------------------------------------------------------------------------------------*/
 /*ACA LOS ESTILOS PARA EL LOGIN.PHP*/

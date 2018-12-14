@@ -464,14 +464,13 @@ a:hover{
   flex-direction: column;
   justify-content:center;
 }
+
 form{
   display: flex;
 flex-direction: column;
 justify-content: flex-start;
 
 }
-
-
 
 /*CAJA USUARIO*/
 
@@ -644,6 +643,7 @@ cursor:context-menu;
 cursor:pointer;
 }
 /*--------------------------ESTILO DEL DROPDOWN----------------------------------*/
+
 .dropdownMenu button{
   -webkit-appearance: none;
   padding: 0px;
@@ -816,6 +816,13 @@ flex-direction: column;
 
 footer .submit a{
   display:flex;
+}
+/*--------------------------------DEFAULTBLADE-----------------------------------------------*/
+#aHide{
+  display: none;
+}
+#a2Hide{
+  display: none;
 }
 
 /*-------------------------------------------------------------------------------------------*/

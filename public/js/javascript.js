@@ -24,8 +24,7 @@
 // }
 
 
-/*------------------------JS DEL DROPDOWN______________________________*/
-
+/*------------------------JS DEL DROPDOWNS--------------------------------*/
 
   if (localStorage['tema']=='dia') {
     document.getElementById('href').href = "css/style.css";
@@ -60,14 +59,14 @@ window.onclick = function(e) {
   }
 }
 
+//----------------------JS PARA CAMBIOS PARA RESPONSIVE-------------------------------//
+
   var query = window.matchMedia("(max-width: 700px)");
   function changeScreen(query) {
     var mobile = document.getElementsByClassName('mobile');
       for (mobiles of mobile) {
         mobiles.classList.toggle('mobileFlex');
       }
-    document.getElementById('1').innerText = '¿Quienes somos?';
-    document.getElementById('2').innerText = 'Preguntas frecuentes';
     }
 
   query.addListener(changeScreen);
@@ -78,12 +77,11 @@ window.onclick = function(e) {
         for (mobiles of mobile) {
           mobiles.classList.toggle('mobileNone');
         }
-        document.getElementById('1').innerText = '';
-        document.getElementById('2').innerText = '';
       }
 
   querymin.addListener(changeScreenBig);
 
+//----------------------JS PARA CAMBIAR EL TEMA-------------------------------//
 
   function cambiarTemaDia() {
     var hrefs = document.getElementsByClassName('archivoCSS');
@@ -100,3 +98,8 @@ window.onclick = function(e) {
     }
     localStorage.setItem('tema','noche');
   }
+/*----------------------JS VALIDACIONES REGISTRO ----------------------*/
+
+var validar = function (){
+  
+}
