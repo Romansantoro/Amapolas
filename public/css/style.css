@@ -715,40 +715,38 @@ cursor:pointer;
       padding: 12px 16px;
       font-size: 15px;
 }
-/*-------------------------------- CATALOGO --------------------------------------------*/
-.contenedor-productos {
-  display:flex;
-  flex-direction: column;
-  margin: 0px;
-  width: 100%;
+
+/*-------------------------------- FILTROS DEL CATALOGO --------------------------------------------*/
+
+.filtros {
+  display: flex;
+  padding-left: 3%;
+  padding-right: 3%;
 }
+
+.categorias {
+  border: 2px solid orange;
+  padding: 1%;
+  background-image: url(../images/backgroundFood.png);
+  margin-right: 5%;
+}
+
+.ingredientes {
+  border: 2px solid orange;
+  padding: 1%;
+  background-image: url(../images/backgroundFood.png);
+}
+
+
+/*-------------------------------- CATALOGO --------------------------------------------*/
 
 .mainCatalogo{
-  margin: 0px;
+  margin-top: -2%;
+}
+
+.contenedor-principal{
   display: flex;
-flex-direction: row;
-justify-content: center;
-}
-
-.filtros{
-  margin: 0px;
-}
-
-.filtros h2{
-  margin:0px;
-  flex-direction: row;
-  padding-bottom: 30px;
-}
-
-.filtros ul{
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.filtros label{
-  margin-left: 10px;
+  flex-direction: column;
 }
 
 .catalogo {
@@ -760,12 +758,30 @@ justify-content: center;
     justify-content: center;
     margin-top: 40px;
 }
-.producto{
-  margin-left: 10px;
-  margin-right: 10px;
-  display: flex;
-flex-direction: column;
+
+.filtros ul{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
+
+
+.producto{
+  margin: 0px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid grey;
+  padding: 1%;
+  width: 30%;
+}
+
+.producto-2 {
+  display: flex;
+  flex-direction: column;
+}
+
+
 
 /*---------------------------------------------------------------------------*/
 
