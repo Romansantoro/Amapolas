@@ -43,7 +43,7 @@
                 </a>
               @endif
           </div>
-          <div class="">
+          <div class="login-redes">
             <a href="/login/google" class="btn btn-danger">Ingresar con Google</a>
             <a href="/login/facebook" class="btn btn-primary">Ingresar con Facebook</a>
           </div>

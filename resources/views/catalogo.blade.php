@@ -26,17 +26,18 @@
       </div>
 
       <h2>CATALOGO</h2>
-      <div class="catalogo" >
+      <div class="catalogo">
         @foreach ($products as $product)
           <div class="producto">
             <div class="producto-1">
-              <img width="100px" height="100px" src="
-              @if ( $product->image == 'avatars/default.jpg' )
-                {{ 'avatars/default.jpg' }}
-              @else
-                {{ Storage::url($product->image) }}
-              @endif">
-            <a href="verProducto.php"></a>
+              <a href="/verProducto/{{$product->id}}" class="">
+                <img width="100px" height="100px" src="
+                @if ( $product->image == 'avatars/default.jpg' )
+                  {{ 'avatars/default.jpg' }}
+                @else
+                  {{ Storage::url($product->image) }}
+                @endif">
+              </a>
             </div>
             <div class="producto-2">
               <h4>{{$product->name}}</h4>
@@ -52,10 +53,11 @@
           </div>
 
         @endforeach
-        <div class="paginacion">
-          {{ $products->links() }}
-        </div>
 
+      </div>
+
+      <div class="paginacion">
+        {{ $products->links() }}
       </div>
 
     </div>

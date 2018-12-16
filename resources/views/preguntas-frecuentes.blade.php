@@ -21,7 +21,8 @@
           <p>Repartimos los pedidos a domicilio para las zonas de Castelar e Ituzaingó. Para el resto de las localidades se debe retirar el pedido por nuestra casa matriz.</p>
 
           <h4>¿Puedo elegir la hora de entrega?</h4>
-          <p>Si!</p>
+          <p>Por el momento, no es posible establecer un horario de entrega dentro del pedido. <br><br>
+             Pero a partir de hecho el mismo, nos vamos a estar contactando via mail para acordar la entrega!</p>
 
 
         </div>
