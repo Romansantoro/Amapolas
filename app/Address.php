@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ingredient extends Model
+class Address extends Model
 {
   protected $guarded = [
       'id', 'created_at', 'updated_at',
   ];
 
-  public function products()
+  public function users()
   {
-    return $this->belongsToMany(Product::class);
+    return $this->belongsToMany(User::class);
   }
 }

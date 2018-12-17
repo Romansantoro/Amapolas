@@ -15,10 +15,9 @@ class User extends Authenticatable
     *
     * @var array
     */
-   protected $fillable = [
-       'name', 'last_name', 'address', 'email', 'avatar', 'password', 'country','province', 'age',
-   ];
-
+    protected $guarded = [
+        'id', 'created_at', 'updated_at',
+    ];
    /**
     * The attributes that should be hidden for arrays.
     *
@@ -27,4 +26,14 @@ class User extends Authenticatable
    protected $hidden = [
        'password', 'remember_token',
    ];
+
+   public function addresses()
+   {
+     return $this->hasMany(Address::class);
+   }
+
+   public function shoppingCart()
+   {
+     return $this->hasMany(shoppingCart::class);
+   }
 }

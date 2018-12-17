@@ -11,6 +11,9 @@ class CreateTables extends Migration
      *
      * @return void
      */
+
+
+
     public function up()
     {
       Schema::create('products', function (Blueprint $table) {
@@ -31,54 +34,87 @@ class CreateTables extends Migration
         $table->timestamps();
       });
 
-      Schema::create('purchases', function (Blueprint $table) {
-        $table->increments('id');
-        $table->timestamp('date')->nullable();
-        $table->timestamps();
-        $table->unsignedInteger('user_id')->nullable();
-      });
-
       Schema::create('categories', function (Blueprint $table) {
         $table->increments('id');
         $table->string('name')->unique();
         $table->timestamps();
       });
 
-      Schema::create('shoppingCart', function (Blueprint $table) {
+      Schema::create('status', function (Blueprint $table) {
         $table->increments('id');
-        $table->timestamp('date')->nullable();
+        $table->string('name');
         $table->timestamps();
-        $table->unsignedInteger('user_id')->nullable();
       });
 
-      Schema::create('shoppingCart_products', function (Blueprint $table) {
+      Schema::create('shipments', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('name');
+        $table->timestamps();
+      });
+
+      Schema::create('payments', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('name');
+        $table->timestamps();
+      });
+
+      Schema::create('addresses', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('name');
+        $table->unsignedInteger('number');
+        $table->timestamps();
+      });
+
+      Schema::create('address_user', function (Blueprint $table) {
+        $table->increments('id');
+        $table->unsignedInteger('user_id')->nullable();
+        $table->unsignedInteger('address_id')->nullable();
+        $table->foreign('user_id')->references('id')->on('users');
+        $table->foreign('address_id')->references('id')->on('addresses');
+        $table->timestamps();
+      });
+
+      Schema::create('shoppingCart', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('status_id')->references('id')->on('status');
+        $table->unsignedInteger('user_id')->nullable();
+        $table->foreign('user_id')->references('id')->on('users');
+        $table->unsignedInteger('shipment_id')->nullable();
+        $table->foreign('shipment_id')->references('id')->on('shipments');
+        $table->unsignedInteger('payment_id')->nullable();
+        $table->foreign('payment_id')->references('id')->on('payments');
+        $table->unsignedInteger('address_id')->nullable();
+        $table->foreign('address_id')->references('id')->on('addresses');
+        $table->timestamps();
+      });
+
+      Schema::create('shoppingCart_product', function (Blueprint $table) {
         $table->increments('id');
         $table->integer('quantity');
-        $table->decimal('amount',4,2);
-        $table->timestamp('date')->nullable();
-        $table->timestamps();
+        $table->decimal('price',16,2);
         $table->unsignedInteger('shoppingCart_id')->nullable();
+        $table->foreign('shoppingCart_id')->references('id')->on('shoppingCart');
         $table->unsignedInteger('product_id')->nullable();
+        $table->foreign('product_id')->references('id')->on('products');
+        $table->timestamps();
       });
 
       Schema::create('ingredient_product', function (Blueprint $table) {
        $table->increments('id');
-       $table->timestamps();
-       $table->unsignedInteger('ingredient_id');
-       $table->unsignedInteger('product_id');
-
+       $table->unsignedInteger('ingredient_id')->nullable();
        $table->foreign('ingredient_id')->references('id')->on('ingredients');
+       $table->unsignedInteger('product_id')->nullable();
        $table->foreign('product_id')->references('id')->on('products');
+       $table->timestamps();
      });
 
      Schema::create('category_product', function (Blueprint $table) {
        $table->increments('id');
-       $table->timestamps();
-       $table->unsignedInteger('category_id');
-       $table->unsignedInteger('product_id');
-
+       $table->unsignedInteger('category_id')->nullable();
        $table->foreign('category_id')->references('id')->on('categories');
+       $table->unsignedInteger('product_id')->nullable();
        $table->foreign('product_id')->references('id')->on('products');
+       $table->timestamps();
      });
 
     }
@@ -96,7 +132,12 @@ class CreateTables extends Migration
       Schema::drop('purchases');
       Schema::drop('categories');
       Schema::drop('shoppingCart');
-      Schema::drop('shoppingCart-products');
-
+      Schema::drop('status');
+      Schema::drop('shipments');
+      Schema::drop('payments');
+      Schema::drop('addresses');
+      Schema::drop('address_user');
+      Schema::drop('shoppingCart-product');
+      Schema::drop('category-product');
     }
 }

@@ -430,13 +430,6 @@ input{
     font-size: 40px;
 }
 
-.css{
-  margin-top: 10px;
-  margin-bottom:10px;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
 #userCountry{
   margin-left: 5px;
   max-width: 250px;
@@ -462,14 +455,11 @@ a:hover{
 .formulario{
   display: flex;
   flex-direction: column;
-  justify-content:center;
 }
 
 form{
   display: flex;
-flex-direction: column;
-justify-content: flex-start;
-
+  flex-direction: column;
 }
 
 /*CAJA USUARIO*/
@@ -480,6 +470,28 @@ justify-content: flex-start;
     align-content: center;
     justify-content: center;
     margin-bottom: 25px;
+}
+
+.userAge .userData {
+  flex-direction: column;
+  align-items: center;
+}
+
+.userAvatar .userData {
+  flex-direction: column;
+  align-items: center;
+}
+
+.userEmailcheck .userData {
+  margin-bottom: 0;
+}
+
+.userAge .userData {
+  margin-bottom: 0;
+}
+
+.userAvatar .userData {
+  margin-bottom: 0;
 }
 
 .labelUserData{
@@ -502,7 +514,6 @@ margin:0px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 20px;
   width:50%;
 }
 
@@ -715,40 +726,45 @@ cursor:pointer;
       padding: 12px 16px;
       font-size: 15px;
 }
-/*-------------------------------- CATALOGO --------------------------------------------*/
-.contenedor-productos {
-  display:flex;
-  flex-direction: column;
-  margin: 0px;
-  width: 100%;
+
+/*-------------------------------- FILTROS DEL CATALOGO --------------------------------------------*/
+
+.filtros {
+  display: flex;
+  padding-left: 3%;
+  padding-right: 3%;
 }
+
+.categorias {
+  border: 2px solid orange;
+  padding: 1%;
+  background-image: url(../images/backgroundFood.png);
+  margin-right: 5%;
+}
+
+.categorias ul {
+  align-items: center;
+}
+
+.ingredientes {
+  border: 2px solid orange;
+  padding: 1%;
+  background-image: url(../images/backgroundFood.png);
+}
+
+.ingredientes ul {
+  align-items: center;
+}
+
+/*-------------------------------- CATALOGO --------------------------------------------*/
 
 .mainCatalogo{
-  margin: 0px;
+  margin-top: -2%;
+}
+
+.contenedor-principal{
   display: flex;
-flex-direction: row;
-justify-content: center;
-}
-
-.filtros{
-  margin: 0px;
-}
-
-.filtros h2{
-  margin:0px;
-  flex-direction: row;
-  padding-bottom: 30px;
-}
-
-.filtros ul{
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.filtros label{
-  margin-left: 10px;
+  flex-direction: column;
 }
 
 .catalogo {
@@ -760,11 +776,58 @@ justify-content: center;
     justify-content: center;
     margin-top: 40px;
 }
+
+.filtros ul{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
 .producto{
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0px 10px 10px 10px;
   display: flex;
-flex-direction: column;
+  flex-direction: column;
+  border: 2px solid grey;
+  padding: 1%;
+  width: 30%;
+  align-self: center;
+}
+
+.producto-2 {
+  display: flex;
+  flex-direction: column;
+}
+
+/*-------------------------------- VISTA PRODUCTO INDIVIDUAL --------------------------------------------*/
+
+.producto-individual{
+  display: flex;
+  flex-direction: row;
+  border: 2px solid grey;
+  border-radius: 5%;
+  padding: 1%;
+  width: 60%;
+  align-self: center;
+  align-items: center;
+}
+
+.producto-1-individual img {
+  border: 2px inset orange;
+  border-radius: 50%;
+  display: flex;
+  width: 400px;
+  height: 400px;
+}
+
+.producto-2-individual {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-producto {
+  margin-top: 10%;
 }
 
 /*---------------------------------------------------------------------------*/
@@ -800,6 +863,17 @@ flex-direction: column;
   #ingresar{
     margin: 10px 90px;
   }
+
+/*--------------------------------ESTILOS FORMULARIO DE REGISTRO-----------------------------------------------*/
+
+.formulario {
+width: 80%;
+}
+
+
+
+
+/*-------------------------------------------------------------------------------------------*/
 
   @media (min-width: 768px){
     .container {
@@ -948,11 +1022,6 @@ font-size: 20px;
 /*------------------------------------------------------------*/
 /*CSS REGISTRO*/
 
-  .formulario{
-    margin-top: 45px;
-    margin-bottom: 30px;
-  }
-
 .submit button{
   padding:20px;
   font-size: 20px;
@@ -963,7 +1032,7 @@ font-size: 20px;
 }
 
 .submit{
-  padding:15px;
+  width: 30%;
 }
 
 /*FIN CSS DEL REGISTRO*/

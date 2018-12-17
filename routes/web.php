@@ -23,6 +23,8 @@ Route::get('/editarPerfil', 'Views@showEditarPerfil')->middleware('auth')->name(
 
 Route::get('/catalogo', 'Views@showCatalogo')->name('catalogo');
 
+Route::get('/verProducto/{id}', 'Views@showProducto')->name('verProducto');
+
 Route::get('/quienes-somos', 'Views@showQuienes')->name('quienes-somos');
 
 Route::get('/preguntas-frecuentes', 'Views@showFaqs')->name('preguntas-frecuentes');
