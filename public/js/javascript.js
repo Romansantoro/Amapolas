@@ -22,7 +22,6 @@
 //   usuarioModificado();
 //   myTimeOut();
 // }
-window.onload = function (){
 
 if (localStorage['tema']=='dia') {
   document.getElementById('href').href = "css/style.css";
@@ -97,6 +96,7 @@ window.onclick = function(e) {
       }
     localStorage.setItem('tema','noche');
   }
+  window.onload = function (){
 
 /*----------------------JS VALIDACIONES REGISTRO ----------------------*/
 
@@ -125,7 +125,6 @@ window.onclick = function(e) {
           errorfeed.innerHTML = '<p>Error no es un nombre</p>';
         }else if(errorNombreRegex.test(input.value)==true) {
           errorfeed.innerHTML = '';
-          pass++
         }
     }
   }
@@ -141,7 +140,7 @@ window.onclick = function(e) {
         input.classList.add('error');
         errorApellido.innerHTML = '<p>Error no es un apellido</p>';
       }else if(errorNombreRegex.test(input.value)==true) {
-        pass++;
+
         errorApellido.innerHTML = '';
       }
     }
@@ -158,7 +157,7 @@ window.onclick = function(e) {
         input.classList.add('error');
         errorAdress.innerHTML = '<p>Error no es una direccion valida</p>';
       }else if(errorAdressRegex.test(input.value)==true) {
-        pass++;
+
         errorAdress.innerHTML = '';
       }
     }
@@ -175,7 +174,7 @@ window.onclick = function(e) {
         input.classList.add('error');
         errorEmail.innerHTML = '<p>Error no es una direccion de correo valida</p>';
       }else if(errorEmailRegex.test(input.value)==true) {
-        pass++;
+
         errorEmail.innerHTML = '';
       }
     }
@@ -193,7 +192,7 @@ window.onclick = function(e) {
         input.classList.add('error');
         errorEmailCheck.innerHTML = '<p>Error el correo no coincide</p>';
       }else if(input.value==email.value) {
-        pass++;
+
         errorEmailCheck.innerHTML = '';
       }
     }
@@ -213,12 +212,12 @@ window.onclick = function(e) {
       function calcularEdad(input) {
         var today = new Date();
         var age = today.getFullYear() - birthday.getFullYear();
-          if(age<=18){
+          if(age<18){
             var addClasslist = document.getElementById('errorJSAge');
             errorAge.innerHTML = '<p>Lo siento, no sos mayor de edad</p>';
             addClasslist.classList.add('error');
           }else{
-            pass++;
+
             var addClasslist = document.getElementById('errorJSAge');
             errorAge.innerHTML = '';
             addClasslist.classList.remove('error');
@@ -248,7 +247,7 @@ window.onclick = function(e) {
           }else if (f==formato) {
             errorAvatar.innerHTML = '';
             return input.classList.remove('error')
-            pass++;
+
           }
         }
       }
@@ -265,7 +264,6 @@ window.onclick = function(e) {
           input.classList.add('error');
           errorPass.innerHTML = '<p>Contraseña invalida. Debe contener una mayuscula, un numero y al menos 8 caracteres</p>';
         }else if(errorPassRegex.test(input.value)==true) {
-          pass++;
           errorPass.innerHTML = '';
           input.classList.remove('error');
         }
@@ -274,7 +272,7 @@ window.onclick = function(e) {
 
    function errorPassCheck(input){
      var errorPassCheck = document.getElementById('errorJSPassCheck');
-     var password = document.getElementById('userPass')
+     var password = document.getElementById('userPass');
       if (input.value == "") {
         errorPassCheck.innerHTML = '<p>Error campo Obligatorio</p>';
         input.classList.add('error');
@@ -284,51 +282,94 @@ window.onclick = function(e) {
           input.classList.add('error');
           errorPassCheck.innerHTML = '<p>la contraseña  no coincide</p>';
         }else if(input.value==password.value) {
-          pass++;
+
           errorPassCheck.innerHTML = '';
         }
       }
    }
 
-for (eachform of arrayForm) {
-  eachform.onblur = function(){
-        if (this.name=='name') {
-          errorName(this);
-        }
-        if (this.name=='last_name') {
-          errorLastName(this);
-        }
-        if (this.name=='userAddress') {
-          errorAdress(this);
-        }
-        if (this.name=='email') {
-          errorEmail(this);
-        }
-        if (this.name=='userEmailcheck') {
-          errorEmailCheck(this);
-        }
-        if (this.name=='age') {
-          errorAge(this);
-        }
-        if (this.name=='avatar') {
-          errorAvatar(this);
-        }
-        if (this.name=='password') {
-          errorPass(this);
-        }
-        if (this.name=='password_confirmation') {
-          errorPassCheck(this);
-        }
-     }
-  }
-
+  for (eachform of arrayForm) {
+    eachform.onblur = function(){
+          if (this.name=='name') {
+            errorName(this);
+          }
+          if (this.name=='last_name') {
+            errorLastName(this);
+          }
+          if (this.name=='userAddress') {
+            errorAdress(this);
+          }
+          if (this.name=='email') {
+            errorEmail(this);
+          }
+          if (this.name=='userEmailcheck') {
+            errorEmailCheck(this);
+          }
+          if (this.name=='age') {
+            errorAge(this);
+          }
+          if (this.name=='avatar') {
+            errorAvatar(this);
+          }
+          if (this.name=='password') {
+            errorPass(this);
+          }
+          if (this.name=='password_confirmation') {
+            errorPassCheck(this);
+          }
+       }
+    }
 
   form.onsubmit = function (event){
-    if (pass<9) {
+
+    for (eachform of arrayForm) {
+      var el = eachform;
+            if (el.name=='name') {
+              errorName(el);
+            }
+            if (el.name=='last_name') {
+              errorLastName(el);
+            }
+            if (el.name=='userAddress') {
+              errorAdress(el);
+            }
+            if (el.name=='email') {
+              errorEmail(el);
+            }
+            if (el.name=='userEmailcheck') {
+              errorEmailCheck(el);
+            }
+            if (el.name=='age') {
+              errorAge(el);
+            }
+            if (el.name=='avatar') {
+              errorAvatar(el);
+            }
+            if (el.name=='password') {
+              errorPass(el);
+            }
+            if (el.name=='password_confirmation') {
+              errorPassCheck(el);
+            }
+
+      }
+    var validando = document.getElementById('errorJSName');
+    var validando1 = document.getElementById('errorJSLastName');
+    var validando2 = document.getElementById('errorJSEmail');
+    var validando3 = document.getElementById('errorJSEmailCheck');
+    var validando4 = document.getElementById('errorJSAge');
+    var validando5 = document.getElementById('errorJSPass');
+    var validando6 = document.getElementById('errorJSPassCheck');
+    if (validando.innerHTML!==''||validando1.innerHTML!==''||validando2.innerHTML!==''||validando3.innerHTML!==''||validando4.innerHTML!==''||validando5.innerHTML!==''||validando6.innerHTML!=='') {
       event.preventDefault();
-      document.getElementById('corregir').innerHTML='<h3>Corrija errores y envie de nuevo<h3>'
+      console.log('hola')
+      document.getElementById('corregir').innerHTML='<h3>Corrija errores y envie de nuevo<h3>';
+      document.getElementById('corregir').scrollIntoView({
+        behavior: 'smooth'
+      });
     }else{
-      document.getElementById('corregir').innerHTML=''
+      document.getElementById('corregir').innerHTML='';
+      document.getElementById('corregir').innerHTML='Su usuario se registro exitosamente';
     }
   }
 }
