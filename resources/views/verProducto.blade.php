@@ -3,6 +3,7 @@
 @section('section')
 <main>
 
+    <a href="/editarProducto/{{$product->id}}"> Editar Producto</a>
     <div class="producto-individual">
 
         <div class="producto-1-individual">
