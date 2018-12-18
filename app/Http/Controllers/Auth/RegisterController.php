@@ -54,7 +54,6 @@ class RegisterController extends Controller
            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
            'avatar' => ['mimes:jpeg,png,jpg,gif'],
            'password' => ['required', 'string', 'min:6', 'max:14', 'confirmed'],
-           // 'country' => ['required'],
            'age' => ['required'],
        ],
      [
@@ -71,7 +70,7 @@ class RegisterController extends Controller
        'email.max' => 'El correo debe contener menos de 255 caracteres',
        'email.unique' => 'Ya existe un usuario registrado con ese correo electrónico',
 
-       'avatar.required' => 'Debe ingresar una imagen',
+       // 'avatar.required' => 'Debe ingresar una imagen',
        'avatar.mimes' => 'El formato de la imagen no es válido. Debe ser jpeg, png, jpg o gif',
 
        'password.required' => 'Debe ingresar una contraseña',
@@ -100,7 +99,7 @@ class RegisterController extends Controller
      //   $folder = 'public/avatars';
      //   $path = $data['avatar']->storePublicly( $folder );
      // }
-      User::create([
+      return User::create([
          'name' => $data['name'],
          'last_name' => $data['last_name'],
          'country' => $data['country'],

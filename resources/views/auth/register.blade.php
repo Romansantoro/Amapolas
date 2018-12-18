@@ -85,7 +85,7 @@
                     </div>
                 </div>
 
-                <div class="userAvatar">                    <!-- INPUT DEL AVATAR  -->
+                {{-- <div class="userAvatar">                    <!-- INPUT DEL AVATAR  -->
                     <div class="userData">
                         <div class="labelUserData">
                             <label for="avatar">Imagen de perfil:</label> <br>
@@ -102,7 +102,7 @@
                             </span>
                         @endif
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="userCountry">                    <!-- INPUT DEL PAIS  -->
                     <div class="inputUserData">

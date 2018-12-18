@@ -26,5 +26,8 @@ select.onchange = function() {
        select3.innerHTML += option2;
      }
    })
+ } else if (select.value != 'Argentina') {
+   var select2 = document.querySelector("#provincia");
+    select2.innerHTML = '';
  }
 }
