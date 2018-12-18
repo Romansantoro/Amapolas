@@ -64,12 +64,14 @@ class DatabaseSeeder extends Seeder
                 'name' => $category['name'],
             ]);
         }
+        DB::table('ingredient_product')->insert([
+            'product_id' => $product['id'],
+            'ingredient_id' => $ingredient['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $product['id'],
+          'category_id' => $ingredient['id']
+        ]);
       }
-          // DB::table('ingredient_product')->insert([
-          //     'name' => $ingredient['name'],
-          // ]);
-          // DB::table('ingredient_product')->insert([
-          //     'name' => $ingredient['name'],
-          // ]);
-    }
+
 }
