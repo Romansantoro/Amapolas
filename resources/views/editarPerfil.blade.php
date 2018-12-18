@@ -71,7 +71,7 @@
                  <button style="display:none;" id="submit" type="submit" name="send">Crear cuenta</button>
                </div>
                  <div class="submit" style="background:white">
-                   <a href="index.php">Volver sin guardar</a>
+                   <a href="/">Volver sin guardar</a>
                    <label for="submit" type="submit" name="send">Modificá tu perfil</label>
                  </div>
             </form>

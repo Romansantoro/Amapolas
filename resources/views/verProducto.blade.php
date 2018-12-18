@@ -1,19 +1,12 @@
-@extends('default')
+@extends('default2')
 
 @section('section')
-<link id="href" class="archivoCSS"  rel="stylesheet" href="/css/style.css">
 <main>
 
     <div class="producto-individual">
 
         <div class="producto-1-individual">
-            <img width="100px" height="100px" src="
-                @if ( $product->image == 'avatars/default.jpg' )
-                    {{ '/avatars/default.jpg' }}
-                @else
-                    /{{ Storage::url($product->image) }}
-                @endif">
-            <a href="verProducto.php"></a>
+            <img width="100px" height="100px" src="{{ Storage::url($product->image)}}">
         </div>
 
         <div class="producto-2-individual">
@@ -46,6 +39,10 @@
             </form>
         </div>
 
+    </div>
+
+    <div class="submit">
+      <a href="/{{'catalogo'}}">Volver al Catalogo</a>
     </div>
 
 </main>

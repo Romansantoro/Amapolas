@@ -49,7 +49,7 @@
     <button style="display:none;" id="submit" type="submit" name="send">Crear cuenta</button>
   </div>
    <div class="submit" style="background:white">
-     <a href="index.php">Volver</a>
+     <a href="/">Volver</a>
      <label for="submit" type="submit" name="send">Cambiar Contraseña</label>
    </div>
    </form>

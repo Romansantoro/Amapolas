@@ -5,6 +5,12 @@ Route::get('/perfil', 'Views@showPerfil')->middleware('auth')->name('perfil');
 Route::get('/subirProducto', 'Views@showSubirProducto')->middleware('auth')->name('subirProducto');
 Route::post('/subirProducto', 'ProductController@create')->middleware('auth')->name('subirProductoPost');
 
+Route::get('/editarProducto/{id}', 'Views@showEditarProducto')->middleware('auth')->name('editarProducto');
+Route::post('/editarProducto/{id}', 'ProductController@edit')->middleware('auth')->name('editarProductoPost');
+
+Route::get('/eliminarProducto/{id}', 'Views@showEliminarProducto')->middleware('auth')->name('eliminarProducto');
+Route::post('/eliminarProducto/{id}', 'ProductController@delete')->middleware('auth')->name('eliminarProductoPost');
+
 Route::get('/subirIngrediente', 'IngredientController@index')->middleware('auth')->name('subirIngrediente');
 Route::post('/subirIngrediente', 'IngredientController@create')->middleware('auth')->name('subirIngredientePost');
 
@@ -24,6 +30,8 @@ Route::get('/editarPerfil', 'Views@showEditarPerfil')->middleware('auth')->name(
 Route::get('/catalogo', 'Views@showCatalogo')->name('catalogo');
 
 Route::get('/verProducto/{id}', 'Views@showProducto')->name('verProducto');
+
+Route::get('/carrito/{id}', 'Views@showCarrito')->name('carrito');
 
 Route::get('/quienes-somos', 'Views@showQuienes')->name('quienes-somos');
 

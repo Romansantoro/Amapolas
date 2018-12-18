@@ -1,15 +1,15 @@
-@extends('default')
+@extends('default2')
 
 @section('section')
 <body>
-  <h2 id="tituloRegistro">Subir Producto</h2>
+  <h2 id="tituloRegistro">Editar Producto</h2>
 <div class="formulario">
     <form class="formProd" action="" method="post" enctype="multipart/form-data">
       @csrf
 
           <div class="prodData">
             <div class="inputProdData">
-              <input id="prodName" type="text" name="prodName" value="{{old('prodName')}}" required placeholder="Producto"><span style="color:red;">*</span>
+              <input id="prodName" type="text" name="prodName" value="{{$product->name}}" required placeholder="Producto"><span style="color:red;">*</span>
             </div>
             <div class="error">
               @if ($errors->has('prodName'))
@@ -22,7 +22,7 @@
 
         <div class="prodData">
             <div class="inputProdData">
-              <input id="prodPrecio" type="number" name="prodPrecio" value="{{old('prodPrecio')}}" required placeholder="Precio"><span style="color:red;">*</span>
+              <input id="prodPrecio" type="number" name="prodPrecio" value="{{$product->price}}" required placeholder="Precio"><span style="color:red;">*</span>
             </div>
             <div class="error">
               @if ($errors->has('prodPrecio'))
@@ -38,7 +38,7 @@
                 <div class="labelprodData">
                   <label for="prodStock">Stock del producto:</label>
                 </div>
-              <input id="prodStock" type="number" name="prodStock" value="{{old('prodStock')}}" required placeholder="Cantidad"><span style="color:red;">*</span>
+              <input id="prodStock" type="number" name="prodStock" value="{{$product->stock}}" required placeholder="Cantidad"><span style="color:red;">*</span>
             </div>
             <div class="error">
               @if ($errors->has('prodStock'))
@@ -51,7 +51,7 @@
 
         <div class="prodData">
             <div class="inputProdData">
-              <input id="prodDesc" type="text" name="prodDesc" value="{{old('prodDesc')}}"required placeholder="Descripcion"><span style="color:red;">*</span>
+              <input id="prodDesc" type="text" name="prodDesc" value="{{$product->description}}"required placeholder="Descripcion"><span style="color:red;">*</span>
             </div>
             <div class="error">
               @if ($errors->has('prodDesc'))
@@ -130,7 +130,7 @@
 
 
         <div class="submitProd" style="background:white">
-          <button id="buttonSubProd" type="submit" name="">Subir producto</button>
+          <button id="buttonSubProd" type="submit" name="">Modificar producto</button>
         </div>
     </form>
 </div>

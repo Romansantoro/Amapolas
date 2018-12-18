@@ -238,6 +238,10 @@ footer li{
   margin-left: 10px;
 }
 
+#carrito:hover {
+  color: rgb(135, 122, 134);
+}
+
 #userAvatar{
   font-size: 10px;
   display:flex;
@@ -264,6 +268,10 @@ ul{
   margin: 0;
 }
 
+.hydrated:hover {
+  color: rgb(135, 122, 134);
+}
+
 .btn-info {
   color:black;
   background-image: url(../images/backgroundFood.png);
@@ -272,10 +280,7 @@ ul{
 }
 
 .btn-info:hover {
-  color:black;
-  background-color:
-  background-image: url(../images/backgroundFood.png);
-  border-style: none;
+  color: rgb(135, 122, 134);
 }
 
 .btn-info:focus{
@@ -291,7 +296,6 @@ ul{
   background-image: url(../images/backgroundFood.png);
   color: black;
   border-style: none;
-
 }
 
 
@@ -635,6 +639,38 @@ list-style: none;
 }
 /*----------------------------------CSS SUBIR PRODUCTO-----------------------------------------------*/
 
+/*CAJA PRODUCTO*/
+
+.prodData{
+    margin-bottom: 25px;
+}
+
+.labelProdData{
+margin:0px;
+display: flex;
+margin-bottom: 2%;
+}
+
+.inputProdData {
+margin:0px;
+}
+
+.inputProdData input{
+  border-color:white;
+  border-radius: 5%;
+  /* padding: 10px,100px; */
+}
+
+ /*CAJA ERROR*/
+ .error{
+   display: flex;
+     flex-direction: row;
+     margin-bottom: 25px;
+     justify-content: center;
+     min-width: 300px;
+     font-size: 15px;
+ }
+
 .submitProd{
   display:flex;
 }
@@ -757,10 +793,6 @@ cursor:pointer;
 }
 
 /*-------------------------------- CATALOGO --------------------------------------------*/
-
-.mainCatalogo{
-  margin-top: -2%;
-}
 
 .contenedor-principal{
   display: flex;

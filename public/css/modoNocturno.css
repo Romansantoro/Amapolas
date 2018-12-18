@@ -233,13 +233,21 @@ footer li{
   margin-bottom: 10px;
 }
 
+h1:hover {
+  color: white;
+}
+
 #lista:hover {
-    color: rgb(135, 122, 134);
+    color: white;
     font-size: 101%;
 }
 
 .quienes{
   margin-left: 10px;
+}
+
+#carrito:hover {
+  color: rgb(135, 122, 134);
 }
 
 #userAvatar{
@@ -268,18 +276,20 @@ ul{
   margin: 0;
 }
 
+.hydrated:hover {
+  color:white;
+}
+
 .btn-info {
   color:black;
   background-color:#6e6e6e;
   border-style: none;
   font-size: 20px;
+  border-color: black;
 }
 
 .btn-info:hover {
-  color:black;
-  background-color:
-  background-image: url(../images/backgroundFood.png);
-  border-style: none;
+  color:white;
 }
 
 .btn-info:focus{
@@ -295,7 +305,6 @@ ul{
   background-image: url(../images/backgroundFood.png);
   color: black;
   border-style: none;
-
 }
 
 
@@ -759,10 +768,6 @@ cursor:pointer;
 }
 
 /*-------------------------------- CATALOGO --------------------------------------------*/
-
-.mainCatalogo{
-  margin-top: -2%;
-}
 
 .contenedor-principal{
   display: flex;
