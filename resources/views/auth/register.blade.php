@@ -4,6 +4,9 @@
 @section('section')
 
 <h2 id="tituloRegistro">Registrate</h2>
+  <div id="corregir">
+
+  </div>
     <form class="" action="" method="post" enctype="multipart/form-data">
         @csrf
             <div class="formulario">
