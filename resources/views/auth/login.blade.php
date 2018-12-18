@@ -45,7 +45,7 @@
           </div>
           <div class="login-redes">
             <a href="/login/google" class="btn btn-danger">Ingresar con Google</a>
-            <a href="/login/facebook" class="btn btn-primary">Ingresar con Facebook</a>
+            <a href="{{ route('social.auth', 'facebook') }}" class="btn btn-primary">Ingresar con Facebook</a>
           </div>
         </div>
 

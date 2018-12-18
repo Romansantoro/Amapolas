@@ -2,8 +2,6 @@
 
 @section('section')
 <main>
-
-    <a href="/editarProducto/{{$product->id}}"> Editar Producto</a>
     <div class="producto-individual">
 
         <div class="producto-1-individual">
@@ -41,6 +39,11 @@
         </div>
 
     </div>
+        @if (Auth::user()->admin==1)
+          <a href="/editarProducto/{{$product->id}}"> Editar Producto</a>
+          <a href="/eliminarProducto/{{$product->id}}"> Eliminar Producto</a>
+        @endif
+
 
     <div class="submit">
       <a href="/{{'catalogo'}}">Volver al Catalogo</a>

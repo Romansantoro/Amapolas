@@ -35,6 +35,12 @@ class Views extends Controller
       $ingredients = Ingredient::all();
       return view('verProducto')->with(compact('product'))->with(compact('categories'))->with(compact('ingredients'));
   }
+  public function showEditarProducto($id){
+      $product = Product::find($id);
+      $categories = Category::all();
+      $ingredients = Ingredient::all();
+      return view('editarProducto')->with(compact('product'))->with(compact('categories'))->with(compact('ingredients'));
+  }
   public function showLogin(){
       return view('login');
   }

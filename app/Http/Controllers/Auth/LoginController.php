@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
 use Socialite;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -28,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -54,13 +55,33 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback(Request $request)
     {
         $user = Socialite::driver('google')->user();
-        dd($user);
-        //guardo en BD
+        if ($users = User::where('email', $user->email)->first()) {
+
+        } else {
+          $users = User::create([
+            'name' => $user->name,
+            'email' => $user->email,
+            'last_name' => '',
+            'password' => '',
+          ]);
+        }
+
+        auth()->login($users, true);
+        return $this->sendLoginResponse($request);
 
         // $user->token;
+    }
+
+    protected function sendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+        $this->clearLoginAttempts($request);
+
+        return $this->authenticated($request, $this->guard()->user())
+                ?: redirect()->intended($this->redirectPath());
     }
 
     protected function validateLogin(Request $request)

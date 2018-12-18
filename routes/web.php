@@ -8,8 +8,7 @@ Route::post('/subirProducto', 'ProductController@create')->middleware('auth')->n
 Route::get('/editarProducto/{id}', 'Views@showEditarProducto')->middleware('auth')->name('editarProducto');
 Route::post('/editarProducto/{id}', 'ProductController@edit')->middleware('auth')->name('editarProductoPost');
 
-Route::get('/eliminarProducto/{id}', 'Views@showEliminarProducto')->middleware('auth')->name('eliminarProducto');
-Route::post('/eliminarProducto/{id}', 'ProductController@delete')->middleware('auth')->name('eliminarProductoPost');
+Route::get('/eliminarProducto/{id}', 'ProductController@destroy')->middleware('auth')->name('eliminarProductoPost');
 
 Route::get('/subirIngrediente', 'IngredientController@index')->middleware('auth')->name('subirIngrediente');
 Route::post('/subirIngrediente', 'IngredientController@create')->middleware('auth')->name('subirIngredientePost');
@@ -43,5 +42,7 @@ Auth::routes();
 
 Route::get('login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider')->name('social.auth');
+Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
 
 Route::get('/home', 'HomeController@index')->name('home');
