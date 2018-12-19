@@ -26,6 +26,12 @@
       </div>
 
       <h2>CATALOGO</h2>
+      @auth
+        @if (Auth::user()->admin==1)
+          <a href="/subirProducto"> Subir Producto</a>
+        @endif
+      @endauth
+
       <div class="catalogo">
         @foreach ($products as $product)
           <div class="producto">

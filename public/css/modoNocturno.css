@@ -833,6 +833,10 @@ cursor:pointer;
   flex-direction: column;
 }
 
+.producto-2 p {
+  max-height: 100px;
+}
+
 /*-------------------------------- VISTA PRODUCTO INDIVIDUAL --------------------------------------------*/
 
 .producto-individual{

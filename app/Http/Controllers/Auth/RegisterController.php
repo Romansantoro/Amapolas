@@ -110,4 +110,21 @@ class RegisterController extends Controller
      ]);
 
    }
+   protected function update(array $data)
+   {
+     // if (isset($data['avatar'])) {
+     //   $folder = 'public/avatars';
+     //   $path = $data['avatar']->storePublicly( $folder );
+     // }
+      return User::create([
+         'name' => $data['name'],
+         'last_name' => $data['last_name'],
+         'country' => $data['country'],
+         'province' => $data['province']??null,
+         'email' => $data['email'],
+         'password' => Hash::make($data['password']),
+         'age' => $data['age'],
+     ]);
+
+   }
 }

@@ -29,11 +29,11 @@ class User extends Authenticatable
 
    public function addresses()
    {
-     return $this->hasMany(Address::class);
+     return $this->belongsToMany(Address::class);
    }
 
    public function shoppingCart()
    {
-     return $this->hasMany(shoppingCart::class);
+     return $this->belongsToMany(shoppingCart::class);
    }
 }
