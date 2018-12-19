@@ -436,7 +436,7 @@ input{
 
 #userCountry{
   margin-left: 5px;
-  max-width: 250px;
+  max-width: 200px;
 }
 
 #tituloRegistro{
@@ -560,7 +560,33 @@ margin:0px;
      min-width: 300px;
      font-size: 15px;
  }
-
+ /*CAJA DE ERRORES VALIDACION JAVASCRIPT*/
+.errorJS{
+  color:darkred;
+  background-color:inherit;
+}
+.errorJS p{
+  color:darkred;
+  padding: 0px;
+  background-color:inherit;
+}
+.inputUserData{
+  display: flex;
+}
+.userEmailcheck{
+  width: 69%;
+  display: flex;
+  flex-direction: column;
+  }
+  .userAge{
+    display: flex;
+    flex-direction: column;
+  }
+   #corregir{
+    display: flex;
+    flex-direction: column;
+    color:darkred;
+  }
 /*FIN CSS DEL REGISTRO*/
 /*-------------------------------------------------------------------------*/
 
@@ -901,8 +927,16 @@ cursor:pointer;
 .formulario {
 width: 80%;
 }
-
-
+.inputUserData span{
+  margin:0px;
+}
+.inputUserData {
+    margin: 0px auto;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+}
 
 
 /*-------------------------------------------------------------------------------------------*/

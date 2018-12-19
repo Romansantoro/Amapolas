@@ -16,7 +16,7 @@
                         <input id="name" type="text" name="name" value="{{ old('name') }}"  placeholder="Nombre"><span style="color:red;">*</span>
                       </div>
                 </div>
-                <div class="errorJSName"id="errorJSName"></div>
+                <div class="errorJS" id="errorJSName"></div>
                 <div class="error">
                     @if ($errors->has('name'))
                         <span>
@@ -30,7 +30,7 @@
                         <input id="last_name" type="text" name="last_name" value="{{ old('last_name') }}"  placeholder="Apellido"><span style="color:red;">*</span>
                     </div>
                 </div>
-                <div id="errorJSLastName"></div>
+                <div class="errorJS" id="errorJSLastName"></div>
                 <div class="error">
                   @if ($errors->has('last_name'))
                       <span>
@@ -44,7 +44,7 @@
                         <input id="userEmail" type="email" name="email" value="{{ old('email') }}" placeholder="Email"><span style="color:red;">*</span>
                     </div>
                 </div>
-                <div id="errorJSEmail"></div>
+                <div class="errorJS" id="errorJSEmail"></div>
                 <div class="error">
                     @if ($errors->has('email'))
                         <span>
@@ -54,12 +54,10 @@
                 </div>
 
                 <div class="userEmailcheck">                    <!-- INPUT DEL EMAILCHECK  -->
-                    <div class="userData">
                         <div class="inputUserData">
                             <input id="userEmailcheck" type="email" name="userEmailcheck" value="{{ old('userEmailcheck') }}" placeholder="Confirme su Email"><span style="color:red;">*</span>
                         </div>
-                    </div>
-                    <div id="errorJSEmailCheck"></div>
+                    <div id="errorJSEmailCheck" class="errorJS"></div>
                     <div class="error">
                         @if ($errors->has('userEmailcheck'))
                             <span>
@@ -78,7 +76,7 @@
                             <input id="userAge" type="date" name="age" value="{{ old('age') }}"><span style="color:red;">*</span>
                         </div>
                     </div>
-                    <div id="errorJSAge"></div>
+                    <div class="errorJS" id="errorJSAge"></div>
                     <div class="error">
                         @if ($errors->has('age'))
                             <span>
@@ -97,7 +95,7 @@
                             <input class="archivoSubir" id="userAvatar" type="file" name="avatar" value="">
                         </div>
                     </div>
-                    <div id="errorJSAvatar"></div>
+                    <div class="errorJS" id="errorJSAvatar"></div>
                     <div class="error">
                         @if ($errors->has('avatar'))
                             <span>
@@ -129,7 +127,7 @@
                         <input id="userPass" type="password" name="password" value="" placeholder="Contraseña"><span style="color:red;">*</span>
                     </div>
                 </div>
-                <div id="errorJSPass"></div>
+                <div class="errorJS" id="errorJSPass"></div>
                 <div class="error">
                     @if ($errors->has('password'))
                         <span>
@@ -145,7 +143,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="errorJSPassCheck"></div>
+                <div class="errorJS" id="errorJSPassCheck"></div>
 
 
             </div>  <!-- CIERRE DE LA CLASE FORMULARIO  -->

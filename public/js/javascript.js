@@ -109,7 +109,7 @@ window.onclick = function(e) {
  var errorAdressRegex = /^[a-zA-Z1-9À-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-Z1-9À-ÖØ-öø-ÿ]+\.?)* (((#|[nN][oO]\.?) ?)?\d{1,4}(( ?[a-zA-Z0-9\-]+)+)?)/;
  var errorEmailRegex = /[\w]+@{1}[\w]+\.[a-z]{2,3}/;
  var errorAvatarRegex = /< *[img][^>]*[src] *= *["']{0,1}([^"' >]*)/
- var errorPassRegex = /^(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/
+ var errorPassRegex = /^(?=.{8,})(?=.*\d)(?=.*[a-z])(?!.*\s).*$/
  var pass = 0;
      arrayForm.pop();
 
@@ -117,13 +117,15 @@ window.onclick = function(e) {
    var errorfeed = document.getElementById('errorJSName');
     if (input.value == "") {
       errorfeed.innerHTML = '<p>Error campo Obligatorio</p>';
-      input.classList.add('error');
+      document.getElementById('name').style.borderColor = 'darkred'
     }else if (input.value) {
+      document.getElementById('name').style.borderColor = 'white'
       errorfeed.innerHTML = '';
         if(errorNombreRegex.test(input.value)==false){
-          input.classList.add('error');
+          document.getElementById('name').style.borderColor = 'darkred'
           errorfeed.innerHTML = '<p>Error no es un nombre</p>';
         }else if(errorNombreRegex.test(input.value)==true) {
+          document.getElementById('name').style.borderColor = 'white';
           errorfeed.innerHTML = '';
         }
     }
@@ -133,14 +135,15 @@ window.onclick = function(e) {
    var errorApellido = document.getElementById('errorJSLastName');
     if (input.value == "") {
       errorApellido.innerHTML = '<p>Error campo Obligatorio</p>';
-      input.classList.add('error');
+      document.getElementById('last_name').style.borderColor = 'darkred'
     }else if (input.value) {
+      document.getElementById('last_name').style.borderColor = 'white'
       errorApellido.innerHTML = '';
       if(errorNombreRegex.test(input.value)==false){
-        input.classList.add('error');
+        document.getElementById('last_name').style.borderColor = 'darkred'
         errorApellido.innerHTML = '<p>Error no es un apellido</p>';
       }else if(errorNombreRegex.test(input.value)==true) {
-
+        document.getElementById('last_name').style.borderColor = 'white'
         errorApellido.innerHTML = '';
       }
     }
@@ -150,14 +153,15 @@ window.onclick = function(e) {
    var errorAdress = document.getElementById('errorJSAdress');
     if (input.value == "") {
       errorAdress.innerHTML = '<p>Error campo Obligatorio</p>';
-      input.classList.add('error');
+      document.getElementById('name').style.borderColor = 'darkred'
     }else if (input.value) {
       errorAdress.innerHTML = '';
+      document.getElementById('name').style.borderColor = 'white'
       if(errorAdressRegex.test(input.value)==false){
-        input.classList.add('error');
+        document.getElementById('name').style.borderColor = 'darkred'
         errorAdress.innerHTML = '<p>Error no es una direccion valida</p>';
       }else if(errorAdressRegex.test(input.value)==true) {
-
+        document.getElementById('name').style.borderColor = 'white'
         errorAdress.innerHTML = '';
       }
     }
@@ -167,14 +171,15 @@ window.onclick = function(e) {
    var errorEmail = document.getElementById('errorJSEmail');
     if (input.value == "") {
       errorEmail.innerHTML = '<p>Error campo Obligatorio</p>';
-      input.classList.add('error');
+      document.getElementById('userEmail').style.borderColor = 'darkred'
     }else if (input.value) {
       errorEmail.innerHTML = '';
+      document.getElementById('userEmail').style.borderColor = 'white'
       if(errorEmailRegex.test(input.value)==false){
-        input.classList.add('error');
+        document.getElementById('userEmail').style.borderColor = 'darkred'
         errorEmail.innerHTML = '<p>Error no es una direccion de correo valida</p>';
       }else if(errorEmailRegex.test(input.value)==true) {
-
+        document.getElementById('userEmail').style.borderColor = 'white'
         errorEmail.innerHTML = '';
       }
     }
@@ -185,14 +190,15 @@ window.onclick = function(e) {
    var email = document.getElementById('userEmail')
     if (input.value == "") {
       errorEmailCheck.innerHTML = '<p>Error campo Obligatorio</p>';
-      input.classList.add('error');
+      document.getElementById('userEmailcheck').style.borderColor = 'darkred'
     }else if (input.value) {
+      document.getElementById('userEmailcheck').style.borderColor = 'white'
       errorEmailCheck.innerHTML = '';
       if(input.value!==email.value){
-        input.classList.add('error');
+        document.getElementById('userEmailcheck').style.borderColor = 'darkred'
         errorEmailCheck.innerHTML = '<p>Error el correo no coincide</p>';
       }else if(input.value==email.value) {
-
+        document.getElementById('userEmailcheck').style.borderColor = 'white'
         errorEmailCheck.innerHTML = '';
       }
     }
@@ -202,7 +208,7 @@ window.onclick = function(e) {
    var errorAge = document.getElementById('errorJSAge');
     if (input.value == "") {
       errorAge.innerHTML = '<p>Error campo Obligatorio</p>';
-      input.classList.add('error');
+      document.getElementById('userAge').style.borderColor = 'darkred'
     }else if (input.value) {
       var input = input.value;
       var year = input.substring(4,0);
@@ -215,12 +221,11 @@ window.onclick = function(e) {
           if(age<18){
             var addClasslist = document.getElementById('errorJSAge');
             errorAge.innerHTML = '<p>Lo siento, no sos mayor de edad</p>';
-            addClasslist.classList.add('error');
+            document.getElementById('userAge').style.borderColor = 'darkred'
           }else{
-
             var addClasslist = document.getElementById('errorJSAge');
             errorAge.innerHTML = '';
-            addClasslist.classList.remove('error');
+            document.getElementById('userAge').style.borderColor = 'white'
           }
        }
       calcularEdad();
@@ -231,8 +236,9 @@ window.onclick = function(e) {
      var errorAvatar = document.getElementById('errorJSAvatar');
      if (input.value == "") {
        errorAvatar.innerHTML = '<p>Error campo Obligatorio</p>';
-       input.classList.add('error');
+       document.getElementById('userAvatar').style.borderColor = 'darkred'
      } else if (input.value) {
+       document.getElementById('userAvatar').style.borderColor = 'white'
         errorAvatar.innerHTML = '';
         var cadena = input.value
         var separador = "."
@@ -243,11 +249,10 @@ window.onclick = function(e) {
         for (f of formatosAceptados) {
            if(f!==formato){
             errorAvatar.innerHTML = 'Formato no valido. Solo aceptamos (JPG, jpg, PNG, png, jpeg)';
-            input.classList.add('error');
+            document.getElementById('userAvatar').style.borderColor = 'darkred'
           }else if (f==formato) {
             errorAvatar.innerHTML = '';
-            return input.classList.remove('error')
-
+            return  document.getElementById('userAvatar').style.borderColor = 'white'
           }
         }
       }
@@ -257,15 +262,16 @@ window.onclick = function(e) {
      var errorPass = document.getElementById('errorJSPass');
       if (input.value == "") {
         errorPass.innerHTML = '<p>Error campo Obligatorio</p>';
-        input.classList.add('error');
+        document.getElementById('userPass').style.borderColor = 'darkred'
       }else if (input.value) {
+        document.getElementById('userPass').style.borderColor = 'white'
         errorPass.innerHTML = '';
         if(errorPassRegex.test(input.value)==false){
-          input.classList.add('error');
+          document.getElementById('userPass').style.borderColor = 'darkred'
           errorPass.innerHTML = '<p>Contraseña invalida. Debe contener una mayuscula, un numero y al menos 8 caracteres</p>';
         }else if(errorPassRegex.test(input.value)==true) {
           errorPass.innerHTML = '';
-          input.classList.remove('error');
+          document.getElementById('userPass').style.borderColor = 'white'
         }
       }
    }
@@ -275,14 +281,15 @@ window.onclick = function(e) {
      var password = document.getElementById('userPass');
       if (input.value == "") {
         errorPassCheck.innerHTML = '<p>Error campo Obligatorio</p>';
-        input.classList.add('error');
+        document.getElementById('userPasscheck').style.borderColor = 'darkred'
       }else if (input.value) {
         errorPassCheck.innerHTML = '';
+        document.getElementById('userPasscheck').style.borderColor = 'white'
         if(input.value!==password.value){
-          input.classList.add('error');
+          document.getElementById('userPasscheck').style.borderColor = 'darkred'
           errorPassCheck.innerHTML = '<p>la contraseña  no coincide</p>';
         }else if(input.value==password.value) {
-
+          document.getElementById('userPasscheck').style.borderColor = 'white'
           errorPassCheck.innerHTML = '';
         }
       }
@@ -362,8 +369,7 @@ window.onclick = function(e) {
     var validando6 = document.getElementById('errorJSPassCheck');
     if (validando.innerHTML!==''||validando1.innerHTML!==''||validando2.innerHTML!==''||validando3.innerHTML!==''||validando4.innerHTML!==''||validando5.innerHTML!==''||validando6.innerHTML!=='') {
       event.preventDefault();
-      console.log('hola')
-      document.getElementById('corregir').innerHTML='<h3>Corrija errores y envie de nuevo<h3>';
+      document.getElementById('corregir').innerHTML='<h3>Hay errores en el formulario! Corrija y vuelva a enviar<h3>';
       document.getElementById('corregir').scrollIntoView({
         behavior: 'smooth'
       });

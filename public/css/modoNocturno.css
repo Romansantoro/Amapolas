@@ -446,7 +446,7 @@ input{
 
 #userCountry{
   margin-left: 5px;
-  max-width: 250px;
+  max-width: 200px;
 }
 
 #tituloRegistro{
@@ -569,7 +569,33 @@ margin:0px;
      justify-content: flex-start;
      min-width: 300px;
  }
-
+ /*CAJA DE ERRORES VALIDACION JAVASCRIPT*/
+.errorJS{
+  color:darkred;
+  background-color:inherit;
+}
+.errorJS p{
+  color:darkred;
+  padding: 0px;
+  background-color:inherit;
+}
+.inputUserData{
+  display: flex;
+}
+.userEmailcheck{
+  width: 69%;
+  display: flex;
+  flex-direction: column;
+  }
+  .userAge{
+    display: flex;
+    flex-direction: column;
+  }
+  #corregir{
+    display: flex;
+    flex-direction: column;
+    color:darkred;
+  }
 /*FIN CSS DEL REGISTRO*/
 /*-------------------------------------------------------------------------*/
 
