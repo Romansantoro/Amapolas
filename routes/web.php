@@ -10,6 +10,8 @@ Route::post('/editarProducto/{id}', 'ProductController@edit')->middleware('auth'
 
 Route::get('/eliminarProducto/{id}', 'ProductController@destroy')->middleware('auth')->name('eliminarProductoPost');
 
+Route::get('/borrarDireccion/{id}', 'UserController@borrarDireccion')->middleware('auth')->name('borrarDireccion');
+
 Route::get('/subirIngrediente', 'IngredientController@index')->middleware('auth')->name('subirIngrediente');
 Route::post('/subirIngrediente', 'IngredientController@create')->middleware('auth')->name('subirIngredientePost');
 
@@ -17,10 +19,12 @@ Route::get('/subirCategoria', 'CategoryController@index')->middleware('auth')->n
 Route::post('/subirCategoria', 'CategoryController@create')->middleware('auth')->name('subirCategoriaPost');
 
 Route::get('/cambiarContraseña', 'Views@showCambiarContraseña')->middleware('auth')->name('cambiarContraseña');
+Route::post('/cambiarContraseña', 'UserController@passChange')->middleware('auth')->name('cambiarContraseñaPost');
 
 Route::get('/recuperarContraseña', 'Views@showRecuperarContraseña')->middleware('auth')->name('recuperarContraseña');
 
 Route::get('/editarPerfil', 'Views@showEditarPerfil')->middleware('auth')->name('editarPerfil');
+Route::post('/editarPerfil', 'UserController@edit')->middleware('auth')->name('editarPerfilPost');
 
 // Route::get('/register', 'Views@showRegistro')->name('register');
 //

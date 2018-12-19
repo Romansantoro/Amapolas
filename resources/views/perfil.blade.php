@@ -31,9 +31,9 @@
       <div class="direcciones">
         <h2>Mis direcciones: </h2>
         <ul>
-          <li> {{ $user->address }} </li>
-          <li></li>
-          <li></li>
+          @foreach ($user->addresses as $address)
+            <li>{{ $address->name }}</li><a href="borrarDireccion/{{ $address->id }}">Eliminar</a>
+          @endforeach
         </ul>
       </div>
       <div class="misUltimosPedidos">

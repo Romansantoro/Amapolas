@@ -38,11 +38,14 @@ class DatabaseSeeder extends Seeder
             ['name'=>'Ricota', 'id' => '4'], ['name'=>'Queso', 'id' => '5'], ['name'=>'Crema', 'id' => '6'],
             ['name'=>'Papa', 'id' => '7'], ['name'=>'Atun', 'id' => '8'], ['name'=>'Zapallo', 'id' => '9'],
             ['name'=>'Lentejas', 'id' => '10'], ['name'=>'Espinaca', 'id' => '11'], ['name'=>'Cebolla', 'id' => '12'],
+            ['name'=>'Pan', 'id' => '13'], ['name'=>'Limon', 'id' => '14'], ['name'=>'Fruta', 'id' => '15'],
+            ['name'=>'Miel', 'id' => '16'],
         ];
         $categories = [
-            ['name'=>'Torta', 'id' => '1'], ['name'=>'Tarta', 'id' => '2'], ['name'=>'Empanada', 'id' => '3'],
-            ['name'=>'Guiso', 'id' => '4'], ['name'=>'Sopa', 'id' => '5'], ['name'=>'Pasta', 'id' => '6'],
-            ['name'=>'Carne', 'id' => '7'], ['name'=>'Verdura', 'id' => '8'],
+            ['name'=>'Tortas', 'id' => '1'], ['name'=>'Tartas', 'id' => '2'], ['name'=>'Empanadas', 'id' => '3'],
+            ['name'=>'Guisos', 'id' => '4'], ['name'=>'Sopas', 'id' => '5'], ['name'=>'Pastas', 'id' => '6'],
+            ['name'=>'Carnes', 'id' => '7'], ['name'=>'Verduras', 'id' => '8'], ['name'=>'Ensaladas', 'id' => '9'],
+            ['name'=>'Entradas', 'id' => '9'], ['name'=>'Pasteleria', 'id' => '10'],
         ];
         foreach ($products as $product) {
             DB::table('products')->insert([
@@ -64,14 +67,217 @@ class DatabaseSeeder extends Seeder
                 'name' => $category['name'],
             ]);
         }
+        DB::table('users')->insert([
+             'name' => 'Admin',
+             'last_name' => 'ADMIN',
+             'country' => 'Matrix',
+             'province' => 'Hacker',
+             'email' => 'admin@admin.admin',
+             'password' => Hash::make('asd123'),
+             'age' => '18',
+             'admin' => '1',
+        ]);
+
         DB::table('ingredient_product')->insert([
-            'product_id' => $product['id'],
-            'ingredient_id' => $ingredient['id'],
+            'product_id' => $products[0]['id'],
+            'ingredient_id' => $ingredients[2]['id'],
         ]);
         DB::table('category_product')->insert([
-          'product_id' => $product['id'],
-          'category_id' => $ingredient['id']
+          'product_id' => $products[0]['id'],
+          'category_id' => $categories[0]['id'],
         ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[1]['id'],
+            'ingredient_id' => $ingredients[3]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[1]['id'],
+          'category_id' => $categories[0]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[2]['id'],
+            'ingredient_id' => $ingredients[10]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[2]['id'],
+          'category_id' => $categories[1]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[3]['id'],
+            'ingredient_id' => $ingredients[12]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[3]['id'],
+          'category_id' => $categories[0]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[4]['id'],
+            'ingredient_id' => $ingredients[7]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[4]['id'],
+          'category_id' => $categories[2]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[5]['id'],
+            'ingredient_id' => $ingredients[14]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[5]['id'],
+          'category_id' => $categories[8]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[6]['id'],
+            'ingredient_id' => $ingredients[7]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[6]['id'],
+          'category_id' => $categories[9]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[7]['id'],
+            'ingredient_id' => $ingredients[8]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[7]['id'],
+          'category_id' => $categories[4]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[8]['id'],
+            'ingredient_id' => $ingredients[5]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[8]['id'],
+          'category_id' => $categories[6]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[9]['id'],
+            'ingredient_id' => $ingredients[9]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[9]['id'],
+          'category_id' => $categories[3]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[10]['id'],
+            'ingredient_id' => $ingredients[6]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[10]['id'],
+          'category_id' => $categories[6]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[11]['id'],
+            'ingredient_id' => $ingredients[12]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[11]['id'],
+          'category_id' => $categories[9]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[12]['id'],
+            'ingredient_id' => $ingredients[8]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[12]['id'],
+          'category_id' => $categories[1]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[13]['id'],
+            'ingredient_id' => $ingredients[10]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[13]['id'],
+          'category_id' => $categories[7]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[14]['id'],
+            'ingredient_id' => $ingredients[4]['id'],
+        ]);
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[14]['id'],
+            'ingredient_id' => $ingredients[5]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[14]['id'],
+          'category_id' => $categories[0]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[15]['id'],
+            'ingredient_id' => $ingredients[1]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[15]['id'],
+          'category_id' => $categories[5]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[16]['id'],
+            'ingredient_id' => $ingredients[12]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[16]['id'],
+          'category_id' => $categories[6]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[17]['id'],
+            'ingredient_id' => $ingredients[13]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[17]['id'],
+          'category_id' => $categories[0]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[18]['id'],
+            'ingredient_id' => $ingredients[11]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[18]['id'],
+          'category_id' => $categories[8]['id'],
+        ]);
+
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[19]['id'],
+            'ingredient_id' => $ingredients[0]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[19]['id'],
+          'category_id' => $categories[0]['id'],
+        ]);
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[19]['id'],
+            'ingredient_id' => $ingredients[1]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[19]['id'],
+          'category_id' => $categories[1]['id'],
+        ]);
+        DB::table('ingredient_product')->insert([
+            'product_id' => $products[19]['id'],
+            'ingredient_id' => $ingredients[2]['id'],
+        ]);
+        DB::table('category_product')->insert([
+          'product_id' => $products[19]['id'],
+          'category_id' => $categories[2]['id'],
+        ]);
+
       }
 
 }

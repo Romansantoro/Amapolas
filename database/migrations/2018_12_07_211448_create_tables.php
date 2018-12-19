@@ -24,7 +24,7 @@ class CreateTables extends Migration
         $table->integer('rating')->nullable();
         $table->string('description')->nullable();
         $table->string('flavour');
-        $table->string('image')->nullable();
+        $table->string('image')->default('avatars/default.jpg');
         $table->timestamps();
       });
 
@@ -61,7 +61,6 @@ class CreateTables extends Migration
       Schema::create('addresses', function (Blueprint $table) {
         $table->increments('id');
         $table->string('name');
-        $table->unsignedInteger('number');
         $table->timestamps();
       });
 

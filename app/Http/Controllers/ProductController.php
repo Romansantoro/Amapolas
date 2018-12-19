@@ -63,11 +63,11 @@ class ProductController extends Controller
       if ($request->file('prodImagen')) {
         $folder = 'public/productos';
         $path = $request->file('prodImagen')->storePublicly( $folder );
-        $product->image = $path??null;
       }
        $product = Product::create([
           'name' => $request->input('prodName'),
           'price' => $request->input('prodPrecio'),
+          'image' => $path??'avatars/default.jpg',
           'description' => $request->input('prodDesc'),
           'stock' => $request->input('prodStock'),
           'flavour' => $request->input('prodSabor'),
@@ -136,6 +136,16 @@ class ProductController extends Controller
         $product->stock = $request->input('prodStock');
         $product->flavour = $request->input('prodSabor');
         $product->save();
+        //borrar relaciones
+        $product->categories()->detach();
+        $product->ingredients()->detach();
+        //agregar nuevas relaciones
+        foreach ($request->input('categories') as $category) {
+          $product->categories()->attach($category);
+        }
+        foreach ($request->input('ingredients') as $ingredient) {
+          $product->ingredients()->attach($ingredient);
+        }
 
       return redirect('/verProducto/'.$id);
 
