@@ -526,9 +526,8 @@ margin:0px;
 }
 .submit{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  margin-top: 20px;
   width:50%;
 }
 
@@ -564,10 +563,12 @@ margin:0px;
 
  /*CAJA ERROR*/
  .error{
+   display: flex;
      flex-direction: row;
      margin-bottom: 25px;
-     justify-content: flex-start;
+     justify-content: center;
      min-width: 300px;
+     font-size: 15px;
  }
  /*CAJA DE ERRORES VALIDACION JAVASCRIPT*/
 .errorJS{
@@ -598,7 +599,13 @@ margin:0px;
   }
 /*FIN CSS DEL REGISTRO*/
 /*-------------------------------------------------------------------------*/
+/*CSS DEL CHANGE PASS*/
 
+.changePassTitle {
+  margin-bottom: 30px;
+}
+
+/*-------------------------------------------------------------------------*/
 
 /*CSS DEL PROFILE:PHP*/
 .imagenAvatar img{
@@ -636,7 +643,7 @@ list-style: none;
 
 .misUltimosPedidos{
   margin-bottom: 20px;
-
+  width: 67%;
 }
 
 .pedidosEnCurso{
@@ -768,6 +775,7 @@ cursor:pointer;
 
 .filtros {
   display: flex;
+  flex-direction: column;
   padding-left: 3%;
   padding-right: 3%;
 }
@@ -776,7 +784,7 @@ cursor:pointer;
   border: 2px solid black;
   padding: 1%;
   background-color: #aeaeae;
-  margin-right: 5%;
+  margin-bottom: 3%;
 }
 
 .categorias ul {
@@ -802,7 +810,7 @@ cursor:pointer;
 
 .catalogo {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     margin-right: 10px;
     margin-left: 10px;
@@ -824,7 +832,6 @@ cursor:pointer;
   flex-direction: column;
   border: 2px solid grey;
   padding: 1%;
-  width: 30%;
   align-self: center;
 }
 
@@ -833,7 +840,8 @@ cursor:pointer;
   flex-direction: column;
 }
 
-.producto-2 p {
+.description {
+  display: none;
   max-height: 100px;
 }
 
@@ -841,11 +849,10 @@ cursor:pointer;
 
 .producto-individual{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border: 2px solid grey;
   border-radius: 5%;
   padding: 1%;
-  width: 60%;
   align-self: center;
   align-items: center;
 }
@@ -854,8 +861,6 @@ cursor:pointer;
   border: 2px inset orange;
   border-radius: 50%;
   display: flex;
-  width: 400px;
-  height: 400px;
 }
 
 .producto-2-individual {
@@ -863,8 +868,36 @@ cursor:pointer;
   flex-direction: column;
 }
 
+.categorias-producto li {
+  list-style: none;
+}
+
+.ingredientes-producto li {
+  list-style: none;
+}
+
 .submit-producto {
   margin-top: 10%;
+}
+
+/*-------------------------------- CSS DEL PERFIL --------------------------------------------*/
+
+#tituloPerfil {
+  display: flex;
+  justify-content: center;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+/*---------------------------------------------------------------------------*/
+
+@media (min-width:360px) {
+  .misUltimosPedidos {
+    width: 100%;
+  }
 }
 
 /*---------------------------------------------------------------------------*/
@@ -901,6 +934,25 @@ cursor:pointer;
     margin: 10px 90px;
   }
 
+  /*--------------------------------ESTILOS FORMULARIO DE REGISTRO-----------------------------------------------*/
+
+  .formulario {
+  width: 80%;
+  }
+  .inputUserData span{
+    margin:0px;
+  }
+  .inputUserData {
+      margin: 0px auto;
+      margin-top: 0px;
+      margin-right: auto;
+      margin-bottom: 0px;
+      margin-left: auto;
+  }
+
+
+  /*-------------------------------------------------------------------------------------------*/
+
   @media (min-width: 768px){
     .container {
       width: auto;
@@ -917,6 +969,11 @@ cursor:pointer;
 footer .submit a{
   display:flex;
 }
+
+.submit {
+  flex-direction: row;
+}
+
 /*--------------------------------DEFAULTBLADE-----------------------------------------------*/
 #aHide{
   display: none;
@@ -978,6 +1035,27 @@ font-size: 20px;
   margin-top: 50px;
 }
 
+/*---------------------------------------------------------------------------------------*/
+
+/*CSS DEL CATALOGO:PHP*/
+
+.filtros {
+  flex-direction: row;
+}
+
+.categorias {
+  margin-right: 5%;
+  margin-bottom: 0;
+}
+
+.catalogo {
+  flex-direction: row;
+}
+
+.producto {
+  width: 30%;
+}
+
 /*--------------------------------------------------------------------------*/
 
 @media (min-width:1024px) {
@@ -1005,6 +1083,10 @@ p{
 main{
   background-color: white;
   background-image: none;
+}
+
+.mainCatalogo {
+  background-color: #aeaeae;
 }
 
 footer{
@@ -1063,10 +1145,6 @@ font-size: 20px;
   cursor:pointer;
 }
 
-.submit{
-  width: 30%;
-}
-
 /*FIN CSS DEL REGISTRO*/
 /*------------------------------------------------------------------------------*/
 /*CSS DEL PROFILE:PHP*/
@@ -1109,5 +1187,26 @@ padding:0;
   margin-bottom:30px ;
   font-size: 20px;
 }
-/*---------------------------------------------------------------------------*/
+/*-----------------------------CSS CATALOGO----------------------------------------------*/
+
+.description {
+  display: flex;
+  background-color: #aeaeae;
+}
+/*---------------------------------------------------------------------------------------*/
+
+/*CSS DEL PRODUCTO INDIVIDUAL*/
+
+.producto-individual{
+  width: 60%;
+  flex-direction: row;
+}
+
+.producto-1-individual img {
+  width: 400px;
+  height: 400px;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
 }

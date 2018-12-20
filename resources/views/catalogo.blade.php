@@ -47,7 +47,7 @@
             </div>
             <div class="producto-2">
               <h4>{{$product->name}}</h4>
-              <p>{{$product->description}}</p>
+              <p class="description">{{$product->description}}</p>
               <a href="/verProducto/{{$product->id}}" class="">Ver Detalle</a>
               <form action="" method="POST">
                 <input name="quantity" type="hidden" value="1" />

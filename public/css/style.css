@@ -516,7 +516,7 @@ margin:0px;
 }
 .submit{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   width:50%;
 }
@@ -589,7 +589,13 @@ margin:0px;
   }
 /*FIN CSS DEL REGISTRO*/
 /*-------------------------------------------------------------------------*/
+/*CSS DEL CHANGE PASS*/
 
+.changePassTitle {
+  margin-bottom: 30px;
+}
+
+/*-------------------------------------------------------------------------*/
 
 /*CSS DEL PROFILE:PHP*/
 .imagenAvatar img{
@@ -627,7 +633,7 @@ list-style: none;
 
 .misUltimosPedidos{
   margin-bottom: 20px;
-
+  width: 67%;
 }
 
 .pedidosEnCurso{
@@ -793,6 +799,7 @@ cursor:pointer;
 
 .filtros {
   display: flex;
+  flex-direction: column;
   padding-left: 3%;
   padding-right: 3%;
 }
@@ -801,7 +808,7 @@ cursor:pointer;
   border: 2px solid orange;
   padding: 1%;
   background-image: url(../images/backgroundFood.png);
-  margin-right: 5%;
+  margin-bottom: 3%;
 }
 
 .categorias ul {
@@ -827,7 +834,7 @@ cursor:pointer;
 
 .catalogo {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     margin-right: 10px;
     margin-left: 10px;
@@ -849,7 +856,6 @@ cursor:pointer;
   flex-direction: column;
   border: 2px solid grey;
   padding: 1%;
-  width: 30%;
   align-self: center;
 }
 
@@ -858,7 +864,8 @@ cursor:pointer;
   flex-direction: column;
 }
 
-.producto-2 p {
+.description {
+  display: none;
   max-height: 100px;
 }
 
@@ -866,11 +873,10 @@ cursor:pointer;
 
 .producto-individual{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border: 2px solid grey;
   border-radius: 5%;
   padding: 1%;
-  width: 60%;
   align-self: center;
   align-items: center;
 }
@@ -879,8 +885,6 @@ cursor:pointer;
   border: 2px inset orange;
   border-radius: 50%;
   display: flex;
-  width: 400px;
-  height: 400px;
 }
 
 .producto-2-individual {
@@ -888,8 +892,36 @@ cursor:pointer;
   flex-direction: column;
 }
 
+.categorias-producto li {
+  list-style: none;
+}
+
+.ingredientes-producto li {
+  list-style: none;
+}
+
 .submit-producto {
   margin-top: 10%;
+}
+
+/*-------------------------------- CSS DEL PERFIL --------------------------------------------*/
+
+#tituloPerfil {
+  display: flex;
+  justify-content: center;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+/*---------------------------------------------------------------------------*/
+
+@media (min-width:360px) {
+  .misUltimosPedidos {
+    width: 100%;
+  }
 }
 
 /*---------------------------------------------------------------------------*/
@@ -961,6 +993,11 @@ width: 80%;
 footer .submit a{
   display:flex;
 }
+
+.submit {
+  flex-direction: row;
+}
+
 /*--------------------------------DEFAULTBLADE-----------------------------------------------*/
 #aHide{
   display: none;
@@ -1014,6 +1051,27 @@ font-size: 20px;
 
 .userInfo{
   margin-top: 50px;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/*CSS DEL CATALOGO*/
+
+.filtros {
+  flex-direction: row;
+}
+
+.categorias {
+  margin-right: 5%;
+  margin-bottom: 0;
+}
+
+.catalogo {
+  flex-direction: row;
+}
+
+.producto {
+  width: 30%;
 }
 
 /*--------------------------------------------------------------------------*/
@@ -1101,10 +1159,6 @@ font-size: 20px;
   cursor:pointer;
 }
 
-.submit{
-  width: 30%;
-}
-
 /*FIN CSS DEL REGISTRO*/
 /*------------------------------------------------------------------------------*/
 /*CSS DEL PROFILE:PHP*/
@@ -1147,5 +1201,26 @@ padding:0;
   margin-bottom:30px ;
   font-size: 20px;
 }
-/*---------------------------------------------------------------------------*/
+/*-----------------------------CSS CATALOGO----------------------------------------------*/
+
+.description {
+  display: flex;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/*CSS DEL PRODUCTO INDIVIDUAL*/
+
+.producto-individual{
+  width: 60%;
+  flex-direction: row;
+}
+
+.producto-1-individual img {
+  width: 400px;
+  height: 400px;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
 }

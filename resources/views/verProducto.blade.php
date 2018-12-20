@@ -39,11 +39,12 @@
         </div>
 
     </div>
-        @if (Auth::user()->admin==1)
-          <a href="/editarProducto/{{$product->id}}"> Editar Producto</a>
-          <a href="/eliminarProducto/{{$product->id}}"> Eliminar Producto</a>
-        @endif
-
+        @auth
+          @if (Auth::user()->admin==1)
+            <a href="/editarProducto/{{$product->id}}"> Editar Producto</a>
+            <a href="/eliminarProducto/{{$product->id}}"> Eliminar Producto</a>
+          @endif
+        @endauth
 
     <div class="submit">
       <a href="/{{'catalogo'}}">Volver al Catalogo</a>

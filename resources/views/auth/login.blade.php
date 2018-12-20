@@ -36,13 +36,13 @@
               </button>
             </div>
           </div>
-          <div class="centrar">
+          {{-- <div class="centrar">
               @if (Route::has('password.request'))
                 <a class="btn btn-link" href="{{ route('password.request') }}">
                   {{ __('Olvidé mi contraseña') }}
                 </a>
               @endif
-          </div>
+          </div> --}}
           <div class="login-redes">
             <a href="/login/google" class="btn btn-danger">Ingresar con Google</a>
             <a href="{{ route('social.auth', 'facebook') }}" class="btn btn-primary">Ingresar con Facebook</a>

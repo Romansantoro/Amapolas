@@ -53,16 +53,16 @@
                             </form>
                           @endguest
 
-                            <a href="{{route('quienes-somos')}}" id="aHide">Preguntas frecuentes</a>
-                            <a href="/preguntas-frecuentes"id="a2Hide" >¿Quienes somos?</a>
+                            <a href="{{route('preguntas-frecuentes')}}" id="aHide">Preguntas frecuentes</a>
+                            <a href="{{route('quienes-somos')}}"id="a2Hide" >¿Quienes somos?</a>
                          </div>
                    </div>
                  </div>
           </div>
 
-          <div class="mobile" ><a href="/preguntas-frecuentes"><li id="lista">Preguntas frecuentes</li></a></div>
+          <div class="mobile" ><a href="{{route('preguntas-frecuentes')}}"><li id="lista">Preguntas frecuentes</li></a></div>
 
-          <div class="mobile"><a href="/quienes-somos"><li class="quienes" id="lista">¿Quienes somos?</li></a></div>
+          <div class="mobile"><a href="{{route('quienes-somos')}}"><li class="quienes" id="lista">¿Quienes somos?</li></a></div>
 
           <div class="dropdownMenu">
              <button class="dropbtn" onclick="myFunctionCarrito2()" id="carrito"> <li class="carrito" id="lista"><ion-icon name="cart"></ion-icon></li>
@@ -95,7 +95,7 @@
                 <h4 class="modal-title">CONTACTO</h4>
               </div>
               <div class="modal-body">
-                <p>Para realizar cualquier tipo de consulta, encontranos en Calle Falsa 123, o también por telefono:</p>
+                <p>Para realizar cualquier tipo de consulta, encontranos en Atacama 1147, o también por telefono:</p>
                 <li class="whatsapp">(+54) 1154738493 <ion-icon name="logo-whatsapp"></ion-icon></li>
               </div>
               <div class="modal-footer">

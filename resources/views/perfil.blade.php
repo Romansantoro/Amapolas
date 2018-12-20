@@ -4,7 +4,7 @@
   <?php $user = Auth::user() ?>
   <main class="mainProfile">
     <div class="myProfile">
-      <h1>Mi Perfil</h1>
+      <h1 id="tituloPerfil">Mi Perfil</h1>
       <div class="imagenAvatar">
         <img src= "
         @if ( $user->avatar == 'avatars/default.jpg' )
@@ -39,9 +39,6 @@
       <div class="misUltimosPedidos">
         <h2>Últimos pedidos realizados: </h2>
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
         </ul>
       </div>
       <div class="pedidosEnCurso">

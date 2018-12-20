@@ -5,7 +5,7 @@
   <form class="" action="" method="post">
     @csrf
     <div class="formulario">
-    <h2 id="tituloRegistro" style="margin-left: 0px;">Cambiar su contraseña</h2>
+    <h2 class="changePassTitle">Cambiar su contraseña</h2>
 
     <div class="userPass">                    <!-- INPUT DEL PASSWORD  -->
         <div class="inputUserData">
@@ -30,10 +30,11 @@
     </div>
     <div id="errorJSPassCheck"></div>
 
-   <div class="submit" style="background:white">
-     <a href="/">Volver</a>
-     <button for="submit" type="submit" name="send">Cambiar Contraseña</button>
+     <div class="submit">
+       <a href="/">Volver</a>
+       <label for="submit" type="submit" name="send">Cambiar Contraseña</label>
+     </div>
    </div>
-   </form>
+  </form>
 
 @endsection
