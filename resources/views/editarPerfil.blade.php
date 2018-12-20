@@ -76,7 +76,7 @@
 
                 <div class="userLastName">                    <!-- INPUT DEL ADDRESS  -->
                     <div class="inputUserData">
-                        <input id="address" type="text" name="address" value="{{ old('address') }}"  placeholder="Direccion"><span style="color:red;">*</span>
+                        <input id="address" type="text" name="address" value="{{ old('address') }}"  placeholder="Agregar direccion"><span style="color:red;">*</span>
                     </div>
                 </div>
                 <div id="errorJSAddress"></div>
@@ -114,10 +114,78 @@
             </div>
             <div class="submit">
                 <a href="index.php">Volver</a>
-                <label for="submit" type="submit" name="send">Editar</label>
+                <label for="submit" type="submit" name="send">Guardar cambios</label>
             </div>
     </form>
 
         <script src="js/javascript.js"></script>
-        <script src="select.js"></script>
+        <script>
+        var select = document.querySelector("#userCountry");
+        fetch("https://restcountries.eu/rest/v2/all")
+        .then(function(response){
+         return response.json();
+        })
+        .then(function(data){
+         for (pais of data) {
+           if( "{{ Auth::user()->country }}" == pais.name ){
+             selected = 'selected';
+           }else{
+             selected = '';
+           }
+           var option = '<option '+ selected +' value="' + pais.name + '">' + pais.name + '</option>';
+           select.innerHTML += option;
+         }
+         if (select.value == 'Argentina') {
+           fetch("https://dev.digitalhouse.com/api/getProvincias")
+           .then(function(response){
+             return response.json();
+           })
+           .then(function(data){
+             var select2 = document.querySelector("#provincia");
+             select2.innerHTML = '<select id="provincias" name="province" ></select>';
+             var select3 = document.querySelector("#provincias");
+             for (provincia of data) {
+               if( "{{ Auth::user()->province }}" == provincia.state ){
+                 selected = 'selected';
+               }else{
+                 selected = '';
+               }
+               var option2 = '<option '+ selected +' id="' + provincia.state + '" value="' + provincia.state + '">' + provincia.state + '</option>';
+
+               select3.innerHTML += option2;
+             }
+           })
+         } else if (select.value != 'Argentina') {
+           var select2 = document.querySelector("#provincia");
+            select2.innerHTML = '';
+         }
+        })
+
+        select.onchange = function() {
+         if (select.value == 'Argentina') {
+           fetch("https://dev.digitalhouse.com/api/getProvincias")
+           .then(function(response){
+             return response.json();
+           })
+           .then(function(data){
+             var select2 = document.querySelector("#provincia");
+             select2.innerHTML = '<select id="provincias" name="province" ></select>';
+             var select3 = document.querySelector("#provincias");
+             for (provincia of data) {
+               if( "{{ Auth::user()->province }}" == provincia.state ){
+                 sel = 'selected';
+               }else{
+                 sel = '';
+               }
+               var option2 = '<option '+sel+' id="' + provincia.state + '" value="' + provincia.state + '">' + provincia.state + '</option>';
+
+               select3.innerHTML += option2;
+             }
+           })
+         } else if (select.value != 'Argentina') {
+           var select2 = document.querySelector("#provincia");
+            select2.innerHTML = '';
+         }
+        }
+        </script>
 @endsection

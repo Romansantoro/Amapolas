@@ -158,5 +158,49 @@
     </form>
 
   </div>
-<script src="select.js" charset="utf-8"></script>
+  <script>
+  var select = document.querySelector("#userCountry");
+  fetch("https://restcountries.eu/rest/v2/all")
+  .then(function(response){
+   return response.json();
+  })
+  .then(function(data){
+   for (pais of data) {
+     if( "{{ Auth::user()->country }}" == pais.name ){
+       selected = 'selected';
+     }else{
+       selected = '';
+     }
+     var option = '<option '+ selected +' value="' + pais.name + '">' + pais.name + '</option>';
+     select.innerHTML += option;
+   }
+  })
+
+  select.onchange = function() {
+   if (select.value == 'Argentina') {
+     fetch("https://dev.digitalhouse.com/api/getProvincias")
+     .then(function(response){
+       return response.json();
+     })
+     .then(function(data){
+       var select2 = document.querySelector("#provincia");
+       select2.innerHTML = '<select id="provincias" name="province" ></select>';
+       var select3 = document.querySelector("#provincias");
+       for (provincia of data) {
+         if( "{{ Auth::user()->province }}" == provincia.state ){
+           sel = 'selected';
+         }else{
+           sel = '';
+         }
+         var option2 = '<option '+sel+' id="' + provincia.state + '" value="' + provincia.state + '">' + provincia.state + '</option>';
+
+         select3.innerHTML += option2;
+       }
+     })
+   } else if (select.value != 'Argentina') {
+     var select2 = document.querySelector("#provincia");
+      select2.innerHTML = '';
+   }
+  }
+  </script>
 @endsection
