@@ -29,7 +29,6 @@ class SocialAuthController extends Controller
             $user = User::create([
                 'name' => $social_user->name,
                 'email' => $social_user->email,
-                'avatar' => $social_user->avatar,
             ]);
 
             return $this->authAndRedirect($user); // Login y redirección

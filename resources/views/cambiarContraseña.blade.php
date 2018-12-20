@@ -2,17 +2,17 @@
 
 @section('section')
 
-  <form class="" action="" method="post">
+  <form class="formCC" action="" method="post">
     @csrf
-    <div class="formulario formCC">
+    <div class="formulario">
     <h2 class="changePassTitle">Cambiar su contraseña</h2>
-
+    <div id="errorJSCC"></div>
     <div class="userPass">                    <!-- INPUT DEL PASSWORD  -->
         <div class="inputUserData">
             <input id="userPass" type="password" name="password" value="" placeholder="Contraseña"><span style="color:red;">*</span>
         </div>
     </div>
-    <div id="errorJSPass"></div>
+    <div class="error fontsize errorJS" id="errorJSPassCC"></div>
     <div class="error">
         @if ($errors->has('password'))
             <span>
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div id="errorJSPassCheck"></div>
+    <div class="error fontsize errorJS" id="errorJSPassCheckCC"></div>
 
      <div class="submit">
        <a href="/">Volver</a>

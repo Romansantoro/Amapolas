@@ -36,7 +36,7 @@
           <div class="menu">
             @guest
             <div class="dropdownMenu ">
-                <button class="dropbtn" onclick="myFunctionMenu()" id="lista">MENU<div><ion-icon name="arrow-dropdown" style="margin-top:5px"></ion-icon></div><i class="fa fa-caret-down"></i></button>
+                <button class="dropbtn" onclick="myFunctionMenu()" id="lista">MENU<ion-icon class="ion" onclick="myFunctionMenu()"name="arrow-dropdown" style="margin-top:5px"></ion-icon><i class="fa fa-caret-down"></i></button>
                   <div class="dropdown-content responsive" id="myDropdown1">
                       <a href="{{route('login')}}" >Ingresar</a>
                       <a href="{{route('register')}}" >Registrarse</a>
