@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link id="href" class="archivoCSS"  rel="stylesheet" href="css/style.css">
+    <!-- <script src="js/validaciones.js"></script> -->
     <script src="js/javascript.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -24,12 +25,11 @@
           <ion-icon name="sunny"></ion-icon>
         </div>
       </div>
-      <a href="/" id="logo">
-        <div class="logo">
-          <img src="" alt="">
-          <h1>Amapolas</h1>
-        </div>
-      </a>
+      <div class="logo">
+        <a href="/" id="logo">
+            <h1>Amapolas</h1>
+        </a>
+      </div>
 
       <nav class="userNav">
         <ul class="ulDefaultBlade">
@@ -64,14 +64,14 @@
 
           <div class="mobile"><a href="{{route('quienes-somos')}}"><li class="quienes" id="lista">¿Quienes somos?</li></a></div>
 
-          <div class="dropdownMenu">
+          {{-- <div class="dropdownMenu">
              <button class="dropbtn" onclick="myFunctionCarrito2()" id="carrito"> <li class="carrito" id="lista"><ion-icon name="cart"></ion-icon></li>
                <i class="fa fa-caret-down"></i>
              </button>
              <div class="dropdown-content" id="myDropdown4">
                <a href="pagar">Ir a pagar</a>
              </div>
-         </div>
+         </div> --}}
         </ul>
       </nav>
     </header>

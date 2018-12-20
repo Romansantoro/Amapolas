@@ -194,7 +194,6 @@ background-color: #6e6e6e;
 }
 
 header h1{
-  margin-bottom: 20px;
   font-family: 'Dancing Script', cursive;
   font-weight: bold;
   display: flex;
@@ -206,6 +205,9 @@ header h1{
 #logo {
   color: black;
   text-decoration: none;
+  display: flex;
+  justify-content: center;
+  width: 30%;
 }
 /* ------------------------------------------------------------------------------------ */
 
@@ -987,6 +989,9 @@ footer .submit a{
 
 .contenedor-login{
 font-size: 20px;
+}
+.fontsize{
+  font-size: 15px;
 }
 
 /*FINAL ESTILOS LOGIN.PHP*/

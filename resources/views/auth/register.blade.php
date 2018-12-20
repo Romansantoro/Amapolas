@@ -86,25 +86,6 @@
                     </div>
                 </div>
 
-                {{-- <div class="userAvatar">                    <!-- INPUT DEL AVATAR  -->
-                    <div class="userData">
-                        <div class="labelUserData">
-                            <label for="avatar">Imagen de perfil:</label> <br>
-                        </div>
-                        <div class="inputUserData">
-                            <input class="archivoSubir" id="userAvatar" type="file" name="avatar" value="">
-                        </div>
-                    </div>
-                    <div class="errorJS" id="errorJSAvatar"></div>
-                    <div class="error">
-                        @if ($errors->has('avatar'))
-                            <span>
-                                <strong>{{ $errors->first('avatar') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div> --}}
-
                 <div class="userCountry">                    <!-- INPUT DEL PAIS  -->
                     <div class="inputUserData">
                         <select id="userCountry" name="country">
@@ -156,7 +137,40 @@
                 <label for="submit" type="submit" name="send">Crear cuenta</label>
             </div>
     </form>
-
   </div>
-<script src="select.js" charset="utf-8"></script>
+  <script>
+  var select = document.querySelector("#userCountry");
+  fetch("https://restcountries.eu/rest/v2/all")
+  .then(function(response){
+   return response.json();
+  })
+  .then(function(data){
+   for (pais of data) {
+     var option = '<option value="' + pais.name + '">' + pais.name + '</option>';
+     select.innerHTML += option;
+   }
+  })
+
+  select.onchange = function() {
+   if (select.value == 'Argentina') {
+     fetch("https://dev.digitalhouse.com/api/getProvincias")
+     .then(function(response){
+       return response.json();
+     })
+     .then(function(data){
+       var select2 = document.querySelector("#provincia");
+       select2.innerHTML = '<select id="provincias" name="province" ></select>';
+       var select3 = document.querySelector("#provincias");
+       for (provincia of data) {
+         var option2 = '<option id="' + provincia.state + '" value="' + provincia.state + '">' + provincia.state + '</option>';
+
+         select3.innerHTML += option2;
+       }
+     })
+   } else if (select.value != 'Argentina') {
+     var select2 = document.querySelector("#provincia");
+      select2.innerHTML = '';
+   }
+  }
+  </script>
 @endsection

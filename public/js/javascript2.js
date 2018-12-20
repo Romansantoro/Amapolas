@@ -298,7 +298,7 @@ window.onclick = function(e) {
           if (this.name=='last_name') {
             errorLastName(this);
           }
-          if (this.name=='userAddress') {
+          if (this.name=='address') {
             errorAdress(this);
           }
           if (this.name=='email') {

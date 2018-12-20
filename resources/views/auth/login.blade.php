@@ -7,23 +7,26 @@
       <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="formularioLogin">
+          <div class="errorJS fontsize" id="erroresLogin"></div>
           <div class="css">
             <div class="userData">
               <input type="text" id="email"  name="email" placeholder="Email" value="{{ old('email') }}" required autofocus><span></span>
             </div>
-          </div>
-          <div class="error">
+          </div>  
+          <div class="errorJS fontsize" id="errorLoginJS"></div>
+          <div>
             @if ($errors->has('email'))
-              <strong>{{ $errors->first('email') }}</strong>
+              <p class="errorJS fontsize">{{ $errors->first('email') }}</p>
             @endif
           </div>
           <div class="css">
             <div class="userData">
               <input type="password" id="userPass" name="password" maxlength="14" placeholder="Contraseña" required>
             </div>
-              <div class="error">
+            <div class="errorJS fontsize" id="errorLoginJSPass"></div>
+              <div>
                 @if ($errors->has('password'))
-                  <strong>{{ $errors->first('password') }}</strong>
+                  <p class="errorJS fontsize">{{ $errors->first('password') }}</p>
                 @endif
             </div>
           </div>

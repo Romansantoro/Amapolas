@@ -86,8 +86,8 @@
             </div>
             <div class="inputProdData">
               @foreach ($ingredients as $ingredient)
-                  <input id="{{$ingredient->id}}"  type="checkbox" name="ingredients[]" value="{{$ingredient->id}}">
-                  <label for="{{$ingredient->id}}">{{$ingredient->name}}</label>
+                  <input id="ingredient_{{$ingredient->id}}"  type="checkbox" name="ingredients[]" value="{{$ingredient->id}}">
+                  <label for="ingredient_{{$ingredient->id}}">{{$ingredient->name}}</label>
               @endforeach
             </div>
             <div class="error">
@@ -102,8 +102,8 @@
             </div>
             <div class="inputProdData">
               @foreach ($categories as $category)
-                  <input id="{{$category->id}}"  type="checkbox" name="categories[]" value="{{$category->id}}">
-                  <label for="{{$category->id}}">{{$category->name}}</label>
+                  <input id="categoy_{{$category->id}}"  type="checkbox" name="categories[]" value="{{$category->id}}">
+                  <label for="categoy_{{$category->id}}">{{$category->name}}</label>
               @endforeach
             </div>
             <div class="error">
@@ -130,7 +130,7 @@
 
 
         <div class="submitProd" style="background:white">
-          <button id="buttonSubProd" type="submit" name="">Subir producto</button>
+          <button id="buttonSubProd" type="submit" name="">Guardar producto</button>
         </div>
     </form>
 </div>

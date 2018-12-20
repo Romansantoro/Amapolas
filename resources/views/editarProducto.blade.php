@@ -9,7 +9,7 @@
 
           <div class="prodData">
             <div class="inputProdData">
-              <input id="prodName" type="text" name="prodName" value="{{$product->name}}" required placeholder="Producto"><span style="color:red;">*</span>
+              <input id="prodName" type="text" name="prodName" value="{{old('prodName', $product->name)}}" required placeholder="Producto"><span style="color:red;">*</span>
             </div>
             <div class="error">
               @if ($errors->has('prodName'))
@@ -22,7 +22,7 @@
 
         <div class="prodData">
             <div class="inputProdData">
-              <input id="prodPrecio" type="number" name="prodPrecio" value="{{$product->price}}" required placeholder="Precio"><span style="color:red;">*</span>
+              <input id="prodPrecio" type="number" name="prodPrecio" value="{{old('prodName', $product->price)}}" required placeholder="Precio"><span style="color:red;">*</span>
             </div>
             <div class="error">
               @if ($errors->has('prodPrecio'))
@@ -38,7 +38,7 @@
                 <div class="labelprodData">
                   <label for="prodStock">Stock del producto:</label>
                 </div>
-              <input id="prodStock" type="number" name="prodStock" value="{{$product->stock}}" required placeholder="Cantidad"><span style="color:red;">*</span>
+              <input id="prodStock" type="number" name="prodStock" value="{{old('prodName', $product->stock)}}" required placeholder="Cantidad"><span style="color:red;">*</span>
             </div>
             <div class="error">
               @if ($errors->has('prodStock'))
@@ -51,7 +51,7 @@
 
         <div class="prodData">
             <div class="inputProdData">
-              <input id="prodDesc" type="text" name="prodDesc" value="{{$product->description}}"required placeholder="Descripcion"><span style="color:red;">*</span>
+              <input id="prodDesc" type="text" name="prodDesc" value="{{old('prodName', $product->description)}}"required placeholder="Descripcion"><span style="color:red;">*</span>
             </div>
             <div class="error">
               @if ($errors->has('prodDesc'))
@@ -68,8 +68,12 @@
             <div class="inputProdData">
               <select class="optionSabor" name="prodSabor">
                 <option value="" disabled selected>Seleccione un sabor</option>
-                <option value="salado">Salado</option>
-                <option value="dulce">Dulce</option>
+                <option @if ($product->flavour == 'Salado')
+                  {{'selected'}}
+                @endif value="salado">Salado</option>
+                <option @if ($product->flavour == 'Dulce')
+                  {{'selected'}}
+                @endif value="dulce">Dulce</option>
               </select>
             </div>
             <div class="error">
@@ -86,8 +90,8 @@
             </div>
             <div class="inputProdData">
               @foreach ($ingredients as $ingredient)
-                  <input id="{{$ingredient->id}}"  type="checkbox" name="ingredients[]" value="{{$ingredient->id}}">
-                  <label for="{{$ingredient->id}}">{{$ingredient->name}}</label>
+                  <input id="ingredient_{{$ingredient->id}}"  type="checkbox" name="ingredients[]" value="{{$ingredient->id}}">
+                  <label for="ingredient_{{$ingredient->id}}">{{$ingredient->name}}</label>
               @endforeach
             </div>
             <div class="error">
@@ -102,8 +106,8 @@
             </div>
             <div class="inputProdData">
               @foreach ($categories as $category)
-                  <input id="{{$category->id}}"  type="checkbox" name="categories[]" value="{{$category->id}}">
-                  <label for="{{$category->id}}">{{$category->name}}</label>
+                  <input id="category_{{$category->id}}"  type="checkbox" name="categories[]" value="{{$category->id}}">
+                  <label for="category_{{$category->id}}">{{$category->name}}</label>
               @endforeach
             </div>
             <div class="error">
@@ -130,7 +134,7 @@
 
 
         <div class="submitProd" style="background:white">
-          <button id="buttonSubProd" type="submit" name="">Modificar producto</button>
+          <button id="buttonSubProd" type="submit" name="">Guardar producto</button>
         </div>
     </form>
 </div>

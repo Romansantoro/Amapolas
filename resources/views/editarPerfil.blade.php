@@ -4,16 +4,16 @@
   <body>
     <h2 id="tituloRegistro">Editá tu perfil</h2>
 
-    <form class="" action="" method="post" enctype="multipart/form-data">
+    <form class="editarPerfil" action="" method="post" enctype="multipart/form-data">
         @csrf
             <div class="formulario">
-
+                <div class="errorJS error" id="corregirEdit"></div>
                 <div class="userName2">                    <!-- INPUT DEL NOMBRE  -->
                     <div class="inputUserData">
                         <input id="name" type="text" name="name" value="{{ old('name', Auth::user()->name ) }}"  placeholder="Nombre"><span style="color:red;">*</span>
                       </div>
                 </div>
-                <div class="errorJSName"id="errorJSName"></div>
+                <div class="errorJS fontsize" id="erroresEdit"></div>
                 <div class="error">
                     @if ($errors->has('name'))
                         <span>
@@ -27,7 +27,7 @@
                         <input id="last_name" type="text" name="last_name" value="{{ old('last_name', Auth::user()->last_name) }}"  placeholder="Apellido"><span style="color:red;">*</span>
                     </div>
                 </div>
-                <div id="errorJSLastName"></div>
+                <div class="errorJS fontsize" id="errorEditLN"></div>
                 <div class="error">
                   @if ($errors->has('last_name'))
                       <span>
@@ -45,7 +45,7 @@
                             <input id="userAge" type="date" name="age" value="{{ old('age', Auth::user()->age) }}"><span style="color:red;">*</span>
                         </div>
                     </div>
-                    <div id="errorJSAge"></div>
+                    <div class="errorJS fontsize" id="errorEditAge"></div>
                     <div class="error">
                         @if ($errors->has('age'))
                             <span>
@@ -64,7 +64,7 @@
                             <input class="archivoSubir" id="userAvatar" type="file" name="avatar" value="">
                         </div>
                     </div>
-                    <div id="errorJSAvatar"></div>
+                    <div class="errorJS fontsize" id="errorEditAvatar" style="display: flex; flex-direction: row;justify-content: center;"></div>
                     <div class="error">
                         @if ($errors->has('avatar'))
                             <span>
@@ -76,10 +76,10 @@
 
                 <div class="userLastName">                    <!-- INPUT DEL ADDRESS  -->
                     <div class="inputUserData">
-                        <input id="address" type="text" name="address" value="{{ old('address') }}"  placeholder="Direccion"><span style="color:red;">*</span>
+                        <input id="address" type="text" name="address" value="{{ old('address') }}"  placeholder="Agregar direccion"><span style="color:red;">*</span>
                     </div>
                 </div>
-                <div id="errorJSAddress"></div>
+                <div class="errorJS fontsize" id="errorEditAdress"></div>
                 <div class="error">
                   @if ($errors->has('address'))
                       <span>
@@ -114,10 +114,78 @@
             </div>
             <div class="submit">
                 <a href="index.php">Volver</a>
-                <label for="submit" type="submit" name="send">Editar</label>
+                <label for="submit" type="submit" name="send">Guardar cambios</label>
             </div>
     </form>
 
         <script src="js/javascript.js"></script>
-        <script src="select.js"></script>
+        <script>
+        var select = document.querySelector("#userCountry");
+        fetch("https://restcountries.eu/rest/v2/all")
+        .then(function(response){
+         return response.json();
+        })
+        .then(function(data){
+         for (pais of data) {
+           if( "{{ Auth::user()->country }}" == pais.name ){
+             selected = 'selected';
+           }else{
+             selected = '';
+           }
+           var option = '<option '+ selected +' value="' + pais.name + '">' + pais.name + '</option>';
+           select.innerHTML += option;
+         }
+         if (select.value == 'Argentina') {
+           fetch("https://dev.digitalhouse.com/api/getProvincias")
+           .then(function(response){
+             return response.json();
+           })
+           .then(function(data){
+             var select2 = document.querySelector("#provincia");
+             select2.innerHTML = '<select id="provincias" name="province" ></select>';
+             var select3 = document.querySelector("#provincias");
+             for (provincia of data) {
+               if( "{{ Auth::user()->province }}" == provincia.state ){
+                 selected = 'selected';
+               }else{
+                 selected = '';
+               }
+               var option2 = '<option '+ selected +' id="' + provincia.state + '" value="' + provincia.state + '">' + provincia.state + '</option>';
+
+               select3.innerHTML += option2;
+             }
+           })
+         } else if (select.value != 'Argentina') {
+           var select2 = document.querySelector("#provincia");
+            select2.innerHTML = '';
+         }
+        })
+
+        select.onchange = function() {
+         if (select.value == 'Argentina') {
+           fetch("https://dev.digitalhouse.com/api/getProvincias")
+           .then(function(response){
+             return response.json();
+           })
+           .then(function(data){
+             var select2 = document.querySelector("#provincia");
+             select2.innerHTML = '<select id="provincias" name="province" ></select>';
+             var select3 = document.querySelector("#provincias");
+             for (provincia of data) {
+               if( "{{ Auth::user()->province }}" == provincia.state ){
+                 sel = 'selected';
+               }else{
+                 sel = '';
+               }
+               var option2 = '<option '+sel+' id="' + provincia.state + '" value="' + provincia.state + '">' + provincia.state + '</option>';
+
+               select3.innerHTML += option2;
+             }
+           })
+         } else if (select.value != 'Argentina') {
+           var select2 = document.querySelector("#provincia");
+            select2.innerHTML = '';
+         }
+        }
+        </script>
 @endsection
