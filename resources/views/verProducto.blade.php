@@ -6,10 +6,10 @@
 
         <div class="producto-1-individual">
             <img width="100px" height="100px" src="
-            @if ( $producto->image == 'avatars/default.jpg' )
-              {{ 'avatars/default.jpg' }}
+            @if ( $product->image == 'avatars/default.jpg' )
+              {{ '/avatars/default.jpg' }}
             @else
-              {{ Storage::url($producto->image) }}
+              {{ Storage::url($product->image) }}
             @endif">
         </div>
 
