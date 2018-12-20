@@ -24,10 +24,6 @@
         <h2>País:</h2>
         <p>{{ $user->country }} <?php if ($user->province):?>{{ $user->province }}<?php endif; ?></p>
       </div>
-      <div class="direccionActual">
-        <h2>Mi dirección actual:</h2>
-        <p>{{ $user->address }}</p>
-      </div>
       <div class="direcciones">
         <h2>Mis direcciones: </h2>
         <ul>
@@ -36,7 +32,7 @@
           @endforeach
         </ul>
       </div>
-      <div class="misUltimosPedidos">
+      {{-- <div class="misUltimosPedidos">
         <h2>Últimos pedidos realizados: </h2>
         <ul>
           <li></li>
@@ -49,7 +45,7 @@
           <ul>
             <li></li>
           </ul>
-      </div>
+      </div> --}}
     </div>
 
   </main>

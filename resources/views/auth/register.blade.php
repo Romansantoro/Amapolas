@@ -86,25 +86,6 @@
                     </div>
                 </div>
 
-                {{-- <div class="userAvatar">                    <!-- INPUT DEL AVATAR  -->
-                    <div class="userData">
-                        <div class="labelUserData">
-                            <label for="avatar">Imagen de perfil:</label> <br>
-                        </div>
-                        <div class="inputUserData">
-                            <input class="archivoSubir" id="userAvatar" type="file" name="avatar" value="">
-                        </div>
-                    </div>
-                    <div class="errorJS" id="errorJSAvatar"></div>
-                    <div class="error">
-                        @if ($errors->has('avatar'))
-                            <span>
-                                <strong>{{ $errors->first('avatar') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div> --}}
-
                 <div class="userCountry">                    <!-- INPUT DEL PAIS  -->
                     <div class="inputUserData">
                         <select id="userCountry" name="country">
@@ -166,12 +147,7 @@
   })
   .then(function(data){
    for (pais of data) {
-     if( "{{ Auth::user()->country }}" == pais.name ){
-       selected = 'selected';
-     }else{
-       selected = '';
-     }
-     var option = '<option '+ selected +' value="' + pais.name + '">' + pais.name + '</option>';
+     var option = '<option value="' + pais.name + '">' + pais.name + '</option>';
      select.innerHTML += option;
    }
   })
@@ -187,12 +163,7 @@
        select2.innerHTML = '<select id="provincias" name="province" ></select>';
        var select3 = document.querySelector("#provincias");
        for (provincia of data) {
-         if( "{{ Auth::user()->province }}" == provincia.state ){
-           sel = 'selected';
-         }else{
-           sel = '';
-         }
-         var option2 = '<option '+sel+' id="' + provincia.state + '" value="' + provincia.state + '">' + provincia.state + '</option>';
+         var option2 = '<option id="' + provincia.state + '" value="' + provincia.state + '">' + provincia.state + '</option>';
 
          select3.innerHTML += option2;
        }
