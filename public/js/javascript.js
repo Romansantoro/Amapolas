@@ -101,7 +101,6 @@ window.onclick = function(e) {
 /*----------------------JS VALIDACIONES REGISTRO ----------------------*/
 
  var form = document.querySelector("form");
- console.log(form);
  var elementosDelForm = form.elements;
  var arrayForm = Array.from(elementosDelForm);
  var errorNombreRegex =  /^[a-z-A-Z\D]+$/g
@@ -109,12 +108,10 @@ window.onclick = function(e) {
  var errorAdressRegex = /^[a-zA-Z1-9À-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-Z1-9À-ÖØ-öø-ÿ]+\.?)* (((#|[nN][oO]\.?) ?)?\d{1,4}(( ?[a-zA-Z0-9\-]+)+)?)/;
  var errorEmailRegex = /[\w]+@{1}[\w]+\.[a-z]{2,3}/;
  var errorAvatarRegex = /< *[img][^>]*[src] *= *["']{0,1}([^"' >]*)/
- var errorPassRegex = /^(?=.{8,})(?=.*\d)(?=.*[a-z])(?!.*\s).*$/
- var pass = 0;
-     arrayForm.pop();
+ var errorPassRegex = /^(?=.{6,})(?=.*\d)(?=.*[a-z])(?!.*\s).*$/
 
  function errorName(input){
-   var errorfeed = document.getElementById('errorJSName');
+   var errorfeed = document.getElementsByClassName('errorJSName');
     if (input.value == "") {
       errorfeed.innerHTML = '<p>Error campo Obligatorio</p>';
       document.getElementById('name').style.borderColor = 'darkred'
@@ -153,15 +150,15 @@ window.onclick = function(e) {
    var errorAdress = document.getElementById('errorJSAdress');
     if (input.value == "") {
       errorAdress.innerHTML = '<p>Error campo Obligatorio</p>';
-      document.getElementById('name').style.borderColor = 'darkred'
+      document.getElementById('adress').style.borderColor = 'darkred'
     }else if (input.value) {
       errorAdress.innerHTML = '';
-      document.getElementById('name').style.borderColor = 'white'
+      document.getElementById('adress').style.borderColor = 'white'
       if(errorAdressRegex.test(input.value)==false){
-        document.getElementById('name').style.borderColor = 'darkred'
+        document.getElementById('adress').style.borderColor = 'darkred'
         errorAdress.innerHTML = '<p>Error no es una direccion valida</p>';
       }else if(errorAdressRegex.test(input.value)==true) {
-        document.getElementById('name').style.borderColor = 'white'
+        document.getElementById('adress').style.borderColor = 'white'
         errorAdress.innerHTML = '';
       }
     }
@@ -268,7 +265,7 @@ window.onclick = function(e) {
         errorPass.innerHTML = '';
         if(errorPassRegex.test(input.value)==false){
           document.getElementById('userPass').style.borderColor = 'darkred'
-          errorPass.innerHTML = '<p>Contraseña invalida. Debe contener una mayuscula, un numero y al menos 8 caracteres</p>';
+          errorPass.innerHTML = '<p>Contraseña invalida. Debe contener un numero y al menos 6 caracteres</p>';
         }else if(errorPassRegex.test(input.value)==true) {
           errorPass.innerHTML = '';
           document.getElementById('userPass').style.borderColor = 'white'
@@ -303,7 +300,7 @@ window.onclick = function(e) {
           if (this.name=='last_name') {
             errorLastName(this);
           }
-          if (this.name=='userAddress') {
+          if (this.name=='address') {
             errorAdress(this);
           }
           if (this.name=='email') {
@@ -337,7 +334,7 @@ window.onclick = function(e) {
             if (el.name=='last_name') {
               errorLastName(el);
             }
-            if (el.name=='userAddress') {
+            if (el.name=='address') {
               errorAdress(el);
             }
             if (el.name=='email') {
@@ -378,4 +375,345 @@ window.onclick = function(e) {
       document.getElementById('corregir').innerHTML='Su usuario se registro exitosamente';
     }
   }
+
+
+  /*JS VALIDACION LOGIN_-------------------------------------------------------------*/
+  if (window.location.href == 'http://localhost:8000/login') {
+    var formulario = document.querySelector('form');
+    var formularioE = formulario.elements;
+    var arrayFormularioLogin = Array.from(formularioE)
+    console.log(arrayFormularioLogin)
+
+    function errorEmail(input){
+      var errorEmail = document.getElementById('errorLoginJS');
+       if (input.value == "") {
+         errorEmail.innerHTML = '<p>Error campo Obligatorio</p>';
+         document.getElementById('email').style.borderColor = 'darkred'
+       }else if (input.value) {
+         errorEmail.innerHTML = '';
+         document.getElementById('email').style.borderColor = 'white'
+         if(errorEmailRegex.test(input.value)==false){
+           document.getElementById('email').style.borderColor = 'darkred'
+           errorEmail.innerHTML = '<p>Error no es una direccion de correo valida</p>';
+         }else if(errorEmailRegex.test(input.value)==true) {
+           document.getElementById('email').style.borderColor = 'white'
+           errorEmail.innerHTML = '';
+         }
+       }
+    }
+
+      function errorPass(input){
+        var errorPass = document.getElementById('errorLoginJSPass');
+         if (input.value == "") {
+           errorPass.innerHTML = '<p>Error campo Obligatorio</p>';
+           document.getElementById('userPass').style.borderColor = 'darkred'
+         }else if (input.value) {
+           document.getElementById('userPass').style.borderColor = 'white'
+           errorPass.innerHTML = '';
+           if(errorPassRegex.test(input.value)==false){
+             document.getElementById('userPass').style.borderColor = 'darkred'
+             errorPass.innerHTML = '<p>Contraseña invalida. Debe contener un numero y al menos 6 caracteres</p>';
+           }else if(errorPassRegex.test(input.value)==true) {
+             errorPass.innerHTML = '';
+             document.getElementById('userPass').style.borderColor = 'white'
+           }
+         }
+      }
+
+     for (eachform of arrayForm) {
+       eachform.onblur = function(){
+             if (this.name=='email') {
+               errorEmail(this);
+             }
+             if (this.name=='password') {
+               errorPass(this);
+             }
+          }
+       }
+
+     form.onsubmit = function (event){
+
+       for (eachform of arrayForm) {
+         var el = eachform;
+
+               if (el.name=='email') {
+                 errorEmail(el);
+               }
+               if (el.name=='password') {
+                 errorPass(el);
+               }
+         }
+       var validando2 = document.getElementById('errorLoginJS');
+       var validando5 = document.getElementById('errorLoginJSPass');
+       if (validando2.innerHTML!==''||validando5.innerHTML!=='') {
+         event.preventDefault();
+         document.getElementById('erroresLogin').innerHTML='<h3>Hay errores en el formulario! Corrija y vuelva a enviar<h3>';
+         document.getElementById('erroresLogin').scrollIntoView({
+           behavior: 'smooth'
+         });
+       }else{
+         document.getElementById('erroresLogin').innerHTML='';
+         document.getElementById('erroresLogin').innerHTML='Su usuario se logueo exitosamente';
+       }
+     }
+}
+/*----------------------------------VALIDACIONES EDITAR PERFIL----------------------------------------------------*/
+
+if (window.location.href == 'http://localhost:8000/editarPerfil') {
+  console.log('hola')
+  var formularioEditP = document.querySelector('form.editarPerfil');
+  console.log(formularioEditP)
+   var formularioEd = formularioEditP.elements;
+  var arrayFormEdit = Array.from(formularioEd);
+      arrayFormEdit.pop()
+  console.log(arrayFormEdit)
+
+  function errorName(input){
+    var errorfeed = document.getElementById('erroresEdit');
+     if (input.value == "") {
+       errorfeed.innerHTML = '<p>Error campo Obligatorio</p>';
+       document.getElementById('name').style.borderColor = 'darkred'
+     }else if (input.value) {
+       document.getElementById('name').style.borderColor = 'white'
+       errorfeed.innerHTML = '';
+         if(errorNombreRegex.test(input.value)==false){
+           document.getElementById('name').style.borderColor = 'darkred'
+           errorfeed.innerHTML = '<p>Error no es un nombre</p>';
+         }else if(errorNombreRegex.test(input.value)==true) {
+           document.getElementById('name').style.borderColor = 'white';
+           errorfeed.innerHTML = '';
+         }
+     }
+   }
+
+  function errorLastName(input){
+    var errorApellido = document.getElementById('errorEditLN');
+     if (input.value == "") {
+       errorApellido.innerHTML = '<p>Error campo Obligatorio</p>';
+       document.getElementById('last_name').style.borderColor = 'darkred'
+     }else if (input.value) {
+       document.getElementById('last_name').style.borderColor = 'white'
+       errorApellido.innerHTML = '';
+       if(errorNombreRegex.test(input.value)==false){
+         document.getElementById('last_name').style.borderColor = 'darkred'
+         errorApellido.innerHTML = '<p>Error no es un apellido</p>';
+       }else if(errorNombreRegex.test(input.value)==true) {
+         document.getElementById('last_name').style.borderColor = 'white'
+         errorApellido.innerHTML = '';
+       }
+     }
+  }
+
+  function errorAdress(input){
+    var errorAdress = document.getElementById('errorEditAdress');
+     if (input.value == "") {
+       errorAdress.innerHTML = '<p>Error campo Obligatorio</p>';
+       document.getElementById('address').style.borderColor = 'darkred'
+     }else if (input.value) {
+       errorAdress.innerHTML = '';
+       document.getElementById('address').style.borderColor = 'white'
+       if(errorAdressRegex.test(input.value)==false){
+         document.getElementById('address').style.borderColor = 'darkred'
+         errorAdress.innerHTML = '<p>Error no es una direccion valida</p>';
+       }else if(errorAdressRegex.test(input.value)==true) {
+         document.getElementById('address').style.borderColor = 'white'
+         errorAdress.innerHTML = '';
+       }
+     }
+  }
+
+  function errorAge(input){
+    var errorAge = document.getElementById('errorEditAge');
+     if (input.value == "") {
+       errorAge.innerHTML = '<p>Error campo Obligatorio</p>';
+       document.getElementById('userAge').style.borderColor = 'darkred'
+     }else if (input.value) {
+       var input = input.value;
+       var year = input.substring(4,0);
+       var month = input.substring(7,5);
+       var day = input.substring(10,8);
+       var birthday  = new Date(year,month,day);
+       function calcularEdad(input) {
+         var today = new Date();
+         var age = today.getFullYear() - birthday.getFullYear();
+           if(age<18){
+             var addClasslist = document.getElementById('errorJSAge');
+             errorAge.innerHTML = '<p>Lo siento, no sos mayor de edad</p>';
+             document.getElementById('userAge').style.borderColor = 'darkred'
+           }else{
+             var addClasslist = document.getElementById('errorJSAge');
+             errorAge.innerHTML = '';
+             document.getElementById('userAge').style.borderColor = 'white'
+           }
+        }
+       calcularEdad();
+     }
+   }
+
+    function errorAvatar(input){
+      var errorAvatar = document.getElementById('errorEditAvatar');
+      if (input.value == "") {
+        errorAvatar.innerHTML = '<p>Error campo Obligatorio</p>';
+        document.getElementById('userAvatar').style.borderColor = 'darkred'
+      } else if (input.value) {
+        document.getElementById('userAvatar').style.borderColor = 'white'
+         errorAvatar.innerHTML = '';
+         var cadena = input.value
+         var separador = "."
+         var limite = 2
+         var pathYformato = cadena.split(separador, limite);
+         var formato = pathYformato[1];
+         var formatosAceptados = ["JPG","jpg","PNG","png","jpeg"];
+         for (f of formatosAceptados) {
+            if(f!==formato){
+             errorAvatar.innerHTML = 'Formato no valido. Solo aceptamos (JPG, jpg, PNG, png, jpeg)';
+             document.getElementById('userAvatar').style.borderColor = 'darkred'
+           }else if (f==formato) {
+             errorAvatar.innerHTML = '';
+             return  document.getElementById('userAvatar').style.borderColor = 'white'
+           }
+         }
+       }
+    }
+
+   for (eachform of arrayFormEdit) {
+     eachform.onblur = function(){
+           if (this.name=='name') {
+             errorName(this);
+           }
+           if (this.name=='last_name') {
+             errorLastName(this);
+           }
+           if (this.name=='address') {
+             errorAdress(this);
+           }
+           if (this.name=='age') {
+             errorAge(this);
+           }
+           if (this.name=='avatar') {
+             errorAvatar(this);
+           }
+        }
+     }
+
+   formularioEditP.onsubmit = function (form){
+
+     for (eachform of arrayFormEdit) {
+       var el = eachform;
+             if (el.name=='name') {
+               errorName(el);
+             }
+             if (el.name=='last_name') {
+               errorLastName(el);
+             }
+             if (el.name=='address') {
+               errorAdress(el);
+             }
+             if (el.name=='age') {
+               errorAge(el);
+             }
+             if (el.name=='avatar') {
+               errorAvatar(el);
+             }
+       }
+     var validando = document.getElementById('erroresEdit');
+     var validando2 = document.getElementById('errorEditAdress');
+     var validando1 = document.getElementById('errorEditLN');
+     var validando3 = document.getElementById('errorEditAge');
+     var validando4 = document.getElementById('errorEditAvatar');
+
+
+     if (validando.innerHTML!==''||validando1.innerHTML!==''||validando2.innerHTML!==''||validando3.innerHTML!==''||validando4.innerHTML!=='') {
+       form.preventDefault();
+       document.getElementById('corregirEdit').innerHTML='<h3>Hay errores en el formulario! Corrija y vuelva a enviar<h3>';
+       document.getElementById('corregirEdit').scrollIntoView({
+         behavior: 'smooth'
+       });
+     }else{
+       document.getElementById('corregirEdit').innerHTML='';
+       document.getElementById('corregirEdit').innerHTML='Su usuario se registro exitosamente';
+     }
+   }
+}
+
+  /*---------------------------------------------JS VALIDACION CHANGE PASS -------------------------------------------------------------*/
+  
+    var formulario = document.querySelector('form.formCC');
+    var formularioE = formulario.elements;
+    var arrayFormularioLogin = Array.from(formularioE)
+    console.log(arrayFormularioLogin)
+
+    function errorEmail(input){
+      var errorEmail = document.getElementById('errorLoginJS');
+       if (input.value == "") {
+         errorEmail.innerHTML = '<p>Error campo Obligatorio</p>';
+         document.getElementById('email').style.borderColor = 'darkred'
+       }else if (input.value) {
+         errorEmail.innerHTML = '';
+         document.getElementById('email').style.borderColor = 'white'
+         if(errorEmailRegex.test(input.value)==false){
+           document.getElementById('email').style.borderColor = 'darkred'
+           errorEmail.innerHTML = '<p>Error no es una direccion de correo valida</p>';
+         }else if(errorEmailRegex.test(input.value)==true) {
+           document.getElementById('email').style.borderColor = 'white'
+           errorEmail.innerHTML = '';
+         }
+       }
+    }
+
+      function errorPass(input){
+        var errorPass = document.getElementById('errorLoginJSPass');
+         if (input.value == "") {
+           errorPass.innerHTML = '<p>Error campo Obligatorio</p>';
+           document.getElementById('userPass').style.borderColor = 'darkred'
+         }else if (input.value) {
+           document.getElementById('userPass').style.borderColor = 'white'
+           errorPass.innerHTML = '';
+           if(errorPassRegex.test(input.value)==false){
+             document.getElementById('userPass').style.borderColor = 'darkred'
+             errorPass.innerHTML = '<p>Contraseña invalida. Debe contener un numero y al menos 6 caracteres</p>';
+           }else if(errorPassRegex.test(input.value)==true) {
+             errorPass.innerHTML = '';
+             document.getElementById('userPass').style.borderColor = 'white'
+           }
+         }
+      }
+
+     for (eachform of arrayForm) {
+       eachform.onblur = function(){
+             if (this.name=='email') {
+               errorEmail(this);
+             }
+             if (this.name=='password') {
+               errorPass(this);
+             }
+          }
+       }
+
+     form.onsubmit = function (event){
+
+       for (eachform of arrayForm) {
+         var el = eachform;
+
+               if (el.name=='email') {
+                 errorEmail(el);
+               }
+               if (el.name=='password') {
+                 errorPass(el);
+               }
+         }
+       var validando2 = document.getElementById('errorLoginJS');
+       var validando5 = document.getElementById('errorLoginJSPass');
+       if (validando2.innerHTML!==''||validando5.innerHTML!=='') {
+         event.preventDefault();
+         document.getElementById('erroresLogin').innerHTML='<h3>Hay errores en el formulario! Corrija y vuelva a enviar<h3>';
+         document.getElementById('erroresLogin').scrollIntoView({
+           behavior: 'smooth'
+         });
+       }else{
+         document.getElementById('erroresLogin').innerHTML='';
+         document.getElementById('erroresLogin').innerHTML='Su usuario se logueo exitosamente';
+       }
+
+}
 }

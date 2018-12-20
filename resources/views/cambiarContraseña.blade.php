@@ -4,7 +4,7 @@
 
   <form class="" action="" method="post">
     @csrf
-    <div class="formulario">
+    <div class="formulario formCC">
     <h2 id="tituloRegistro" style="margin-left: 0px;">Cambiar su contraseña</h2>
 
     <div class="userPass">                    <!-- INPUT DEL PASSWORD  -->

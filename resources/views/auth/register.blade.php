@@ -156,7 +156,6 @@
                 <label for="submit" type="submit" name="send">Crear cuenta</label>
             </div>
     </form>
-
   </div>
 <script src="select.js" charset="utf-8"></script>
 @endsection

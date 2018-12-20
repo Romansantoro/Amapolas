@@ -975,6 +975,9 @@ footer .submit a{
 .contenedor-login{
 font-size: 20px;
 }
+.fontsize{
+  font-size: 15px;
+}
 
 /*FINAL ESTILOS LOGIN.PHP*/
 
@@ -985,7 +988,6 @@ font-size: 20px;
     margin-bottom:20px;
     padding-left: 40px;
   }
-
 /*FIN ESTILOS REGISTRO*/
 /*---------------------------------------------------------------------------------------*/
 
