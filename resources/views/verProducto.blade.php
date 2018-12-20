@@ -5,7 +5,12 @@
     <div class="producto-individual">
 
         <div class="producto-1-individual">
-            <img width="100px" height="100px" src="{{ Storage::url($product->image)}}">
+            <img width="100px" height="100px" src="
+            @if ( $product->image == 'avatars/default.jpg' )
+              {{ '/avatars/default.jpg' }}
+            @else
+              {{ Storage::url($product->image) }}
+            @endif">
         </div>
 
         <div class="producto-2-individual">
@@ -39,11 +44,12 @@
         </div>
 
     </div>
+      @auth
         @if (Auth::user()->admin==1)
           <a href="/editarProducto/{{$product->id}}"> Editar Producto</a>
           <a href="/eliminarProducto/{{$product->id}}"> Eliminar Producto</a>
         @endif
-
+      @endauth
 
     <div class="submit">
       <a href="/{{'catalogo'}}">Volver al Catalogo</a>

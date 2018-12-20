@@ -25,12 +25,11 @@
           <ion-icon name="sunny"></ion-icon>
         </div>
       </div>
-      <a href="/" id="logo">
-        <div class="logo">
-          <img src="" alt="">
-          <h1>Amapolas</h1>
-        </div>
-      </a>
+      <div class="logo">
+        <a href="/" id="logo">
+            <h1>Amapolas</h1>
+        </a>
+      </div>
 
       <nav class="userNav">
         <ul class="ulDefaultBlade">
@@ -65,14 +64,14 @@
 
           <div class="mobile"><a href="/quienes-somos"><li class="quienes" id="lista">¿Quienes somos?</li></a></div>
 
-          <div class="dropdownMenu">
+          {{-- <div class="dropdownMenu">
              <button class="dropbtn" onclick="myFunctionCarrito2()" id="carrito"> <li class="carrito" id="lista"><ion-icon name="cart"></ion-icon></li>
                <i class="fa fa-caret-down"></i>
              </button>
              <div class="dropdown-content" id="myDropdown4">
                <a href="pagar">Ir a pagar</a>
              </div>
-         </div>
+         </div> --}}
         </ul>
       </nav>
     </header>

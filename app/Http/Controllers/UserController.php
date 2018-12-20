@@ -17,6 +17,7 @@ class UserController extends Controller
   {
     $user = Auth::user();
     $user->addresses()->detach($id);
+    $address = Address::find($id)->delete();
     return redirect('/perfil');
   }
   public function passChange(Request $request)
@@ -40,7 +41,7 @@ class UserController extends Controller
         'last_name' => 'string',
         'age' => 'date',
         'avatar' => 'mimes:jpeg,png,jpg,gif,JPEG,PNG,JPG,GIF',
-        'address' =>  'string',
+        'address' =>  'nullable', 'string',
     ]);
     if ($request->file('avatar')) {
       $folder = 'public/avatars';
@@ -50,13 +51,17 @@ class UserController extends Controller
       $user->name = $request->input('name');
       $user->last_name = $request->input('last_name');
       $user->age = $request->input('age');
+      $user->country = $request->input('country')??null;
+      $user->province = $request->input('province')??null;
       $user->save();
 
-      $address = Address::create([
-         'name' => $request->input('address'),
-      ]);
-      $user->addresses()->attach($address);
+      if ($request->input('address')) {
+        $address = Address::create([
+           'name' => $request->input('address'),
+        ]);
+        $user->addresses()->attach($address);
 
+      }
 
     return redirect('/perfil');
 

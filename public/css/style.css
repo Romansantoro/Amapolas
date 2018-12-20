@@ -190,7 +190,6 @@ header{
 }
 
 header h1{
-  margin-bottom: 20px;
   font-family: 'Dancing Script', cursive;
   font-weight: bold;
   display: flex;
@@ -202,6 +201,11 @@ header h1{
 #logo {
   color: black;
   text-decoration: none;
+  display: flex;
+  justify-content: center;
+  width: 23%;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 /* ------------------------------------------------------------------------------------ */
 
