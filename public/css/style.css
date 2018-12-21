@@ -592,6 +592,21 @@ margin:0px;
     color:darkred;
   }
 /*FIN CSS DEL REGISTRO*/
+
+/*-------------------------------------------------------------------------*/
+/*CSS DEL SUBIR INGREDIENTES*/
+
+.ingredientData {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.labelIngredientData {
+  display: flex;
+}
+
+
 /*-------------------------------------------------------------------------*/
 /*CSS DEL CHANGE PASS*/
 

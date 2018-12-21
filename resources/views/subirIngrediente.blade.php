@@ -6,12 +6,12 @@
 <div class="formulario">
     <form class="formProd" action="" method="post" enctype="multipart/form-data">
       @csrf
-          <div class="userData">
-            <div class="labelUserData">
+          <div class="ingredientData">
+            <div class="labelIngredientData">
               <label for="userFullName"> Nombre del ingrediente:</label>
             </div>
-            <div class="inputUserData">
-              <input id="prodName" type="text" name="prodName" value="" required><span style="color:red;">*</span>
+            <div class="ingredientData">
+              <input id="prodName" type="text" name="prodName" value="" required>
             </div>
             <div class="error">
 

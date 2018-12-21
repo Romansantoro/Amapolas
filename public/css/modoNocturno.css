@@ -601,6 +601,19 @@ margin:0px;
   }
 /*FIN CSS DEL REGISTRO*/
 /*-------------------------------------------------------------------------*/
+/*CSS DEL SUBIR INGREDIENTES*/
+
+.ingredientData {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.labelIngredientData {
+  display: flex;
+}
+
+/*-------------------------------------------------------------------------*/
 /*CSS DEL CHANGE PASS*/
 
 .changePassTitle {
