@@ -17,7 +17,7 @@
 
            </div>
         </div>
-        <div class="submitProd" style="background:white">
+        <div class="submitProd">
           <button id="buttonSubProd" type="submit" name="">Subí tu categoria</button>
         </div>
     </form>
