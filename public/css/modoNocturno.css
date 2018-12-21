@@ -821,6 +821,7 @@ cursor:pointer;
 .contenedor-principal{
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .catalogo {
