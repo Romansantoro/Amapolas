@@ -30,10 +30,13 @@
     </div>
     <div class="error fontsize errorJS" id="errorJSPassCheckCC"></div>
 
-     <div class="submit">
-       <a href="/">Volver</a>
-       <label for="submit" type="submit" name="send">Cambiar Contraseña</label>
-     </div>
+    <div class="">
+        <button style="display:none;" id="submit" type="submit" name="send">Crear cuenta</button>
+    </div>
+    <div class="submit">
+        <a href="/perfil">Volver</a>
+        <label for="submit" type="submit" name="send">Guardar cambios</label>
+    </div>
    </div>
   </form>
 

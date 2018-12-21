@@ -113,7 +113,7 @@
                 <button style="display:none;" id="submit" type="submit" name="send">Crear cuenta</button>
             </div>
             <div class="submit">
-                <a href="index.php">Volver</a>
+                <a href="/perfil">Volver</a>
                 <label for="submit" type="submit" name="send">Guardar cambios</label>
             </div>
     </form>

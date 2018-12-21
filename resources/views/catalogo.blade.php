@@ -8,6 +8,8 @@
       @auth
         @if (Auth::user()->admin==1)
           <a href="/subirProducto"> Subir Producto</a>
+          <a href="/subirIngrediente"> Subir Ingrediente</a>
+          <a href="/subirCategoria"> Subir Categoria</a>
         @endif
       @endauth
 

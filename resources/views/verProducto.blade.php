@@ -39,7 +39,7 @@
                 <input name="quantity" type="hidden" value="1" />
                 <input name="product_id" type="hidden" value="{{$product->id}}" />
                 <input name="product_name" type="hidden" value="{{$product->name}}" />
-                <button class="btn btn-danger" id="botonCarrito" type="submit">Agregar al Carrito</button>
+                {{-- <button class="btn btn-danger" id="botonCarrito" type="submit">Agregar al Carrito</button> --}}
             </form>
         </div>
 
