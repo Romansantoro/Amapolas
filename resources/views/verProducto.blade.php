@@ -21,7 +21,7 @@
             </div>
             <div class="categorias-producto">
               <h4>Categorias</h4>
-              <ul>
+              <ul class="ulProducto">
                 <?php foreach ($product->categories as $category): ?>
                   <li>{{$category['name']}}</li>
                 <?php endforeach; ?>
@@ -29,7 +29,7 @@
             </div>
             <div class="ingredientes-producto">
               <h4>Ingredientes</h4>
-              <ul>
+              <ul class="ulProducto">
                 <?php foreach ($product->ingredients as $ingredient): ?>
                   <li>{{$ingredient['name']}}</li>
                 <?php endforeach; ?>

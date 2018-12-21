@@ -924,6 +924,10 @@ cursor:pointer;
   margin-top: 10%;
 }
 
+.ulProducto {
+  display: flex;
+}
+
 /*-------------------------------- CSS DEL PERFIL --------------------------------------------*/
 
 #tituloPerfil {
